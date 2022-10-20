@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <title>Meeting Hugo | Jhon Vargas</title>
+  <link rel='canonical' href='https://yonkeenn.com/post/meeting-hugo-structure/' />
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <meta name='description' content='Learning how Hugo structures work' />
+  <meta name='theme-color' content='#FD3519' />
+  
+    <link rel="shortcut icon" href="./images/logo1.png" type="image/x-icon" />
+    <link rel="icon" href="./images/logo1.png" type="image/x-icon" />
+  
+
+  <meta name="generator" content="Hugo 0.104.3" />
+
+  
+
+
+
+
+
+<link rel="stylesheet" href="https://yonkeenn.com/sass/style.min.6f0c246ba7367b5fa58cd59d72831c7785f669a912b310aa700fef49da0ff076.css" integrity="sha256-bwwka6c2e1&#43;ljNWdcoMcd4X2aakSsxCqcA/vSdoP8HY=" media="screen">
+<link rel="stylesheet" href="https://yonkeenn.com/syntax.min.css" integrity="" media="screen">
+
+  <meta property="og:title" content="Meeting Hugo" />
+<meta property="og:description" content="Learning how Hugo structures work" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yonkeenn.com/post/meeting-hugo-structure/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-08-04T12:18:35-05:00" />
+<meta property="article:modified_time" content="2022-08-04T12:18:35-05:00" />
+
+
+  <meta itemprop="name" content="Meeting Hugo">
+<meta itemprop="description" content="Learning how Hugo structures work"><meta itemprop="datePublished" content="2022-08-04T12:18:35-05:00" />
+<meta itemprop="dateModified" content="2022-08-04T12:18:35-05:00" />
+<meta itemprop="wordCount" content="2002">
+<meta itemprop="keywords" content="" />
+  
+</head>
+<body>
+
+  <header style="background-image:linear-gradient(
+      95deg, #D05400, #112F41
+    ),url(&#39;https://yonkeenn.com/images/default-sidebar.jpg&#39;)">
+  <div class="intro">
+    <div class="logo-container">
+      <a href="/">
+        <img src='https://yonkeenn.com/images/jhon-vargas.jpeg' alt="Profile Churn Prediction using Suvirval Analysis" class="rounded-logo">
+      </a>
+    </div>
+    <h2>Hi, I'm Jhon 😄</h2>
+    <h3>Data Scientist | Technical Lead</h3>
+    <div class="menu">
+      
+
+        <p>
+            <a href="/about/">
+                About
+            </a>
+        </p>
+
+        <p>
+            <a href="/portfolio/">
+                Portfolio
+            </a>
+        </p>
+
+        <p>
+            <a href="/post/">
+                Post
+            </a>
+        </p>
+
+      
+        
+        <p>
+            <a href="mailto:jhon.vargasr@gmail.com" target="_blank" rel="external">
+                
+            </a>
+        </p>
+      
+    </div>
+  </div>
+
+  <div class="socials">
+      
+  
+    <a href="https://github.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M102.679 0H12.32C5.52 0 0 5.519 0 12.321v90.358C0 109.48 5.519 115 12.321 115h90.358c6.802 0 12.321-5.519 12.321-12.321V12.32C115 5.52 109.481 0 102.679 0zM71.182 98.494c-2.156.385-2.952-.95-2.952-2.053 0-1.386.051-8.471.051-14.195 0-4.005-1.335-6.546-2.9-7.881C74.878 73.313 84.89 72.003 84.89 55.6c0-4.671-1.669-7.007-4.39-10.01.436-1.105 1.9-5.648-.436-11.552-3.568-1.104-11.731 4.595-11.731 4.595-3.389-.95-7.06-1.438-10.679-1.438-3.62 0-7.29.488-10.679 1.438 0 0-8.163-5.699-11.73-4.595-2.337 5.878-.899 10.422-.437 11.551-2.72 3.004-4.004 5.34-4.004 10.011 0 16.326 9.574 17.712 19.072 18.765-1.232 1.104-2.336 3.003-2.72 5.724-2.44 1.104-8.677 3.004-12.4-3.568-2.335-4.056-6.545-4.39-6.545-4.39-4.159-.05-.282 2.619-.282 2.619 2.772 1.283 4.723 6.212 4.723 6.212 2.49 7.624 14.4 5.057 14.4 5.057 0 3.568.052 9.37.052 10.422 0 1.104-.77 2.438-2.952 2.053C27.21 92.821 15.35 76.701 15.35 57.86c0-23.564 18.02-41.456 41.585-41.456s42.663 17.892 42.663 41.456c.026 18.842-11.474 34.988-28.416 40.635zM46 82.81c-.488.103-.95-.102-1.001-.436-.051-.385.282-.719.77-.822.488-.05.95.154 1.001.488.077.334-.257.668-.77.77zm-2.439-.23c0 .333-.385.615-.898.615-.565.052-.95-.23-.95-.616 0-.333.385-.616.899-.616.487-.051.95.231.95.616zm-3.516-.283c-.103.334-.616.488-1.053.334-.488-.103-.821-.488-.719-.822.103-.334.617-.488 1.053-.385.513.154.847.54.719.873zm-3.158-1.386c-.23.282-.718.23-1.104-.154-.385-.334-.487-.822-.23-1.053.23-.282.718-.23 1.103.154.334.334.462.847.231 1.053zm-2.336-2.336c-.23.154-.667 0-.95-.385-.282-.385-.282-.822 0-1.001.283-.231.72-.052.95.333.283.385.283.847 0 1.053zm-1.668-2.49c-.231.23-.616.103-.899-.154-.282-.334-.333-.719-.102-.899.23-.23.616-.102.898.154.282.334.334.72.103.899zm-1.72-1.9c-.103.231-.436.283-.719.103-.334-.154-.488-.436-.385-.667.103-.154.385-.231.719-.103.334.18.488.462.385.667z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.instagram.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.526 28.111c-16.254 0-29.364 13.11-29.364 29.363 0 16.254 13.11 29.364 29.364 29.364 16.253 0 29.363-13.11 29.363-29.364 0-16.253-13.11-29.363-29.363-29.363zm0 48.453c-10.504 0-19.09-8.56-19.09-19.09 0-10.528 8.56-19.09 19.09-19.09 10.528 0 19.09 8.562 19.09 19.09 0 10.53-8.587 19.09-19.09 19.09zM94.939 26.91a6.833 6.833 0 0 1-6.849 6.849 6.833 6.833 0 0 1-6.849-6.849 6.85 6.85 0 0 1 13.698 0zm19.448 6.951c-.435-9.174-2.53-17.301-9.251-23.997C98.44 3.17 90.313 1.074 81.139.614c-9.456-.537-37.797-.537-47.252 0-9.15.434-17.276 2.53-23.997 9.225S1.099 24.66.639 33.836c-.537 9.455-.537 37.796 0 47.252.434 9.174 2.53 17.3 9.251 23.996 6.721 6.696 14.822 8.792 23.997 9.252 9.455.536 37.796.536 47.252 0 9.174-.435 17.301-2.53 23.997-9.252 6.695-6.695 8.79-14.822 9.25-23.996.537-9.456.537-37.771 0-47.227zM102.17 91.233c-1.993 5.01-5.852 8.868-10.887 10.887-7.538 2.99-25.427 2.3-33.758 2.3-8.332 0-26.246.664-33.76-2.3-5.008-1.993-8.867-5.852-10.886-10.887-2.99-7.539-2.3-25.427-2.3-33.759 0-8.33-.664-26.245 2.3-33.758 1.993-5.01 5.852-8.868 10.887-10.887 7.539-2.99 25.427-2.3 33.759-2.3 8.33 0 26.245-.665 33.758 2.3 5.01 1.993 8.868 5.852 10.887 10.887 2.99 7.538 2.3 25.427 2.3 33.758 0 8.332.69 26.246-2.3 33.76z" />
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.linkedin.com/in/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M106.786 0H8.189C3.67 0 0 3.722 0 8.291v98.418C0 111.278 3.67 115 8.189 115h98.597c4.518 0 8.214-3.722 8.214-8.291V8.29C115 3.722 111.304 0 106.786 0zm-72.03 98.571H17.713V43.69h17.07V98.57h-.025zm-8.522-62.377c-5.467 0-9.882-4.44-9.882-9.883 0-5.442 4.415-9.882 9.882-9.882 5.442 0 9.883 4.44 9.883 9.882a9.87 9.87 0 0 1-9.883 9.883zm72.414 62.377H81.604V71.875c0-6.366-.129-14.555-8.856-14.555-8.882 0-10.242 6.931-10.242 14.093V98.57H45.46V43.69h16.352v7.495h.23c2.285-4.312 7.855-8.856 16.147-8.856 17.25 0 20.458 11.372 20.458 26.158V98.57z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  </div>
+</header>
+
+<div class="mobile-header">
+  <p> Jhon Vargas </p>
+  <div class="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
+
+<div class="overlay-menu">
+  <header>
+    <div class="intro">
+      <div class="logo-container">
+        <a href="/">
+          <img src='https://yonkeenn.com/images/jhon-vargas.jpeg' alt="Profile Churn Prediction using Suvirval Analysis" class="rounded-logo">
+        </a>
+      </div>
+      <h2>Hi, I'm Jhon 😄</h2>
+      <h3>Data Scientist | Technical Lead</h3>
+      <div class="menu">
+        
+
+        <p>
+            <a href="/about/">
+                About
+            </a>
+        </p>
+
+        <p>
+            <a href="/portfolio/">
+                Portfolio
+            </a>
+        </p>
+
+        <p>
+            <a href="/post/">
+                Post
+            </a>
+        </p>
+
+        
+          
+          <p>
+              <a href="mailto:jhon.vargasr@gmail.com" target="_blank" rel="external">
+                  
+              </a>
+          </p>
+        
+      </div>
+    </div>
+
+    <div class="socials">
+        
+  
+    <a href="https://github.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M102.679 0H12.32C5.52 0 0 5.519 0 12.321v90.358C0 109.48 5.519 115 12.321 115h90.358c6.802 0 12.321-5.519 12.321-12.321V12.32C115 5.52 109.481 0 102.679 0zM71.182 98.494c-2.156.385-2.952-.95-2.952-2.053 0-1.386.051-8.471.051-14.195 0-4.005-1.335-6.546-2.9-7.881C74.878 73.313 84.89 72.003 84.89 55.6c0-4.671-1.669-7.007-4.39-10.01.436-1.105 1.9-5.648-.436-11.552-3.568-1.104-11.731 4.595-11.731 4.595-3.389-.95-7.06-1.438-10.679-1.438-3.62 0-7.29.488-10.679 1.438 0 0-8.163-5.699-11.73-4.595-2.337 5.878-.899 10.422-.437 11.551-2.72 3.004-4.004 5.34-4.004 10.011 0 16.326 9.574 17.712 19.072 18.765-1.232 1.104-2.336 3.003-2.72 5.724-2.44 1.104-8.677 3.004-12.4-3.568-2.335-4.056-6.545-4.39-6.545-4.39-4.159-.05-.282 2.619-.282 2.619 2.772 1.283 4.723 6.212 4.723 6.212 2.49 7.624 14.4 5.057 14.4 5.057 0 3.568.052 9.37.052 10.422 0 1.104-.77 2.438-2.952 2.053C27.21 92.821 15.35 76.701 15.35 57.86c0-23.564 18.02-41.456 41.585-41.456s42.663 17.892 42.663 41.456c.026 18.842-11.474 34.988-28.416 40.635zM46 82.81c-.488.103-.95-.102-1.001-.436-.051-.385.282-.719.77-.822.488-.05.95.154 1.001.488.077.334-.257.668-.77.77zm-2.439-.23c0 .333-.385.615-.898.615-.565.052-.95-.23-.95-.616 0-.333.385-.616.899-.616.487-.051.95.231.95.616zm-3.516-.283c-.103.334-.616.488-1.053.334-.488-.103-.821-.488-.719-.822.103-.334.617-.488 1.053-.385.513.154.847.54.719.873zm-3.158-1.386c-.23.282-.718.23-1.104-.154-.385-.334-.487-.822-.23-1.053.23-.282.718-.23 1.103.154.334.334.462.847.231 1.053zm-2.336-2.336c-.23.154-.667 0-.95-.385-.282-.385-.282-.822 0-1.001.283-.231.72-.052.95.333.283.385.283.847 0 1.053zm-1.668-2.49c-.231.23-.616.103-.899-.154-.282-.334-.333-.719-.102-.899.23-.23.616-.102.898.154.282.334.334.72.103.899zm-1.72-1.9c-.103.231-.436.283-.719.103-.334-.154-.488-.436-.385-.667.103-.154.385-.231.719-.103.334.18.488.462.385.667z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.instagram.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.526 28.111c-16.254 0-29.364 13.11-29.364 29.363 0 16.254 13.11 29.364 29.364 29.364 16.253 0 29.363-13.11 29.363-29.364 0-16.253-13.11-29.363-29.363-29.363zm0 48.453c-10.504 0-19.09-8.56-19.09-19.09 0-10.528 8.56-19.09 19.09-19.09 10.528 0 19.09 8.562 19.09 19.09 0 10.53-8.587 19.09-19.09 19.09zM94.939 26.91a6.833 6.833 0 0 1-6.849 6.849 6.833 6.833 0 0 1-6.849-6.849 6.85 6.85 0 0 1 13.698 0zm19.448 6.951c-.435-9.174-2.53-17.301-9.251-23.997C98.44 3.17 90.313 1.074 81.139.614c-9.456-.537-37.797-.537-47.252 0-9.15.434-17.276 2.53-23.997 9.225S1.099 24.66.639 33.836c-.537 9.455-.537 37.796 0 47.252.434 9.174 2.53 17.3 9.251 23.996 6.721 6.696 14.822 8.792 23.997 9.252 9.455.536 37.796.536 47.252 0 9.174-.435 17.301-2.53 23.997-9.252 6.695-6.695 8.79-14.822 9.25-23.996.537-9.456.537-37.771 0-47.227zM102.17 91.233c-1.993 5.01-5.852 8.868-10.887 10.887-7.538 2.99-25.427 2.3-33.758 2.3-8.332 0-26.246.664-33.76-2.3-5.008-1.993-8.867-5.852-10.886-10.887-2.99-7.539-2.3-25.427-2.3-33.759 0-8.33-.664-26.245 2.3-33.758 1.993-5.01 5.852-8.868 10.887-10.887 7.539-2.99 25.427-2.3 33.759-2.3 8.33 0 26.245-.665 33.758 2.3 5.01 1.993 8.868 5.852 10.887 10.887 2.99 7.538 2.3 25.427 2.3 33.758 0 8.332.69 26.246-2.3 33.76z" />
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.linkedin.com/in/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M106.786 0H8.189C3.67 0 0 3.722 0 8.291v98.418C0 111.278 3.67 115 8.189 115h98.597c4.518 0 8.214-3.722 8.214-8.291V8.29C115 3.722 111.304 0 106.786 0zm-72.03 98.571H17.713V43.69h17.07V98.57h-.025zm-8.522-62.377c-5.467 0-9.882-4.44-9.882-9.883 0-5.442 4.415-9.882 9.882-9.882 5.442 0 9.883 4.44 9.883 9.882a9.87 9.87 0 0 1-9.883 9.883zm72.414 62.377H81.604V71.875c0-6.366-.129-14.555-8.856-14.555-8.882 0-10.242 6.931-10.242 14.093V98.57H45.46V43.69h16.352v7.495h.23c2.285-4.312 7.855-8.856 16.147-8.856 17.25 0 20.458 11.372 20.458 26.158V98.57z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+    </div>
+  </header>
+</div>
+
+  <div class="content-wrapper">
+    
+      <div class="breadcrumb">
+  
+
+
+
+
+
+<span >
+  <a href="https://yonkeenn.com/">HOME</a>
+   / 
+</span>
+
+
+<span >
+  <a href="https://yonkeenn.com/post/">POST</a>
+   / 
+</span>
+
+
+<span  class="active">
+  <a href="https://yonkeenn.com/post/meeting-hugo-structure/">Meeting Hugo</a>
+  
+</span>
+
+</div>
+
+    
+    <main id="content" class="post">
+
+<h1>Meeting Hugo</h1>
+
+<div class="reading-time">
+  <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.5 11C29.05 11 6 34.05 6 62.5S29.05 114 57.5 114 109 90.95 109 62.5 85.95 11 57.5 11zm0 93.032c-22.947 0-41.532-18.585-41.532-41.532 0-22.947 18.585-41.532 41.532-41.532 22.947 0 41.532 18.585 41.532 41.532 0 22.947-18.585 41.532-41.532 41.532zm12.833-21.68L52.703 69.54a2.508 2.508 0 0 1-1.018-2.015V33.427a2.5 2.5 0 0 1 2.492-2.492h6.646a2.5 2.5 0 0 1 2.492 2.492v29.426l13.871 10.092c1.122.81 1.35 2.368.54 3.49l-3.904 5.377a2.51 2.51 0 0 1-3.489.54z"/>
+  
+  </svg>
+</div>
+
+  <span>10 minutes</span>
+</div>
+
+<div class="published-date">
+  <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M77.577 51.23a1.807 1.807 0 0 0-2.2.342l-27.562 27.79a1.807 1.807 0 0 1-2.2.342l-14.008-9.702a1.807 1.807 0 0 0-2.2.342l-1.952 1.968c-.287.22-.456.568-.455.936.001.37.172.716.46.934L45.637 86.77a1.807 1.807 0 0 0 2.2-.342l31.709-31.97c.287-.22.456-.567.455-.936a1.175 1.175 0 0 0-.46-.933l-1.963-1.36z"/><path d="M97.304 20H80.512c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.347.023-.685.04-1.026H34.579c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.22.019-.434.025-.652a9.788 9.788 0 0 0-5.697 4.471 9.683 9.683 0 0 0-2.65 4.764L1.158 92.871c-.965 4.689 2.6 8.503 7.948 8.503h6.334v2.673c-.077 5.41 4.263 9.861 9.705 9.953h72.16c5.438-.095 9.774-4.546 9.694-9.953V29.953c.08-5.407-4.256-9.858-9.695-9.953zM10.078 96.653c-2.378 0-3.964-1.697-3.535-3.782L16.637 43.84h80.787L87.331 92.871a5.254 5.254 0 0 1-5.091 3.782H10.078zm91.535 7.394c.036 2.403-1.891 4.382-4.308 4.424h-72.16c-2.42-.04-4.352-2.018-4.32-4.424v-2.673h60.443c5.348 0 10.484-3.814 11.449-8.503l8.897-43.215v54.391z"/><path d="M34.814 33c1.243 0 2.251-1.057 2.251-2.36 0-1.305-1.008-2.362-2.25-2.362-2.04 0-4.313-3.194-4.313-7.778s2.272-7.778 4.312-7.778c1.227 0 2.536 1.163 3.386 3.084H43C41.716 11.19 38.578 8 34.814 8 29.871 8 26 13.49 26 20.5c0 7.009 3.871 12.5 8.814 12.5z"/>
+  
+  </svg>
+</div>
+
+  <span>August 4, 2022</span>
+</div>
+
+
+
+<div class="word-count">
+  <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M111.833 31.901l-10.355 10.355a2.698 2.698 0 0 1-3.819 0L72.727 17.324a2.698 2.698 0 0 1 0-3.819L83.082 3.15c4.2-4.2 11.028-4.2 15.251 0l13.5 13.5c4.223 4.2 4.223 11.029 0 15.251zm-48.001-9.5L4.846 81.384.085 108.676c-.652 3.684 2.56 6.873 6.244 6.244l27.291-4.784 58.985-58.985a2.698 2.698 0 0 0 0-3.818L67.673 22.4c-1.079-1.056-2.786-1.056-3.841 0zM27.87 76.33a3.132 3.132 0 0 1 0-4.448l34.591-34.59a3.132 3.132 0 0 1 4.448 0 3.132 3.132 0 0 1 0 4.447L32.317 76.33a3.132 3.132 0 0 1-4.447 0zm-8.109 18.89h10.782v8.154l-14.488 2.538-6.986-6.985 2.539-14.488h8.153V95.22z"/>
+  
+  </svg>
+</div>
+
+  <span>2002 Words </span>
+</div>
+
+
+<p>For general flow, first hugo check files int he original folders and files, structures and so on.</p>
+<p>If there is nothing on this files, Hugo searchs in theme/ folder. Pending to update image.</p>
+<div class="mermaid">
+<p>graph LR;
+A&ndash;&gt;B;</p>
+</div>
+<script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
+<p>Notes:
+For create new site:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">hugo</span> <span class="nx">new</span> <span class="nx">site</span> <span class="p">&lt;</span><span class="nx">name</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>For create new theme:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">hugo</span> <span class="nx">new</span> <span class="nx">theme</span> <span class="p">&lt;</span><span class="nx">name</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>For create a new list page on content folder:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">hugo</span> <span class="nx">new</span> <span class="nx">post</span><span class="o">/</span><span class="nx">_index</span><span class="p">.</span><span class="nx">md</span>
+</span></span></code></pre></div><p>For create a new single page on content folder:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">hugo</span> <span class="nx">new</span> <span class="nx">post</span><span class="o">/</span><span class="nx">customizing</span><span class="o">-</span><span class="nx">your</span><span class="o">-</span><span class="nx">theme</span><span class="p">.</span><span class="nx">md</span>
+</span></span></code></pre></div><p>For general flow, first hugo check files int he original folders and files, structures and so on. If there is nothing on this files, Hugo searchs in theme/ folder. Pending to update image.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx"></span>
+</span></span></code></pre></div><p>Importing a theme:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">cd</span> <span class="nx">themes</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">clone</span> <span class="nx">path</span><span class="o">-</span><span class="nx">to</span><span class="o">-</span><span class="nx">git</span><span class="o">-</span><span class="nx">repo</span><span class="p">.</span><span class="nx">git</span>
+</span></span></code></pre></div><p>For use this them, you need to specify on config.toml file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="o">+++</span>
+</span></span><span class="line"><span class="cl"><span class="err">…</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Theme</span> <span class="p">=</span> <span class="err">“</span><span class="nx">your</span><span class="o">-</span><span class="nx">theme</span><span class="o">-</span><span class="nx">name</span><span class="err">”</span>
+</span></span><span class="line"><span class="cl"><span class="err">…</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++</span>
+</span></span></code></pre></div><h1 id="folder-structure">Folder structure:</h1>
+<ul>
+<li>archetypes: Site generator</li>
+<li>content: Content web site, web pages</li>
+<li>data: database of web site, json files, data you are goint to use</li>
+<li>layaots: header templates, same folder in all web sites, etc. It is a skeleton</li>
+<li>static: store images, js files, css files. Files which cannot be changed.</li>
+<li>themes: pre-build themes you want to load. If you want to use a theme, all of this files will be here.</li>
+<li>config.toml: configuration files. settings for your web site. This file controls universal aspects of the website.</li>
+</ul>
+<h1 id="content-organization">Content Organization</h1>
+<p>There are three types of content: Home, List, Single</p>
+<ul>
+<li>Home: Content in the homepage. It is the landing page which is the most important page in the website.</li>
+<li>Single page: It is like a single post, article. It is the good ingredient for static web site.</li>
+<li>List pages: It links to single content pages. It is the _index file in a folder of files which are single pages. It is like a secctions.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">hugo</span> <span class="nx">new</span> <span class="err">\</span><span class="nx">_index</span><span class="p">.</span><span class="nx">md</span> <span class="c1">// home page
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">hugo</span> <span class="nx">new</span> <span class="nx">post</span><span class="o">/</span><span class="nx">_index</span><span class="p">.</span><span class="nx">md</span> <span class="c1">// list page
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">hugo</span> <span class="nx">new</span> <span class="nx">post</span><span class="o">/</span><span class="nx">post1</span><span class="p">.</span><span class="nx">md</span> <span class="c1">// single page
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">hugo</span> <span class="nx">new</span> <span class="nx">post</span><span class="o">/</span><span class="nx">post2</span><span class="p">.</span><span class="nx">md</span> <span class="c1">// single page
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">hugo</span> <span class="nx">server</span> <span class="o">-</span><span class="nx">D</span> <span class="c1">// For run draft pages.
+</span></span></span></code></pre></div><p>Layouts is the skeleton of how this single pages, list pages, home page will be displayed.</p>
+<h1 id="front-matter">Front Matter</h1>
+<p>Front Matter is a list of information that describe the attributes about content page. It is what we call meta-data, it’s data about data. When you think about it, human beings have their own type of front matter, things like name, age, height weight social security number, all describe us. In a way all of these things are our front matter.</p>
+<p>But for a hugo content page, front matters let’s us give each individual page certain attributes that we can use elsewhere (like in layouts) to make the website more complex.</p>
+<p>Front Matter can be encoded in 3 different markup languajes like YAML, TOML, JSON.</p>
+<p>example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{{ .Params.Title }}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Written By : {{ .Params.Author }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">     {{ .Content }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>Notice in the code above that we’re inserting the title parameter into the HTML title tags and the Author parameter into the Written By paragraph. To access page front matter you open and close two sets of curly braces, and access the variable. In this case we’re using .Params.Title and .Params.Author to access this data. .Params gives you access to all parameters in the front matter, and you can specify which one you want by using it’s name.</p>
+<p>Front Matter is defined in the config.toml file and these parameters will be used in layaots. For example, those parameter will be accessed by .Params.name and this name is a configuration on config.toml file.</p>
+<h1 id="archetypes">Archetypes</h1>
+<p>Basically, archetypes is the default template for front matter. When we create a new page, it will inherit all the parameters which is configure in the default template located in archetype folder.</p>
+<p>We can create diferent archetypes according each seccion. For example, we can create an archetypes for post seccion whcih include autor parameter, but for project seccion not.</p>
+<h1 id="built-in-shortcodes">Built-in Shortcodes</h1>
+<p>In your content files, a shortcode can be called by calling a Shortcode parameters are space delimited, and parameters with internal spaces can be quoted.</p>
+<h1 id="taxonomies">Taxonomies</h1>
+<p>It is related how we group content together using tag keyword or categories keyword</p>
+<p>One example for content md files:</p>
+<pre tabindex="0"><code>---
+title: Getting started
+description: Getting started with personal-web
+date: &#34;2019-05-03T09:37:55+02:00&#34;
+publishDate: &#34;2019-05-03T09:37:55+02:00&#34;
+tag: [&#34;tag1&#34;, &#34;tag2&#34;, &#34;tag2&#34;]
+categories: [&#34;cat1&#34;, &#34;cat2&#34;]
+moods:[&#34;Happy&#34;, &#34;Upbeat&#34;]
+---
+</code></pre><p>And some of taxonomies are created by default and this configuration needs to be done on config.toml:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">taxonomies</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tag</span> <span class="p">=</span> <span class="s2">&#34;tags&#34;</span> <span class="c"># This is default taxonomy. It does not need to be declarated here.</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">category</span> <span class="p">=</span> <span class="s2">&#34;categories&#34;</span> <span class="c"># This is default taxonomy. It does not need to be declarated here.</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">mood</span> <span class="p">=</span> <span class="s2">&#34;moods&#34;</span>   <span class="c"># This is new taxonomy</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">languages</span> <span class="p">=</span> <span class="s2">&#34;languages&#34;</span> <span class="c"># This is new taxonomy</span>
+</span></span></code></pre></div><p>Taxonomies also can be used for group different folders with different contents. We only need to range(iterate over) .Site.Taxonomies.<taxonomy-names>.<taxonony-term></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Taxonomies</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">english</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// in here we can access the page’s information
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{{</span> <span class="p">.</span><span class="nx">Description</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span></code></pre></div><h1 id="template-basics">Template basics</h1>
+<p>Hugo templates is related to html, css coding.</p>
+<p>Templates in hugo needs to differentiate 2 things:</p>
+<p>list pages: home directory, post directory, sections,
+single pages: article, a particula page on a directory.</p>
+<p>all list pages use the same template, but the content is different.
+all single pages use the same template, but the content of each article is different.</p>
+<p>Each especific template has one unique sketleton. Any template is store in layour forder:_default folder, partial folder</p>
+<figure><img src="/post/images/layout.png"
+         alt="layout directory"/><figcaption>
+            <p>layout directory</p>
+        </figcaption>
+</figure>
+
+<pre tabindex="0"><code class="language-hugo" data-lang="hugo">
+{{ partial &#34;header&#34; .}}
+
+  &lt;h1 id=&#34;title&#34;&gt; {{ .Title }}&lt;/h1&gt;
+  &lt;p&gt;{{ .Content }}&lt;/p&gt;
+  &lt;ul id=&#34;list&#34;&gt;
+    {{ range .Pages }}
+      {{ .Render &#34;li&#34; }}
+    {{ end }}
+  &lt;/ul&gt;
+
+{{ partial &#34;footer&#34; .}}
+</code></pre><h1 id="list-page-templates">List page templates</h1>
+<p>Template for list pages:</p>
+<p>First part:
+Inside each directory of content directory, there is a _index.md file which is the content of the list pages referenced by {{.Content}}.</p>
+<p>Second part:
+Inside the layout directory, there is _default directory which contain list.html file which define the skeleton of list pages</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;header&#34;</span> <span class="p">.}}</span> <span class="c1">// this part uses partial for header
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nx">h1</span> <span class="nx">id</span><span class="p">=</span><span class="s">&#34;title&#34;</span><span class="p">&gt;</span> <span class="p">{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nx">p</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Content</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">p</span><span class="p">&gt;</span>  <span class="c1">// Here specify the content of _index.md files
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">&lt;</span><span class="nx">ul</span> <span class="nx">id</span><span class="p">=</span><span class="s">&#34;list&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Pages</span> <span class="p">}}</span>  <span class="c1">// range is like a for. It is an iterative instruccion to go for all single pages and extract or .Render each one.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">{{</span> <span class="p">.</span><span class="nx">Render</span> <span class="s">&#34;li&#34;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="o">/</span><span class="nx">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;footer&#34;</span> <span class="p">.}}</span> <span class="c1">// this part uses partial for footer
+</span></span></span></code></pre></div><h2 id="single-page-templates">Single page templates</h2>
+<p>Template for single pages:</p>
+<p>First part:
+Inside each directory of content directory, for example post directory, there is a post.md file which is the first article and it&rsquo;s content is referenced by {{.Content}}.</p>
+<p>Second part:
+Inside the layout directory, there is _default directory which contain single.html file which define the skeleton of single pages</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;header&#34;</span> <span class="p">.}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nx">h1</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">|</span> <span class="nx">markdownify</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">h1</span><span class="p">&gt;</span> <span class="c1">// Display the title of the post.md file related to the front matter.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="p">.</span><span class="nx">Content</span> <span class="p">|</span> <span class="nx">markdownify</span> <span class="p">}}</span> <span class="c1">// Display the content of the post.md file
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;footer&#34;</span> <span class="p">.}}</span>
+</span></span></code></pre></div><h2 id="home-page-templates">Home page templates</h2>
+<p>The home template is a list template but has an especial file which control it. It is store on layout folder and in the file index.html:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;header&#34;</span> <span class="p">.}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nx">h1</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">|</span> <span class="nx">markdownify</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="p">.</span><span class="nx">Content</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nx">h2</span><span class="p">&gt;{{</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">main</span><span class="p">.</span><span class="nx">latestPublishHeader</span> <span class="p">|</span> <span class="k">default</span> <span class="s">&#34;My Latest Job&#34;</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span> <span class="err">$</span><span class="nx">pages</span> <span class="o">:=</span> <span class="nx">where</span> <span class="nx">site</span><span class="p">.</span><span class="nx">RegularPages</span> <span class="s">&#34;Type&#34;</span> <span class="s">&#34;in&#34;</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">mainSections</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span> <span class="k">range</span> <span class="nx">first</span> <span class="mi">1</span> <span class="err">$</span><span class="nx">pages</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="k">if</span> <span class="nx">in</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">mainSections</span> <span class="s">&#34;portfolio&#34;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;portfolio/item&#34;</span> <span class="p">.}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">in</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">mainSections</span> <span class="s">&#34;post&#34;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;post/item&#34;</span> <span class="p">.}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;footer&#34;</span> <span class="p">.}}</span>
+</span></span></code></pre></div><h2 id="section-templates">Section templates</h2>
+<p>Section template is for creating an specific list or single page for a seccion like post folder.</p>
+<h2 id="block-templates">Block templates</h2>
+<p>This is block that acts as the overarching template for the entire hugo website. It is located on layout/_default/baseof.html</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nx">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span><span class="o">-</span> <span class="nx">partial</span> <span class="s">&#34;head.html&#34;</span> <span class="p">.</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nx">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="nx">partial</span> <span class="s">&#34;header.html&#34;</span> <span class="p">.</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="p">=</span><span class="s">&#34;content&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="nx">block</span> <span class="s">&#34;main&#34;</span> <span class="p">.</span> <span class="p">}}{{</span><span class="o">-</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="o">/</span><span class="nx">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="nx">partial</span> <span class="s">&#34;footer.html&#34;</span> <span class="p">.</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="o">/</span><span class="nx">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="o">/</span><span class="nx">html</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>And this block can be referenced by {{block &ldquo;main&rdquo; .}} and {{end}} and this has to be put on the list or single pages.</p>
+<h2 id="variables">Variables</h2>
+<p>Variables is a piece of your information. Variables only can be used on layaout folder inside single.html or list.html.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">sintax</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="p">&lt;</span><span class="nx">name</span> <span class="nx">of</span> <span class="nx">variable</span><span class="p">&gt;}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">example</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="p">.</span><span class="nx">Date</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="p">.</span><span class="nx">URL</span> <span class="p">}}</span> <span class="c1">// display the URL of the page
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//For access a custom front matter variable 
+</span></span></span><span class="line"><span class="cl"><span class="c1">//we need to use &#34;.Params&#34; parameter following of custom variable &#34;.myVar&#34;.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">myVar</span> <span class="p">}}</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Custom variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="err">$</span><span class="nx">myVarName</span> <span class="o">:=</span> <span class="s">&#34;astring&#34;</span> <span class="p">}}</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// The usage of this variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="err">$</span><span class="nx">myVarName</span> <span class="p">}}</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">// we use the new variable inside html code
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">&lt;</span><span class="nx">h1</span><span class="p">&gt;</span> <span class="p">{{</span> <span class="err">$</span><span class="nx">myVarName</span> <span class="p">}}</span> <span class="p">&lt;</span><span class="o">/</span><span class="nx">h1</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// &#34;color&#34; is a new custom variable on front matter(config.toml).
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">&lt;</span><span class="nx">h1</span> <span class="nx">style</span> <span class="p">=</span> <span class="s">&#34;color: {{ .Params.color }};&#34;</span><span class="p">&gt;</span> <span class="p">{{</span> <span class="err">$</span><span class="nx">myVarName</span> <span class="p">}}</span> <span class="p">&lt;</span><span class="o">/</span><span class="nx">h1</span><span class="p">&gt;</span> 
+</span></span></code></pre></div><h2 id="site-variables">Site Variables</h2>
+<p>Hugo provides built-in variables for convenient access to global values in your templates.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// array of all content ordered by date.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Pages</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// a shortcode to the regutar page collection
+</span></span></span><span class="line"><span class="cl"><span class="c1">// .Site.RegularPages is equivalent to where .Site.Pages &#34;Kind&#34; &#34;page&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">RegularPages</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// It is a container holding the values from the params section of your site configuration.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// config.toml:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">author</span> <span class="p">=</span> <span class="err">&#39;</span><span class="nx">Nikola</span> <span class="nx">Tesla</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">description</span> <span class="p">=</span> <span class="s">&#34;Tesla&#39;s Awesome Hugo Site&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// usage:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="p">=</span><span class="s">&#34;description&#34;</span> 
+</span></span><span class="line"><span class="cl">      <span class="nx">content</span><span class="p">=</span><span class="s">&#34;{{if .IsHome}}
+</span></span></span><span class="line"><span class="cl"><span class="s">                {{ $.Site.Params.description }}
+</span></span></span><span class="line"><span class="cl"><span class="s">              {{else}}
+</span></span></span><span class="line"><span class="cl"><span class="s">                {{.Description}}
+</span></span></span><span class="line"><span class="cl"><span class="s">              {{end}}&#34;</span> <span class="o">/</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>The <em>.Site.Pages</em> has an special meaning:</p>
+<ul>
+<li>
+<p>A regular page is a “post” page or a “content” page.</p>
+<ul>
+<li>A leaf bundle is a regular page.</li>
+</ul>
+</li>
+<li>
+<p>A list page can list regular pages and other list pages. Some examples are: homepage, section pages, taxonomy (/tags/) and term (/tags/foo/) pages.</p>
+<ul>
+<li>A branch bundle is a list page.</li>
+</ul>
+</li>
+<li>
+<p>.Site.Pages:<br>
+Collection of all pages of the site: regular pages, sections, taxonomies, etc. – Superset of everything!</p>
+</li>
+<li>
+<p>.Site.RegularPages: <br>
+Collection of only regular pages.</p>
+</li>
+</ul>
+<p>Compared to .Pages and .RegularPages:</p>
+<ul>
+<li>.Pages:<br>
+Collection of regular pages and only first-level section pages under the current list page.</li>
+<li>.RegularPages<br>
+Collection of only regular pages under the current list page. This excludes regular pages in nested sections/list pages (those are subdirectories with an _index.md file.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"></code></pre></div><h1 id="functions">Functions</h1>
+<p>Piece of code pre-rended.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">sintax</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="nx">funcName</span> <span class="nx">param1</span> <span class="nx">param2</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">examples</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">truncate</span> <span class="mi">10</span> <span class="s">&#34;You are my love or loves&#34;</span><span class="p">}}</span> <span class="c1">// truncate at 10 letters
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="nx">sub</span> <span class="mi">1</span> <span class="mi">5</span><span class="p">}}</span> <span class="c1">// substract 1-5=-4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="nx">singularize</span> <span class="s">&#34;dogs&#34;</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#######################</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// range function:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Pages</span> <span class="p">}}</span> <span class="c1">// .Pages all pages in the current section
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="p">{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">}}</span> <span class="p">&lt;</span><span class="nx">br</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#######################</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// delimit function:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// loops through any array, slice, or map and returns a 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// string of all the values separated by a delimeter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">sintax</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="nx">delimit</span> <span class="nx">COLLECTION</span> <span class="nx">DELIMIT</span> <span class="nx">LAST</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">or</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">delimit</span> <span class="nx">array</span><span class="o">/</span><span class="nx">slice</span><span class="o">/</span><span class="kd">map</span> <span class="nx">delimiter</span> <span class="nx">optionallastdelimiter</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//config.toml
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">+++</span>
+</span></span><span class="line"><span class="cl"><span class="nx">title</span><span class="p">:</span> <span class="nx">I</span> <span class="nx">love</span> <span class="nx">Delimit</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tags</span><span class="p">:</span> <span class="p">[</span> <span class="s">&#34;tag1&#34;</span><span class="p">,</span> <span class="s">&#34;tag2&#34;</span><span class="p">,</span> <span class="s">&#34;tag3&#34;</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//usage:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">&lt;</span><span class="nx">p</span><span class="p">&gt;</span><span class="nx">Tags</span><span class="p">:</span> <span class="p">{{</span> <span class="nx">delimit</span> <span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">tags</span> <span class="s">&#34;, &#34;</span> <span class="p">}}&lt;</span><span class="o">/</span><span class="nx">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//output:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">&lt;</span><span class="nx">p</span><span class="p">&gt;</span><span class="nx">Tags</span><span class="p">:</span> <span class="nx">tag1</span><span class="p">,</span> <span class="nx">tag2</span><span class="p">,</span> <span class="nx">tag3</span><span class="p">&lt;</span><span class="o">/</span><span class="nx">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#######################</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// where function:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// filters an array to only the elements containing a matching value for a given field.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">sintax</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="nx">where</span> <span class="nx">COLLECTION</span> <span class="nx">KEY</span> <span class="p">[</span><span class="nx">OPERATOR</span><span class="p">]</span> <span class="nx">MATCH</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="k">range</span> <span class="nx">where</span> <span class="p">.</span><span class="nx">Pages</span> <span class="s">&#34;Section&#34;</span> <span class="s">&#34;foo&#34;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span> <span class="p">.</span><span class="nx">Content</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// with config.toml:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">+++</span>
+</span></span><span class="line"><span class="cl"><span class="nx">series</span><span class="p">:</span> <span class="nx">golang</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// usage:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="k">range</span> <span class="nx">where</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Pages</span> <span class="s">&#34;Params.series&#34;</span> <span class="s">&#34;golang&#34;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{{</span> <span class="p">.</span><span class="nx">Content</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// with logical operators:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// = iqual, != different and so on.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="k">range</span> <span class="nx">where</span> <span class="p">.</span><span class="nx">Pages</span> <span class="s">&#34;Section&#34;</span> <span class="s">&#34;!=&#34;</span> <span class="s">&#34;foo&#34;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{{</span> <span class="p">.</span><span class="nx">Content</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#######################</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// markdownify function:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// runs the provided string through the markdown processor:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">sintax</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="nx">markdownify</span> <span class="nx">INPUT</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// usage:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="p">.</span><span class="nx">Title</span> <span class="p">|</span> <span class="nx">markdownify</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#######################</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// .Render function:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// takes a view to apply when rendering content
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">sintax</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">Render</span> <span class="nx">LAYOUT</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// note: the view is an alternative layout and should 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// be binded to a file name that points to a template.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// This example could render a piece of content 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// using the content view located at /layouts/_default/summary.html:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// usage:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{{</span> <span class="k">range</span> <span class="p">.</span><span class="nx">Pages</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="p">.</span><span class="nx">Render</span> <span class="s">&#34;summary&#34;</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#######################</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// .Get function:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Accesses positional and ordered paramters n shortcode declaration
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">sintax</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">Get</span> <span class="nx">INDEX</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">Get</span> <span class="nx">KEY</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="err">$</span><span class="nx">quality</span> <span class="o">:=</span> <span class="k">default</span> <span class="s">&#34;100&#34;</span> <span class="p">(.</span><span class="nx">Get</span> <span class="mi">1</span><span class="p">)</span> <span class="p">}}</span>
+</span></span></code></pre></div><h1 id="conditionals">Conditionals</h1>
+<h1 id="data-templates">Data Templates</h1>
+<h1 id="partial-templates">Partial Templates</h1>
+<h1 id="shortcode-templates">Shortcode templates</h1>
+<h1 id="building--hosting">Building &amp; Hosting</h1>
+    </main>
+  </div>
+  <footer>
+    <div class="footer-wrapper">
+      
+      <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="external">Hugo</a> | ©Jhon Vargas </p> 
+      
+    </div>
+  </footer>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Raleway:400,400i,600" rel="stylesheet">
+  
+  <script type="text/javascript">
+    document.querySelector('.mobile-header').addEventListener('click', function () {
+      var om = document.querySelector(".overlay-menu");
+      if (document.querySelector('.hamburger').classList.contains("cross")) {
+        document.querySelector('.hamburger').classList.remove("cross");
+        om.style.display = "none";
+        om.style.width = "0%";
+        om.style.height = "0%";
+      }
+      else {
+        document.querySelector('.hamburger').classList.add("cross");
+        om.style.width = "100%";
+        om.style.height = "100vh";
+        om.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

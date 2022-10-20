@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <title>Git Learning | Jhon Vargas</title>
+  <link rel='canonical' href='https://yonkeenn.com/post/git-learning/' />
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <meta name='description' content='' />
+  <meta name='theme-color' content='#FD3519' />
+  
+    <link rel="shortcut icon" href="./images/logo1.png" type="image/x-icon" />
+    <link rel="icon" href="./images/logo1.png" type="image/x-icon" />
+  
+
+  <meta name="generator" content="Hugo 0.104.3" />
+
+  
+
+
+
+
+
+<link rel="stylesheet" href="https://yonkeenn.com/sass/style.min.6f0c246ba7367b5fa58cd59d72831c7785f669a912b310aa700fef49da0ff076.css" integrity="sha256-bwwka6c2e1&#43;ljNWdcoMcd4X2aakSsxCqcA/vSdoP8HY=" media="screen">
+<link rel="stylesheet" href="https://yonkeenn.com/syntax.min.css" integrity="" media="screen">
+
+  <meta property="og:title" content="Git Learning" />
+<meta property="og:description" content="For create a local git repository:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yonkeenn.com/post/git-learning/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-08-16T23:29:15-05:00" />
+<meta property="article:modified_time" content="2022-08-16T23:29:15-05:00" />
+
+
+  <meta itemprop="name" content="Git Learning">
+<meta itemprop="description" content="For create a local git repository:"><meta itemprop="datePublished" content="2022-08-16T23:29:15-05:00" />
+<meta itemprop="dateModified" content="2022-08-16T23:29:15-05:00" />
+<meta itemprop="wordCount" content="724">
+<meta itemprop="keywords" content="" />
+  
+</head>
+<body>
+
+  <header style="background-image:linear-gradient(
+      95deg, #D05400, #112F41
+    ),url(&#39;https://yonkeenn.com/images/default-sidebar.jpg&#39;)">
+  <div class="intro">
+    <div class="logo-container">
+      <a href="/">
+        <img src='https://yonkeenn.com/images/jhon-vargas.jpeg' alt="Profile Churn Prediction using Suvirval Analysis" class="rounded-logo">
+      </a>
+    </div>
+    <h2>Hi, I'm Jhon 😄</h2>
+    <h3>Data Scientist | Technical Lead</h3>
+    <div class="menu">
+      
+
+        <p>
+            <a href="/about/">
+                About
+            </a>
+        </p>
+
+        <p>
+            <a href="/portfolio/">
+                Portfolio
+            </a>
+        </p>
+
+        <p>
+            <a href="/post/">
+                Post
+            </a>
+        </p>
+
+      
+        
+        <p>
+            <a href="mailto:jhon.vargasr@gmail.com" target="_blank" rel="external">
+                
+            </a>
+        </p>
+      
+    </div>
+  </div>
+
+  <div class="socials">
+      
+  
+    <a href="https://github.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M102.679 0H12.32C5.52 0 0 5.519 0 12.321v90.358C0 109.48 5.519 115 12.321 115h90.358c6.802 0 12.321-5.519 12.321-12.321V12.32C115 5.52 109.481 0 102.679 0zM71.182 98.494c-2.156.385-2.952-.95-2.952-2.053 0-1.386.051-8.471.051-14.195 0-4.005-1.335-6.546-2.9-7.881C74.878 73.313 84.89 72.003 84.89 55.6c0-4.671-1.669-7.007-4.39-10.01.436-1.105 1.9-5.648-.436-11.552-3.568-1.104-11.731 4.595-11.731 4.595-3.389-.95-7.06-1.438-10.679-1.438-3.62 0-7.29.488-10.679 1.438 0 0-8.163-5.699-11.73-4.595-2.337 5.878-.899 10.422-.437 11.551-2.72 3.004-4.004 5.34-4.004 10.011 0 16.326 9.574 17.712 19.072 18.765-1.232 1.104-2.336 3.003-2.72 5.724-2.44 1.104-8.677 3.004-12.4-3.568-2.335-4.056-6.545-4.39-6.545-4.39-4.159-.05-.282 2.619-.282 2.619 2.772 1.283 4.723 6.212 4.723 6.212 2.49 7.624 14.4 5.057 14.4 5.057 0 3.568.052 9.37.052 10.422 0 1.104-.77 2.438-2.952 2.053C27.21 92.821 15.35 76.701 15.35 57.86c0-23.564 18.02-41.456 41.585-41.456s42.663 17.892 42.663 41.456c.026 18.842-11.474 34.988-28.416 40.635zM46 82.81c-.488.103-.95-.102-1.001-.436-.051-.385.282-.719.77-.822.488-.05.95.154 1.001.488.077.334-.257.668-.77.77zm-2.439-.23c0 .333-.385.615-.898.615-.565.052-.95-.23-.95-.616 0-.333.385-.616.899-.616.487-.051.95.231.95.616zm-3.516-.283c-.103.334-.616.488-1.053.334-.488-.103-.821-.488-.719-.822.103-.334.617-.488 1.053-.385.513.154.847.54.719.873zm-3.158-1.386c-.23.282-.718.23-1.104-.154-.385-.334-.487-.822-.23-1.053.23-.282.718-.23 1.103.154.334.334.462.847.231 1.053zm-2.336-2.336c-.23.154-.667 0-.95-.385-.282-.385-.282-.822 0-1.001.283-.231.72-.052.95.333.283.385.283.847 0 1.053zm-1.668-2.49c-.231.23-.616.103-.899-.154-.282-.334-.333-.719-.102-.899.23-.23.616-.102.898.154.282.334.334.72.103.899zm-1.72-1.9c-.103.231-.436.283-.719.103-.334-.154-.488-.436-.385-.667.103-.154.385-.231.719-.103.334.18.488.462.385.667z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.instagram.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.526 28.111c-16.254 0-29.364 13.11-29.364 29.363 0 16.254 13.11 29.364 29.364 29.364 16.253 0 29.363-13.11 29.363-29.364 0-16.253-13.11-29.363-29.363-29.363zm0 48.453c-10.504 0-19.09-8.56-19.09-19.09 0-10.528 8.56-19.09 19.09-19.09 10.528 0 19.09 8.562 19.09 19.09 0 10.53-8.587 19.09-19.09 19.09zM94.939 26.91a6.833 6.833 0 0 1-6.849 6.849 6.833 6.833 0 0 1-6.849-6.849 6.85 6.85 0 0 1 13.698 0zm19.448 6.951c-.435-9.174-2.53-17.301-9.251-23.997C98.44 3.17 90.313 1.074 81.139.614c-9.456-.537-37.797-.537-47.252 0-9.15.434-17.276 2.53-23.997 9.225S1.099 24.66.639 33.836c-.537 9.455-.537 37.796 0 47.252.434 9.174 2.53 17.3 9.251 23.996 6.721 6.696 14.822 8.792 23.997 9.252 9.455.536 37.796.536 47.252 0 9.174-.435 17.301-2.53 23.997-9.252 6.695-6.695 8.79-14.822 9.25-23.996.537-9.456.537-37.771 0-47.227zM102.17 91.233c-1.993 5.01-5.852 8.868-10.887 10.887-7.538 2.99-25.427 2.3-33.758 2.3-8.332 0-26.246.664-33.76-2.3-5.008-1.993-8.867-5.852-10.886-10.887-2.99-7.539-2.3-25.427-2.3-33.759 0-8.33-.664-26.245 2.3-33.758 1.993-5.01 5.852-8.868 10.887-10.887 7.539-2.99 25.427-2.3 33.759-2.3 8.33 0 26.245-.665 33.758 2.3 5.01 1.993 8.868 5.852 10.887 10.887 2.99 7.538 2.3 25.427 2.3 33.758 0 8.332.69 26.246-2.3 33.76z" />
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.linkedin.com/in/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M106.786 0H8.189C3.67 0 0 3.722 0 8.291v98.418C0 111.278 3.67 115 8.189 115h98.597c4.518 0 8.214-3.722 8.214-8.291V8.29C115 3.722 111.304 0 106.786 0zm-72.03 98.571H17.713V43.69h17.07V98.57h-.025zm-8.522-62.377c-5.467 0-9.882-4.44-9.882-9.883 0-5.442 4.415-9.882 9.882-9.882 5.442 0 9.883 4.44 9.883 9.882a9.87 9.87 0 0 1-9.883 9.883zm72.414 62.377H81.604V71.875c0-6.366-.129-14.555-8.856-14.555-8.882 0-10.242 6.931-10.242 14.093V98.57H45.46V43.69h16.352v7.495h.23c2.285-4.312 7.855-8.856 16.147-8.856 17.25 0 20.458 11.372 20.458 26.158V98.57z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  </div>
+</header>
+
+<div class="mobile-header">
+  <p> Jhon Vargas </p>
+  <div class="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
+
+<div class="overlay-menu">
+  <header>
+    <div class="intro">
+      <div class="logo-container">
+        <a href="/">
+          <img src='https://yonkeenn.com/images/jhon-vargas.jpeg' alt="Profile Churn Prediction using Suvirval Analysis" class="rounded-logo">
+        </a>
+      </div>
+      <h2>Hi, I'm Jhon 😄</h2>
+      <h3>Data Scientist | Technical Lead</h3>
+      <div class="menu">
+        
+
+        <p>
+            <a href="/about/">
+                About
+            </a>
+        </p>
+
+        <p>
+            <a href="/portfolio/">
+                Portfolio
+            </a>
+        </p>
+
+        <p>
+            <a href="/post/">
+                Post
+            </a>
+        </p>
+
+        
+          
+          <p>
+              <a href="mailto:jhon.vargasr@gmail.com" target="_blank" rel="external">
+                  
+              </a>
+          </p>
+        
+      </div>
+    </div>
+
+    <div class="socials">
+        
+  
+    <a href="https://github.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M102.679 0H12.32C5.52 0 0 5.519 0 12.321v90.358C0 109.48 5.519 115 12.321 115h90.358c6.802 0 12.321-5.519 12.321-12.321V12.32C115 5.52 109.481 0 102.679 0zM71.182 98.494c-2.156.385-2.952-.95-2.952-2.053 0-1.386.051-8.471.051-14.195 0-4.005-1.335-6.546-2.9-7.881C74.878 73.313 84.89 72.003 84.89 55.6c0-4.671-1.669-7.007-4.39-10.01.436-1.105 1.9-5.648-.436-11.552-3.568-1.104-11.731 4.595-11.731 4.595-3.389-.95-7.06-1.438-10.679-1.438-3.62 0-7.29.488-10.679 1.438 0 0-8.163-5.699-11.73-4.595-2.337 5.878-.899 10.422-.437 11.551-2.72 3.004-4.004 5.34-4.004 10.011 0 16.326 9.574 17.712 19.072 18.765-1.232 1.104-2.336 3.003-2.72 5.724-2.44 1.104-8.677 3.004-12.4-3.568-2.335-4.056-6.545-4.39-6.545-4.39-4.159-.05-.282 2.619-.282 2.619 2.772 1.283 4.723 6.212 4.723 6.212 2.49 7.624 14.4 5.057 14.4 5.057 0 3.568.052 9.37.052 10.422 0 1.104-.77 2.438-2.952 2.053C27.21 92.821 15.35 76.701 15.35 57.86c0-23.564 18.02-41.456 41.585-41.456s42.663 17.892 42.663 41.456c.026 18.842-11.474 34.988-28.416 40.635zM46 82.81c-.488.103-.95-.102-1.001-.436-.051-.385.282-.719.77-.822.488-.05.95.154 1.001.488.077.334-.257.668-.77.77zm-2.439-.23c0 .333-.385.615-.898.615-.565.052-.95-.23-.95-.616 0-.333.385-.616.899-.616.487-.051.95.231.95.616zm-3.516-.283c-.103.334-.616.488-1.053.334-.488-.103-.821-.488-.719-.822.103-.334.617-.488 1.053-.385.513.154.847.54.719.873zm-3.158-1.386c-.23.282-.718.23-1.104-.154-.385-.334-.487-.822-.23-1.053.23-.282.718-.23 1.103.154.334.334.462.847.231 1.053zm-2.336-2.336c-.23.154-.667 0-.95-.385-.282-.385-.282-.822 0-1.001.283-.231.72-.052.95.333.283.385.283.847 0 1.053zm-1.668-2.49c-.231.23-.616.103-.899-.154-.282-.334-.333-.719-.102-.899.23-.23.616-.102.898.154.282.334.334.72.103.899zm-1.72-1.9c-.103.231-.436.283-.719.103-.334-.154-.488-.436-.385-.667.103-.154.385-.231.719-.103.334.18.488.462.385.667z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.instagram.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.526 28.111c-16.254 0-29.364 13.11-29.364 29.363 0 16.254 13.11 29.364 29.364 29.364 16.253 0 29.363-13.11 29.363-29.364 0-16.253-13.11-29.363-29.363-29.363zm0 48.453c-10.504 0-19.09-8.56-19.09-19.09 0-10.528 8.56-19.09 19.09-19.09 10.528 0 19.09 8.562 19.09 19.09 0 10.53-8.587 19.09-19.09 19.09zM94.939 26.91a6.833 6.833 0 0 1-6.849 6.849 6.833 6.833 0 0 1-6.849-6.849 6.85 6.85 0 0 1 13.698 0zm19.448 6.951c-.435-9.174-2.53-17.301-9.251-23.997C98.44 3.17 90.313 1.074 81.139.614c-9.456-.537-37.797-.537-47.252 0-9.15.434-17.276 2.53-23.997 9.225S1.099 24.66.639 33.836c-.537 9.455-.537 37.796 0 47.252.434 9.174 2.53 17.3 9.251 23.996 6.721 6.696 14.822 8.792 23.997 9.252 9.455.536 37.796.536 47.252 0 9.174-.435 17.301-2.53 23.997-9.252 6.695-6.695 8.79-14.822 9.25-23.996.537-9.456.537-37.771 0-47.227zM102.17 91.233c-1.993 5.01-5.852 8.868-10.887 10.887-7.538 2.99-25.427 2.3-33.758 2.3-8.332 0-26.246.664-33.76-2.3-5.008-1.993-8.867-5.852-10.886-10.887-2.99-7.539-2.3-25.427-2.3-33.759 0-8.33-.664-26.245 2.3-33.758 1.993-5.01 5.852-8.868 10.887-10.887 7.539-2.99 25.427-2.3 33.759-2.3 8.33 0 26.245-.665 33.758 2.3 5.01 1.993 8.868 5.852 10.887 10.887 2.99 7.538 2.3 25.427 2.3 33.758 0 8.332.69 26.246-2.3 33.76z" />
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.linkedin.com/in/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M106.786 0H8.189C3.67 0 0 3.722 0 8.291v98.418C0 111.278 3.67 115 8.189 115h98.597c4.518 0 8.214-3.722 8.214-8.291V8.29C115 3.722 111.304 0 106.786 0zm-72.03 98.571H17.713V43.69h17.07V98.57h-.025zm-8.522-62.377c-5.467 0-9.882-4.44-9.882-9.883 0-5.442 4.415-9.882 9.882-9.882 5.442 0 9.883 4.44 9.883 9.882a9.87 9.87 0 0 1-9.883 9.883zm72.414 62.377H81.604V71.875c0-6.366-.129-14.555-8.856-14.555-8.882 0-10.242 6.931-10.242 14.093V98.57H45.46V43.69h16.352v7.495h.23c2.285-4.312 7.855-8.856 16.147-8.856 17.25 0 20.458 11.372 20.458 26.158V98.57z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+    </div>
+  </header>
+</div>
+
+  <div class="content-wrapper">
+    
+      <div class="breadcrumb">
+  
+
+
+
+
+
+<span >
+  <a href="https://yonkeenn.com/">HOME</a>
+   / 
+</span>
+
+
+<span >
+  <a href="https://yonkeenn.com/post/">POST</a>
+   / 
+</span>
+
+
+<span  class="active">
+  <a href="https://yonkeenn.com/post/git-learning/">Git Learning</a>
+  
+</span>
+
+</div>
+
+    
+    <main id="content" class="post">
+
+<h1>Git Learning</h1>
+
+<div class="reading-time">
+  <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.5 11C29.05 11 6 34.05 6 62.5S29.05 114 57.5 114 109 90.95 109 62.5 85.95 11 57.5 11zm0 93.032c-22.947 0-41.532-18.585-41.532-41.532 0-22.947 18.585-41.532 41.532-41.532 22.947 0 41.532 18.585 41.532 41.532 0 22.947-18.585 41.532-41.532 41.532zm12.833-21.68L52.703 69.54a2.508 2.508 0 0 1-1.018-2.015V33.427a2.5 2.5 0 0 1 2.492-2.492h6.646a2.5 2.5 0 0 1 2.492 2.492v29.426l13.871 10.092c1.122.81 1.35 2.368.54 3.49l-3.904 5.377a2.51 2.51 0 0 1-3.489.54z"/>
+  
+  </svg>
+</div>
+
+  <span>4 minutes</span>
+</div>
+
+<div class="published-date">
+  <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M77.577 51.23a1.807 1.807 0 0 0-2.2.342l-27.562 27.79a1.807 1.807 0 0 1-2.2.342l-14.008-9.702a1.807 1.807 0 0 0-2.2.342l-1.952 1.968c-.287.22-.456.568-.455.936.001.37.172.716.46.934L45.637 86.77a1.807 1.807 0 0 0 2.2-.342l31.709-31.97c.287-.22.456-.567.455-.936a1.175 1.175 0 0 0-.46-.933l-1.963-1.36z"/><path d="M97.304 20H80.512c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.347.023-.685.04-1.026H34.579c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.22.019-.434.025-.652a9.788 9.788 0 0 0-5.697 4.471 9.683 9.683 0 0 0-2.65 4.764L1.158 92.871c-.965 4.689 2.6 8.503 7.948 8.503h6.334v2.673c-.077 5.41 4.263 9.861 9.705 9.953h72.16c5.438-.095 9.774-4.546 9.694-9.953V29.953c.08-5.407-4.256-9.858-9.695-9.953zM10.078 96.653c-2.378 0-3.964-1.697-3.535-3.782L16.637 43.84h80.787L87.331 92.871a5.254 5.254 0 0 1-5.091 3.782H10.078zm91.535 7.394c.036 2.403-1.891 4.382-4.308 4.424h-72.16c-2.42-.04-4.352-2.018-4.32-4.424v-2.673h60.443c5.348 0 10.484-3.814 11.449-8.503l8.897-43.215v54.391z"/><path d="M34.814 33c1.243 0 2.251-1.057 2.251-2.36 0-1.305-1.008-2.362-2.25-2.362-2.04 0-4.313-3.194-4.313-7.778s2.272-7.778 4.312-7.778c1.227 0 2.536 1.163 3.386 3.084H43C41.716 11.19 38.578 8 34.814 8 29.871 8 26 13.49 26 20.5c0 7.009 3.871 12.5 8.814 12.5z"/>
+  
+  </svg>
+</div>
+
+  <span>August 16, 2022</span>
+</div>
+
+
+
+<div class="word-count">
+  <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M111.833 31.901l-10.355 10.355a2.698 2.698 0 0 1-3.819 0L72.727 17.324a2.698 2.698 0 0 1 0-3.819L83.082 3.15c4.2-4.2 11.028-4.2 15.251 0l13.5 13.5c4.223 4.2 4.223 11.029 0 15.251zm-48.001-9.5L4.846 81.384.085 108.676c-.652 3.684 2.56 6.873 6.244 6.244l27.291-4.784 58.985-58.985a2.698 2.698 0 0 0 0-3.818L67.673 22.4c-1.079-1.056-2.786-1.056-3.841 0zM27.87 76.33a3.132 3.132 0 0 1 0-4.448l34.591-34.59a3.132 3.132 0 0 1 4.448 0 3.132 3.132 0 0 1 0 4.447L32.317 76.33a3.132 3.132 0 0 1-4.447 0zm-8.109 18.89h10.782v8.154l-14.488 2.538-6.986-6.985 2.539-14.488h8.153V95.22z"/>
+  
+  </svg>
+</div>
+
+  <span>724 Words </span>
+</div>
+
+
+<p>For create a local git repository:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">init</span>
+</span></span><span class="line"><span class="cl"><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&#34;new hugo personal blog&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">M</span> <span class="n">main</span>
+</span></span><span class="line"><span class="cl"><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">remot</span> <span class="n">add</span> <span class="n">origin</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/yonkeenn/personalPortafolio.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">main</span>
+</span></span><span class="line"><span class="cl"><span class="n">Enumerating</span> <span class="nl">objects</span><span class="p">:</span> <span class="mi">54</span><span class="p">,</span> <span class="n">done</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">Counting</span> <span class="nl">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">54</span><span class="o">/</span><span class="mi">54</span><span class="p">),</span> <span class="n">done</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">Delta</span> <span class="n">compression</span> <span class="k">using</span> <span class="n">up</span> <span class="n">to</span> <span class="mi">8</span> <span class="n">threads</span>
+</span></span><span class="line"><span class="cl"><span class="n">Compressing</span> <span class="nl">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">45</span><span class="o">/</span><span class="mi">45</span><span class="p">),</span> <span class="n">done</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">Writing</span> <span class="nl">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">54</span><span class="o">/</span><span class="mi">54</span><span class="p">),</span> <span class="mf">2.37</span> <span class="n">MiB</span> <span class="o">|</span> <span class="mf">2.67</span> <span class="n">MiB</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="n">done</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">Total</span> <span class="mi">54</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">0</span><span class="p">),</span> <span class="n">reused</span> <span class="mi">0</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">To</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/yonkeenn/personalPortafolio.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="o">*</span> <span class="p">[</span><span class="k">new</span> <span class="n">branch</span><span class="p">]</span>      <span class="n">main</span> <span class="o">-&gt;</span> <span class="n">main</span>
+</span></span><span class="line"><span class="cl"><span class="n">Branch</span> <span class="err">&#39;</span><span class="n">main</span><span class="err">&#39;</span> <span class="n">set</span> <span class="n">up</span> <span class="n">to</span> <span class="n">track</span> <span class="n">remote</span> <span class="n">branch</span> <span class="err">&#39;</span><span class="n">main</span><span class="err">&#39;</span> <span class="n">from</span> <span class="err">&#39;</span><span class="n">origin</span><span class="err">&#39;</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> 
+</span></span></code></pre></div><h1 id="branches">Branches</h1>
+<p>For create branch</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// To switch a branch
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="n">existing_branch</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// To switch to a destination branch which does not exits.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="o">&lt;</span><span class="n">new_branch</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// To check current branch
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">branch</span>
+</span></span></code></pre></div><p>For switch to another branch</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// To switch to main branch
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+</span></span></code></pre></div><p>For listing all branches:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// to list all branches
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">a</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// to list remote branches
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">r</span>
+</span></span></code></pre></div><p>For remove branch</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// delete branch locally
+</span></span></span><span class="line"><span class="cl"><span class="c1">// -d is for deleting only branch if it has already been pushed and merged with remote branch.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// -D if for forcing delete to branch even if it hasn&#39;t been pushed or merged yet.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="n">localBranchName</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// delete branch remotely
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">--</span><span class="k">delete</span> <span class="n">remoteBranchName</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// shorter command to delete a branch remotely
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">push</span> <span class="nl">origin</span> <span class="p">:</span><span class="n">fix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// To synchronize your branch list using:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// -p parametrer means prine
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">fetch</span> <span class="o">-</span><span class="n">p</span>
+</span></span></code></pre></div><h1 id="revert-commit">Revert commit</h1>
+<p>source: <a href="https://stackoverflow.com/questions/22682870/how-can-i-undo-pushed-commits-using-git">https://stackoverflow.com/questions/22682870/how-can-i-undo-pushed-commits-using-git</a></p>
+<p>Current commit is C:</p>
+<p>A &mdash;&gt; B &mdash;&gt; C &mdash;&gt; -B</p>
+<p>For revert this stage, we revert to C</p>
+<p>git revert <commit id>
+git revert C</p>
+<p>If you want to revert the current or last commit:</p>
+<p>git revert HEAD</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">Revert</span> <span class="nl">Locally</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// For make sure there is no pending changes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">status</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// For check the last commint ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">log</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="n">oneline</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// For revert
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">revert</span> <span class="mi">98</span><span class="n">cfeb4</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">revert</span> <span class="n">HEAD</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// After execute lsat command, we can update the message or just:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">:</span><span class="n">qa</span><span class="o">!</span>  <span class="c1">// used for quit or exit VIM mode
+</span></span></span><span class="line"><span class="cl"><span class="c1">// For check reverted commit
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="n">oneline</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Or we can use reset parameter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="o">&lt;</span><span class="n">COMMIT</span> <span class="n">ID</span><span class="o">&gt;</span> <span class="c1">// git reset --hard 89d44eb
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">clean</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">d</span> 
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">fetch</span> <span class="o">--</span><span class="n">all</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">f</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Revert</span> <span class="nl">Remotelly</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// For get latest changes from the remote repository
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">pull</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// For revert the revert commit to remote repository
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">push</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// For verify the origin is in the same commit of the HEAD
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="n">oneline</span>
+</span></span></code></pre></div><h1 id="set-the-upstream-branch">Set the upstream branch</h1>
+<p>the “Upstream Branch” is the remote branch in git. So we can track and know if this remote branch is sync or not, it means if there is some commits ahead or not in the remote repository. Upstream branches are closely associated with remote branches.</p>
+<p>Upstream branches define the branch tracked on the remote repository by your local remote branch (also called the remote tracking branch)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// -u option is for upstream branch
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="o">&lt;</span><span class="n">remote</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// alternative command
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">upstream</span> <span class="o">&lt;</span><span class="n">remote</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//To see last commits on branches:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"> <span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">vv</span>
+</span></span><span class="line"><span class="cl">  <span class="n">main</span>       <span class="mi">89</span><span class="n">d44eb</span> <span class="p">[</span><span class="n">origin</span><span class="o">/</span><span class="n">main</span><span class="p">]</span> <span class="nl">TODO2</span><span class="p">:</span> <span class="n">Update</span> <span class="n">btree</span><span class="p">.</span><span class="n">h</span> <span class="n">htreepage</span><span class="p">.</span><span class="n">h</span> <span class="n">demo</span><span class="p">.</span><span class="n">cpp</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span> <span class="n">todoBranch</span> <span class="mi">40</span><span class="n">d8ef6</span> <span class="p">[</span><span class="n">origin</span><span class="o">/</span><span class="n">todoBranch</span><span class="p">]</span> <span class="n">TODO</span> <span class="mi">6</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">8</span><span class="o">:</span> <span class="n">callInvoke</span> <span class="k">for</span> <span class="k">template</span> <span class="n">ForEach</span> <span class="n">and</span> <span class="n">FirstThat</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Using Alias:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// HEAD is equivalent to push a remote branch with same name as your current branch
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">HEAD</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// For next time, you only need to do
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Because tracking branch is already done.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// For check remote branch which are not created locally on git. 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// -t is used for track
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">fetch</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">remote_name</span><span class="o">&gt;/&lt;</span><span class="n">branch_name</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">checkout</span> <span class="o">--</span><span class="n">track</span> <span class="n">origin</span><span class="o">/</span><span class="n">dev</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// So example, let’s say that you have a branch named “remote-branch” on the “origin” remote.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">t</span> <span class="n">origin</span><span class="o">/</span><span class="n">remote</span><span class="o">-</span><span class="n">branch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Branch</span> <span class="err">&#39;</span><span class="n">remote</span><span class="o">-</span><span class="n">branch</span><span class="err">&#39;</span> <span class="n">set</span> <span class="n">up</span> <span class="n">to</span> <span class="n">track</span> <span class="n">remote</span> <span class="n">branch</span> <span class="err">&#39;</span><span class="n">remote</span><span class="o">-</span><span class="n">branch</span><span class="err">&#39;</span> <span class="n">from</span> <span class="err">&#39;</span><span class="n">origin</span><span class="err">&#39;</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">Switched</span> <span class="n">to</span> <span class="n">a</span> <span class="k">new</span> <span class="n">branch</span> <span class="err">&#39;</span><span class="n">remote</span><span class="o">-</span><span class="n">branch</span><span class="err">&#39;</span>
+</span></span></code></pre></div><p>pstream branches so useful because You get references to your remote repositories and you essentially know if you are ahead of them or not.</p>
+<h1 id="git-fetch">Git fetch</h1>
+<p>git fetch is used in conjunction with git remote , git branch , git checkout , and git reset to update a local repository to the state of a remote. git fetch has similar behavior to git pull, however, git fetch can be considered a safer, nondestructive version.</p>
+<h1 id="pull-request">Pull Request</h1>
+<p>source: <a href="https://nvie.com/posts/a-successful-git-branching-model/">https://nvie.com/posts/a-successful-git-branching-model/</a></p>
+    </main>
+  </div>
+  <footer>
+    <div class="footer-wrapper">
+      
+      <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="external">Hugo</a> | ©Jhon Vargas </p> 
+      
+    </div>
+  </footer>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Raleway:400,400i,600" rel="stylesheet">
+  
+  <script type="text/javascript">
+    document.querySelector('.mobile-header').addEventListener('click', function () {
+      var om = document.querySelector(".overlay-menu");
+      if (document.querySelector('.hamburger').classList.contains("cross")) {
+        document.querySelector('.hamburger').classList.remove("cross");
+        om.style.display = "none";
+        om.style.width = "0%";
+        om.style.height = "0%";
+      }
+      else {
+        document.querySelector('.hamburger').classList.add("cross");
+        om.style.width = "100%";
+        om.style.height = "100vh";
+        om.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

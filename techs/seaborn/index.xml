@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seaborn on Jhon Vargas</title>
+    <link>https://yonkeenn.com/techs/seaborn/</link>
+    <description>Recent content in Seaborn on Jhon Vargas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©Jhon Vargas</copyright>
+    <lastBuildDate>Thu, 20 Oct 2022 16:35:05 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/techs/seaborn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Churn Prediction using Suvirval Analysis</title>
+      <link>https://yonkeenn.com/portfolio/project3-churnprediction/</link>
+      <pubDate>Thu, 20 Oct 2022 16:35:05 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/portfolio/project3-churnprediction/</guid>
+      <description>&lt;style&gt;
+r { color: Red }
+o { color: Orange }
+g { color: Green }
+b { color: blue}
+&lt;/style&gt;
+&lt;p&gt;&lt;b&gt; &lt;strong&gt;Brief&lt;/strong&gt; &lt;/b&gt; : The main idea of the project is to predict when customer will churn and which parameters is more relevant then compare with suvirval analysis.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

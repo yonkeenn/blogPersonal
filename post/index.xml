@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>POST on Jhon Vargas</title>
+    <link>https://yonkeenn.com/post/</link>
+    <description>Recent content in POST on Jhon Vargas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©Jhon Vargas</copyright>
+    <lastBuildDate>Wed, 31 Aug 2022 10:37:06 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hosting Hugo Static Web</title>
+      <link>https://yonkeenn.com/post/hosting-hugo/</link>
+      <pubDate>Wed, 31 Aug 2022 10:37:06 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/post/hosting-hugo/</guid>
+      <description>&lt;p&gt;In this new entry, we will check how to publish our hugo site. First, we will do using github pages and then changing the domain name as custom one.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Latex Sintaxis</title>
+      <link>https://yonkeenn.com/post/latex-sintaxis/</link>
+      <pubDate>Thu, 25 Aug 2022 01:19:38 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/post/latex-sintaxis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pointers in C&#43;&#43;</title>
+      <link>https://yonkeenn.com/post/pointers-in-c&#43;&#43;/</link>
+      <pubDate>Sun, 21 Aug 2022 20:35:38 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/post/pointers-in-c&#43;&#43;/</guid>
+      <description>&lt;p&gt;This post focus in pointers c++ 17 and beyond&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git Learning</title>
+      <link>https://yonkeenn.com/post/git-learning/</link>
+      <pubDate>Tue, 16 Aug 2022 23:29:15 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/post/git-learning/</guid>
+      <description>&lt;p&gt;For create a local git repository:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux Customizing</title>
+      <link>https://yonkeenn.com/post/linux-customizing/</link>
+      <pubDate>Tue, 16 Aug 2022 23:28:49 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/post/linux-customizing/</guid>
+      <description>&lt;p&gt;The iam of this article is to create a repository about linux hints during daily work days.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Customizing your theme</title>
+      <link>https://yonkeenn.com/post/customizing-your-theme/</link>
+      <pubDate>Sun, 14 Aug 2022 11:29:47 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/post/customizing-your-theme/</guid>
+      <description>&lt;p&gt;After download a theme, you saw that this theme does not fit your necessities.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Meeting Hugo</title>
+      <link>https://yonkeenn.com/post/meeting-hugo-structure/</link>
+      <pubDate>Thu, 04 Aug 2022 12:18:35 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/post/meeting-hugo-structure/</guid>
+      <description>&lt;p&gt;For general flow, first hugo check files int he original folders and files, structures and so on.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Getting started</title>
+      <link>https://yonkeenn.com/post/getting-started/</link>
+      <pubDate>Fri, 03 May 2019 09:37:55 +0200</pubDate>
+      
+      <guid>https://yonkeenn.com/post/getting-started/</guid>
+      <description>&lt;p&gt;Here are some details to help you getting started with this theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Archetypes management</title>
+      <link>https://yonkeenn.com/post/archetypes/</link>
+      <pubDate>Thu, 02 May 2019 19:25:30 +0200</pubDate>
+      
+      <guid>https://yonkeenn.com/post/archetypes/</guid>
+      <description>&lt;p&gt;The archetypes are defined in the &lt;code&gt;archetypes&lt;/code&gt; folder, for both post and portfolio.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Manage Your Menu</title>
+      <link>https://yonkeenn.com/post/manage-your-menu/</link>
+      <pubDate>Thu, 02 May 2019 19:06:29 +0200</pubDate>
+      
+      <guid>https://yonkeenn.com/post/manage-your-menu/</guid>
+      <description>&lt;p&gt;Menu in the sidebar can be defined within the &lt;code&gt;config.toml&lt;/code&gt; or directly in the files.
+I prefer the config file approach, as this menu is pretty simple.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Shortcodes</title>
+      <link>https://yonkeenn.com/post/shortcodes/</link>
+      <pubDate>Mon, 29 Apr 2019 16:18:12 +0100</pubDate>
+      
+      <guid>https://yonkeenn.com/post/shortcodes/</guid>
+      <description>&lt;p&gt;Introduction of the shortcodes defined in the personal-web theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Config File</title>
+      <link>https://yonkeenn.com/post/config-file/</link>
+      <pubDate>Sat, 20 Apr 2019 16:18:12 +0100</pubDate>
+      
+      <guid>https://yonkeenn.com/post/config-file/</guid>
+      <description>&lt;p&gt;Here is the basic config file used for personal-web.&lt;/p&gt;
+&lt;p&gt;You can use it as a base for your website.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Open Graph image</title>
+      <link>https://yonkeenn.com/post/define-specific-og-image/</link>
+      <pubDate>Sat, 20 Apr 2019 11:14:59 +0200</pubDate>
+      
+      <guid>https://yonkeenn.com/post/define-specific-og-image/</guid>
+      <description>Within any page, you can add in the FrontMatter a images array that will be used to define a specific Open Graph image.
+For example, see content/_index.md page:
+images: [&amp;#34;/images/sample.jpg&amp;#34;] </description>
+    </item>
+    
+  </channel>
+</rss>

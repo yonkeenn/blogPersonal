@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <title>Time Series Analysis Project | Jhon Vargas</title>
+  <link rel='canonical' href='https://yonkeenn.com/portfolio/project1-forecastingco2/' />
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <meta name='description' content='Forecasting C02 in the Atmosphere' />
+  <meta name='theme-color' content='#FD3519' />
+  
+    <link rel="shortcut icon" href="./images/logo1.png" type="image/x-icon" />
+    <link rel="icon" href="./images/logo1.png" type="image/x-icon" />
+  
+
+  <meta name="generator" content="Hugo 0.104.3" />
+
+  
+
+
+
+
+
+<link rel="stylesheet" href="https://yonkeenn.com/sass/style.min.6f0c246ba7367b5fa58cd59d72831c7785f669a912b310aa700fef49da0ff076.css" integrity="sha256-bwwka6c2e1&#43;ljNWdcoMcd4X2aakSsxCqcA/vSdoP8HY=" media="screen">
+<link rel="stylesheet" href="https://yonkeenn.com/syntax.min.css" integrity="" media="screen">
+
+  <meta property="og:title" content="Time Series Analysis Project" />
+<meta property="og:description" content="Forecasting C02 in the Atmosphere" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yonkeenn.com/portfolio/project1-forecastingco2/" /><meta property="article:section" content="portfolio" />
+<meta property="article:published_time" content="2022-08-15T00:46:23-05:00" />
+<meta property="article:modified_time" content="2022-08-15T00:46:23-05:00" />
+
+
+  <meta itemprop="name" content="Time Series Analysis Project">
+<meta itemprop="description" content="Forecasting C02 in the Atmosphere"><meta itemprop="datePublished" content="2022-08-15T00:46:23-05:00" />
+<meta itemprop="dateModified" content="2022-08-15T00:46:23-05:00" />
+<meta itemprop="wordCount" content="1395">
+<meta itemprop="keywords" content="" />
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+</head>
+<body>
+
+  <header style="background-image:linear-gradient(
+      95deg, #D05400, #112F41
+    ),url(&#39;https://yonkeenn.com/images/default-sidebar.jpg&#39;)">
+  <div class="intro">
+    <div class="logo-container">
+      <a href="/">
+        <img src='https://yonkeenn.com/images/jhon-vargas.jpeg' alt="Profile Churn Prediction using Suvirval Analysis" class="rounded-logo">
+      </a>
+    </div>
+    <h2>Hi, I'm Jhon 😄</h2>
+    <h3>Data Scientist | Technical Lead</h3>
+    <div class="menu">
+      
+
+        <p>
+            <a href="/about/">
+                About
+            </a>
+        </p>
+
+        <p>
+            <a href="/portfolio/">
+                Portfolio
+            </a>
+        </p>
+
+        <p>
+            <a href="/post/">
+                Post
+            </a>
+        </p>
+
+      
+        
+        <p>
+            <a href="mailto:jhon.vargasr@gmail.com" target="_blank" rel="external">
+                
+            </a>
+        </p>
+      
+    </div>
+  </div>
+
+  <div class="socials">
+      
+  
+    <a href="https://github.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M102.679 0H12.32C5.52 0 0 5.519 0 12.321v90.358C0 109.48 5.519 115 12.321 115h90.358c6.802 0 12.321-5.519 12.321-12.321V12.32C115 5.52 109.481 0 102.679 0zM71.182 98.494c-2.156.385-2.952-.95-2.952-2.053 0-1.386.051-8.471.051-14.195 0-4.005-1.335-6.546-2.9-7.881C74.878 73.313 84.89 72.003 84.89 55.6c0-4.671-1.669-7.007-4.39-10.01.436-1.105 1.9-5.648-.436-11.552-3.568-1.104-11.731 4.595-11.731 4.595-3.389-.95-7.06-1.438-10.679-1.438-3.62 0-7.29.488-10.679 1.438 0 0-8.163-5.699-11.73-4.595-2.337 5.878-.899 10.422-.437 11.551-2.72 3.004-4.004 5.34-4.004 10.011 0 16.326 9.574 17.712 19.072 18.765-1.232 1.104-2.336 3.003-2.72 5.724-2.44 1.104-8.677 3.004-12.4-3.568-2.335-4.056-6.545-4.39-6.545-4.39-4.159-.05-.282 2.619-.282 2.619 2.772 1.283 4.723 6.212 4.723 6.212 2.49 7.624 14.4 5.057 14.4 5.057 0 3.568.052 9.37.052 10.422 0 1.104-.77 2.438-2.952 2.053C27.21 92.821 15.35 76.701 15.35 57.86c0-23.564 18.02-41.456 41.585-41.456s42.663 17.892 42.663 41.456c.026 18.842-11.474 34.988-28.416 40.635zM46 82.81c-.488.103-.95-.102-1.001-.436-.051-.385.282-.719.77-.822.488-.05.95.154 1.001.488.077.334-.257.668-.77.77zm-2.439-.23c0 .333-.385.615-.898.615-.565.052-.95-.23-.95-.616 0-.333.385-.616.899-.616.487-.051.95.231.95.616zm-3.516-.283c-.103.334-.616.488-1.053.334-.488-.103-.821-.488-.719-.822.103-.334.617-.488 1.053-.385.513.154.847.54.719.873zm-3.158-1.386c-.23.282-.718.23-1.104-.154-.385-.334-.487-.822-.23-1.053.23-.282.718-.23 1.103.154.334.334.462.847.231 1.053zm-2.336-2.336c-.23.154-.667 0-.95-.385-.282-.385-.282-.822 0-1.001.283-.231.72-.052.95.333.283.385.283.847 0 1.053zm-1.668-2.49c-.231.23-.616.103-.899-.154-.282-.334-.333-.719-.102-.899.23-.23.616-.102.898.154.282.334.334.72.103.899zm-1.72-1.9c-.103.231-.436.283-.719.103-.334-.154-.488-.436-.385-.667.103-.154.385-.231.719-.103.334.18.488.462.385.667z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.instagram.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.526 28.111c-16.254 0-29.364 13.11-29.364 29.363 0 16.254 13.11 29.364 29.364 29.364 16.253 0 29.363-13.11 29.363-29.364 0-16.253-13.11-29.363-29.363-29.363zm0 48.453c-10.504 0-19.09-8.56-19.09-19.09 0-10.528 8.56-19.09 19.09-19.09 10.528 0 19.09 8.562 19.09 19.09 0 10.53-8.587 19.09-19.09 19.09zM94.939 26.91a6.833 6.833 0 0 1-6.849 6.849 6.833 6.833 0 0 1-6.849-6.849 6.85 6.85 0 0 1 13.698 0zm19.448 6.951c-.435-9.174-2.53-17.301-9.251-23.997C98.44 3.17 90.313 1.074 81.139.614c-9.456-.537-37.797-.537-47.252 0-9.15.434-17.276 2.53-23.997 9.225S1.099 24.66.639 33.836c-.537 9.455-.537 37.796 0 47.252.434 9.174 2.53 17.3 9.251 23.996 6.721 6.696 14.822 8.792 23.997 9.252 9.455.536 37.796.536 47.252 0 9.174-.435 17.301-2.53 23.997-9.252 6.695-6.695 8.79-14.822 9.25-23.996.537-9.456.537-37.771 0-47.227zM102.17 91.233c-1.993 5.01-5.852 8.868-10.887 10.887-7.538 2.99-25.427 2.3-33.758 2.3-8.332 0-26.246.664-33.76-2.3-5.008-1.993-8.867-5.852-10.886-10.887-2.99-7.539-2.3-25.427-2.3-33.759 0-8.33-.664-26.245 2.3-33.758 1.993-5.01 5.852-8.868 10.887-10.887 7.539-2.99 25.427-2.3 33.759-2.3 8.33 0 26.245-.665 33.758 2.3 5.01 1.993 8.868 5.852 10.887 10.887 2.99 7.538 2.3 25.427 2.3 33.758 0 8.332.69 26.246-2.3 33.76z" />
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.linkedin.com/in/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M106.786 0H8.189C3.67 0 0 3.722 0 8.291v98.418C0 111.278 3.67 115 8.189 115h98.597c4.518 0 8.214-3.722 8.214-8.291V8.29C115 3.722 111.304 0 106.786 0zm-72.03 98.571H17.713V43.69h17.07V98.57h-.025zm-8.522-62.377c-5.467 0-9.882-4.44-9.882-9.883 0-5.442 4.415-9.882 9.882-9.882 5.442 0 9.883 4.44 9.883 9.882a9.87 9.87 0 0 1-9.883 9.883zm72.414 62.377H81.604V71.875c0-6.366-.129-14.555-8.856-14.555-8.882 0-10.242 6.931-10.242 14.093V98.57H45.46V43.69h16.352v7.495h.23c2.285-4.312 7.855-8.856 16.147-8.856 17.25 0 20.458 11.372 20.458 26.158V98.57z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  </div>
+</header>
+
+<div class="mobile-header">
+  <p> Jhon Vargas </p>
+  <div class="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
+
+<div class="overlay-menu">
+  <header>
+    <div class="intro">
+      <div class="logo-container">
+        <a href="/">
+          <img src='https://yonkeenn.com/images/jhon-vargas.jpeg' alt="Profile Churn Prediction using Suvirval Analysis" class="rounded-logo">
+        </a>
+      </div>
+      <h2>Hi, I'm Jhon 😄</h2>
+      <h3>Data Scientist | Technical Lead</h3>
+      <div class="menu">
+        
+
+        <p>
+            <a href="/about/">
+                About
+            </a>
+        </p>
+
+        <p>
+            <a href="/portfolio/">
+                Portfolio
+            </a>
+        </p>
+
+        <p>
+            <a href="/post/">
+                Post
+            </a>
+        </p>
+
+        
+          
+          <p>
+              <a href="mailto:jhon.vargasr@gmail.com" target="_blank" rel="external">
+                  
+              </a>
+          </p>
+        
+      </div>
+    </div>
+
+    <div class="socials">
+        
+  
+    <a href="https://github.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M102.679 0H12.32C5.52 0 0 5.519 0 12.321v90.358C0 109.48 5.519 115 12.321 115h90.358c6.802 0 12.321-5.519 12.321-12.321V12.32C115 5.52 109.481 0 102.679 0zM71.182 98.494c-2.156.385-2.952-.95-2.952-2.053 0-1.386.051-8.471.051-14.195 0-4.005-1.335-6.546-2.9-7.881C74.878 73.313 84.89 72.003 84.89 55.6c0-4.671-1.669-7.007-4.39-10.01.436-1.105 1.9-5.648-.436-11.552-3.568-1.104-11.731 4.595-11.731 4.595-3.389-.95-7.06-1.438-10.679-1.438-3.62 0-7.29.488-10.679 1.438 0 0-8.163-5.699-11.73-4.595-2.337 5.878-.899 10.422-.437 11.551-2.72 3.004-4.004 5.34-4.004 10.011 0 16.326 9.574 17.712 19.072 18.765-1.232 1.104-2.336 3.003-2.72 5.724-2.44 1.104-8.677 3.004-12.4-3.568-2.335-4.056-6.545-4.39-6.545-4.39-4.159-.05-.282 2.619-.282 2.619 2.772 1.283 4.723 6.212 4.723 6.212 2.49 7.624 14.4 5.057 14.4 5.057 0 3.568.052 9.37.052 10.422 0 1.104-.77 2.438-2.952 2.053C27.21 92.821 15.35 76.701 15.35 57.86c0-23.564 18.02-41.456 41.585-41.456s42.663 17.892 42.663 41.456c.026 18.842-11.474 34.988-28.416 40.635zM46 82.81c-.488.103-.95-.102-1.001-.436-.051-.385.282-.719.77-.822.488-.05.95.154 1.001.488.077.334-.257.668-.77.77zm-2.439-.23c0 .333-.385.615-.898.615-.565.052-.95-.23-.95-.616 0-.333.385-.616.899-.616.487-.051.95.231.95.616zm-3.516-.283c-.103.334-.616.488-1.053.334-.488-.103-.821-.488-.719-.822.103-.334.617-.488 1.053-.385.513.154.847.54.719.873zm-3.158-1.386c-.23.282-.718.23-1.104-.154-.385-.334-.487-.822-.23-1.053.23-.282.718-.23 1.103.154.334.334.462.847.231 1.053zm-2.336-2.336c-.23.154-.667 0-.95-.385-.282-.385-.282-.822 0-1.001.283-.231.72-.052.95.333.283.385.283.847 0 1.053zm-1.668-2.49c-.231.23-.616.103-.899-.154-.282-.334-.333-.719-.102-.899.23-.23.616-.102.898.154.282.334.334.72.103.899zm-1.72-1.9c-.103.231-.436.283-.719.103-.334-.154-.488-.436-.385-.667.103-.154.385-.231.719-.103.334.18.488.462.385.667z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.instagram.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.526 28.111c-16.254 0-29.364 13.11-29.364 29.363 0 16.254 13.11 29.364 29.364 29.364 16.253 0 29.363-13.11 29.363-29.364 0-16.253-13.11-29.363-29.363-29.363zm0 48.453c-10.504 0-19.09-8.56-19.09-19.09 0-10.528 8.56-19.09 19.09-19.09 10.528 0 19.09 8.562 19.09 19.09 0 10.53-8.587 19.09-19.09 19.09zM94.939 26.91a6.833 6.833 0 0 1-6.849 6.849 6.833 6.833 0 0 1-6.849-6.849 6.85 6.85 0 0 1 13.698 0zm19.448 6.951c-.435-9.174-2.53-17.301-9.251-23.997C98.44 3.17 90.313 1.074 81.139.614c-9.456-.537-37.797-.537-47.252 0-9.15.434-17.276 2.53-23.997 9.225S1.099 24.66.639 33.836c-.537 9.455-.537 37.796 0 47.252.434 9.174 2.53 17.3 9.251 23.996 6.721 6.696 14.822 8.792 23.997 9.252 9.455.536 37.796.536 47.252 0 9.174-.435 17.301-2.53 23.997-9.252 6.695-6.695 8.79-14.822 9.25-23.996.537-9.456.537-37.771 0-47.227zM102.17 91.233c-1.993 5.01-5.852 8.868-10.887 10.887-7.538 2.99-25.427 2.3-33.758 2.3-8.332 0-26.246.664-33.76-2.3-5.008-1.993-8.867-5.852-10.886-10.887-2.99-7.539-2.3-25.427-2.3-33.759 0-8.33-.664-26.245 2.3-33.758 1.993-5.01 5.852-8.868 10.887-10.887 7.539-2.99 25.427-2.3 33.759-2.3 8.33 0 26.245-.665 33.758 2.3 5.01 1.993 8.868 5.852 10.887 10.887 2.99 7.538 2.3 25.427 2.3 33.758 0 8.332.69 26.246-2.3 33.76z" />
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.linkedin.com/in/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M106.786 0H8.189C3.67 0 0 3.722 0 8.291v98.418C0 111.278 3.67 115 8.189 115h98.597c4.518 0 8.214-3.722 8.214-8.291V8.29C115 3.722 111.304 0 106.786 0zm-72.03 98.571H17.713V43.69h17.07V98.57h-.025zm-8.522-62.377c-5.467 0-9.882-4.44-9.882-9.883 0-5.442 4.415-9.882 9.882-9.882 5.442 0 9.883 4.44 9.883 9.882a9.87 9.87 0 0 1-9.883 9.883zm72.414 62.377H81.604V71.875c0-6.366-.129-14.555-8.856-14.555-8.882 0-10.242 6.931-10.242 14.093V98.57H45.46V43.69h16.352v7.495h.23c2.285-4.312 7.855-8.856 16.147-8.856 17.25 0 20.458 11.372 20.458 26.158V98.57z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+    </div>
+  </header>
+</div>
+
+  <div class="content-wrapper">
+    
+      <div class="breadcrumb">
+  
+
+
+
+
+
+<span >
+  <a href="https://yonkeenn.com/">HOME</a>
+   / 
+</span>
+
+
+<span >
+  <a href="https://yonkeenn.com/portfolio/">PORTFOLIO</a>
+   / 
+</span>
+
+
+<span  class="active">
+  <a href="https://yonkeenn.com/portfolio/project1-forecastingco2/">Time Series Analysis Project</a>
+  
+</span>
+
+</div>
+
+    
+    <main id="content" class="portfolio">
+
+<h1>Time Series Analysis Project</h1>
+<div class="tags">
+  
+  <div class="designs portfolio-tags">
+    <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M111.833 31.901l-10.355 10.355a2.698 2.698 0 0 1-3.819 0L72.727 17.324a2.698 2.698 0 0 1 0-3.819L83.082 3.15c4.2-4.2 11.028-4.2 15.251 0l13.5 13.5c4.223 4.2 4.223 11.029 0 15.251zm-48.001-9.5L4.846 81.384.085 108.676c-.652 3.684 2.56 6.873 6.244 6.244l27.291-4.784 58.985-58.985a2.698 2.698 0 0 0 0-3.818L67.673 22.4c-1.079-1.056-2.786-1.056-3.841 0zM27.87 76.33a3.132 3.132 0 0 1 0-4.448l34.591-34.59a3.132 3.132 0 0 1 4.448 0 3.132 3.132 0 0 1 0 4.447L32.317 76.33a3.132 3.132 0 0 1-4.447 0zm-8.109 18.89h10.782v8.154l-14.488 2.538-6.986-6.985 2.539-14.488h8.153V95.22z"/>
+  
+  </svg>
+</div>
+
+    
+      <span>
+          <a href="https://yonkeenn.com/designs/forecasting/">Forecasting</a>
+        
+      </span>
+    
+  </div>
+
+
+
+  <div class="techs portfolio-tags">
+    <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M112.125 86.25H103.5V34.5c0-6.325-5.175-11.5-11.5-11.5H23c-6.325 0-11.5 5.175-11.5 11.5v51.75H2.875A2.883 2.883 0 0 0 0 89.125v8.625C0 107.237 7.763 115 17.25 115h80.5c9.487 0 17.25-7.763 17.25-17.25v-8.625a2.883 2.883 0 0 0-2.875-2.875zm-92-51.75c0-1.558 1.317-2.875 2.875-2.875h69c1.558 0 2.875 1.317 2.875 2.875v51.75h-74.75V34.5zm86.25 63.25c0 4.756-3.869 8.625-8.625 8.625h-80.5c-4.756 0-8.625-3.869-8.625-8.625v-2.875H41.13c1.001 1.687 2.764 2.875 4.87 2.875h23c2.106 0 3.867-1.188 4.87-2.875h32.505v2.875zM49.892 70.015l2.032-2.032a2.875 2.875 0 0 0 0-4.066L45.506 57.5l6.416-6.418a2.875 2.875 0 0 0 0-4.067l-2.032-2.032a2.875 2.875 0 0 0-4.066 0L35.34 55.466a2.875 2.875 0 0 0 0 4.066l10.483 10.483a2.877 2.877 0 0 0 4.068 0zm13.185-2.03l2.033 2.032a2.875 2.875 0 0 0 4.066 0L79.66 59.534a2.875 2.875 0 0 0 0-4.066L69.176 44.985a2.875 2.875 0 0 0-4.066 0l-2.032 2.032a2.875 2.875 0 0 0 0 4.066l6.416 6.417-6.416 6.418a2.875 2.875 0 0 0 0 4.067z" />
+  
+  </svg>
+</div>
+
+    <span>
+      
+          <a href="https://yonkeenn.com/techs/timeseries/">TimeSeries</a>
+        
+      <span>- </span>
+          <a href="https://yonkeenn.com/techs/python/">Python</a>
+        
+      
+    </span>
+  </div>
+
+
+
+
+<div class="portfolio-tags">
+  <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M77.577 51.23a1.807 1.807 0 0 0-2.2.342l-27.562 27.79a1.807 1.807 0 0 1-2.2.342l-14.008-9.702a1.807 1.807 0 0 0-2.2.342l-1.952 1.968c-.287.22-.456.568-.455.936.001.37.172.716.46.934L45.637 86.77a1.807 1.807 0 0 0 2.2-.342l31.709-31.97c.287-.22.456-.567.455-.936a1.175 1.175 0 0 0-.46-.933l-1.963-1.36z"/><path d="M97.304 20H80.512c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.347.023-.685.04-1.026H34.579c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.22.019-.434.025-.652a9.788 9.788 0 0 0-5.697 4.471 9.683 9.683 0 0 0-2.65 4.764L1.158 92.871c-.965 4.689 2.6 8.503 7.948 8.503h6.334v2.673c-.077 5.41 4.263 9.861 9.705 9.953h72.16c5.438-.095 9.774-4.546 9.694-9.953V29.953c.08-5.407-4.256-9.858-9.695-9.953zM10.078 96.653c-2.378 0-3.964-1.697-3.535-3.782L16.637 43.84h80.787L87.331 92.871a5.254 5.254 0 0 1-5.091 3.782H10.078zm91.535 7.394c.036 2.403-1.891 4.382-4.308 4.424h-72.16c-2.42-.04-4.352-2.018-4.32-4.424v-2.673h60.443c5.348 0 10.484-3.814 11.449-8.503l8.897-43.215v54.391z"/><path d="M34.814 33c1.243 0 2.251-1.057 2.251-2.36 0-1.305-1.008-2.362-2.25-2.362-2.04 0-4.313-3.194-4.313-7.778s2.272-7.778 4.312-7.778c1.227 0 2.536 1.163 3.386 3.084H43C41.716 11.19 38.578 8 34.814 8 29.871 8 26 13.49 26 20.5c0 7.009 3.871 12.5 8.814 12.5z"/>
+  
+  </svg>
+</div>
+
+  <span>2022</span>
+</div>
+</div>
+
+
+
+<style>
+r { color: Red }
+o { color: Orange }
+g { color: Green }
+b { color: blue}
+</style>
+<p><b> <strong>Brief</strong> </b> : This project aims to forecast Dioxid of Carbone(C02) concentration in the Atmosphere analyzing the trendy and seasonal behaviours.</p>
+<h2 id="objective">Objective</h2>
+<p>Understand the C02 concentration and it variation in the atmostphere creating time series model.</p>
+<h2 id="project-overview">Project Overview:</h2>
+<ul>
+<li>Understand CO2 concentration from dataset.</li>
+<li>Explore and preprocess the data for further analyse and modeling.</li>
+<li>Create time series model for trendy and seasional components and compare which one is the best fit.</li>
+<li>Evaluate the model using testing dataset.</li>
+<li><strong>Note:</strong> For more details <a href='https://github.com/yonkeenn/projectForecastingCO2/' target="_blank" > HERE	</a></li>
+</ul>
+<hr>
+<h2 id="index-a-idindicea">Index <a id="indice"></a></h2>
+<ul>
+<li><a href="#section1">1. Data Understanding</a></li>
+<li><a href="#section2">2. Pre-Processing</a></li>
+<li><a href="#section3">3. Building Model</a></li>
+<li><a href="#section4">4. Evaluation</a></li>
+<li><a href="#section5">5. Conclusions and Lesson learned</a></li>
+</ul>
+<hr>
+<h2 id="1-data-understanding-a-idsection1a">1. Data Understanding <a id="section1"></a></h2>
+<p>First we have to find data related to Dioxid of Carbone(C02) concentration in the Atmosphere. We can get this information from the Scripps Institution of Oceanography which can shoe monthly, weekly, dayli datasets. For our project, we will use the montly report: monthly_in_situ_co2_mlo.csv.</p>
+<blockquote>
+<p><strong>Note:</strong> For download dataset click <a href='https://scrippsco2.ucsd.edu/data/atmospheric_co2/primary_mlo_co2_record.html' target="_blank" > HERE	</a></p>
+</blockquote>
+<p>The information recollected comes the observatory located at about 3,400 m altitude on Mauna Loa Volcano on Hawaii Island. This place has not influence of changing CO2 due it is near local vegetation and the wind prevail well-mixed air to the site. This information is provided from March 1958.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Create the dataframe from csv file:</span>
+</span></span><span class="line"><span class="cl"><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;year&#34;</span><span class="p">,</span> <span class="s2">&#34;month&#34;</span><span class="p">,</span> <span class="s2">&#34;date1&#34;</span><span class="p">,</span> <span class="s2">&#34;date2&#34;</span><span class="p">,</span> <span class="s2">&#34;co2&#34;</span><span class="p">,</span> <span class="s2">&#34;co2_season_adj&#34;</span><span class="p">,</span> <span class="s2">&#34;co2_spline_season_adj&#34;</span><span class="p">,</span> <span class="s2">&#34;co2_spline&#34;</span><span class="p">,</span> <span class="s2">&#34;co2_fill_7&#34;</span><span class="p">,</span> <span class="s2">&#34;co2_fill_8&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_co2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;./monthly_in_situ_co2_mlo.csv&#34;</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">57</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dataframe has </span><span class="si">{:d}</span><span class="s1"> data points of </span><span class="si">{:d}</span><span class="s1"> features&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df_co2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">df_co2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_co2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Output</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">Dataframe</span> <span class="n">has</span> <span class="mi">780</span> <span class="n">data</span> <span class="n">points</span> <span class="n">of</span> <span class="mi">10</span> <span class="n">features</span>
+</span></span><span class="line"><span class="cl">	<span class="n">year</span>	<span class="n">month</span>	<span class="n">date1</span>	<span class="n">date2</span>	<span class="n">co2</span>	<span class="n">co2_season_adj</span>	<span class="n">co2_spline_season_adj</span>	<span class="n">co2_spline</span>	<span class="n">co2_fill_7</span>	<span class="n">co2_fill_8</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>	<span class="mi">1958</span>	<span class="mi">1</span>	<span class="mi">21200</span>	<span class="mf">1958.0411</span>	<span class="o">-</span><span class="mf">99.99</span>	<span class="o">-</span><span class="mf">99.99</span>	<span class="o">-</span><span class="mf">99.99</span>	<span class="o">-</span><span class="mf">99.99</span>	<span class="o">-</span><span class="mf">99.99</span>	<span class="o">-</span><span class="mf">99.99</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1</span>	<span class="mi">1958</span>	<span class="mi">2</span>	<span class="mi">21231</span>	<span class="mf">1958.1260</span>	<span class="o">-</span><span class="mf">99.99</span>	<span class="o">-</span><span class="mf">99.99</span>	<span class="o">-</span><span class="mf">99.99</span>	<span class="o">-</span><span class="mf">99.99</span>	<span class="o">-</span><span class="mf">99.99</span>	<span class="o">-</span><span class="mf">99.99</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span>	<span class="mi">1958</span>	<span class="mi">3</span>	<span class="mi">21259</span>	<span class="mf">1958.2027</span>	<span class="mf">315.71</span>	<span class="mf">314.44</span>	<span class="mf">316.20</span>	<span class="mf">314.91</span>	<span class="mf">315.71</span>	<span class="mf">314.44</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>	<span class="mi">1958</span>	<span class="mi">4</span>	<span class="mi">21290</span>	<span class="mf">1958.2877</span>	<span class="mf">317.45</span>	<span class="mf">315.16</span>	<span class="mf">317.30</span>	<span class="mf">314.99</span>	<span class="mf">317.45</span>	<span class="mf">315.16</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span>	<span class="mi">1958</span>	<span class="mi">5</span>	<span class="mi">21320</span>	<span class="mf">1958.3699</span>	<span class="mf">317.51</span>	<span class="mf">314.70</span>	<span class="mf">317.88</span>	<span class="mf">315.07</span>	<span class="mf">317.51</span>	<span class="mf">314.70</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+<h2 id="2-pre-processing-a-idsection2a">2. Pre-Processing <a id="section2"></a></h2>
+<p>After a quick review, the raw dataset has some information which need to be pre-processed before using in the model:</p>
+<ul>
+<li>Usage only the columns year, month, co2(ppm).</li>
+<li>Add columns like time $t= (t+0.5)/12$.</li>
+<li>Delete comments in &quot; &quot; &quot; and headers which cannot help us to understand the data(skiprows = 57).</li>
+<li>Drop co2 values equal to -99.99 which are some inhomogeneities.</li>
+<li>Drop NaN values and reset index.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Pre-process the dataset:</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_co2</span> <span class="o">=</span> <span class="n">df_co2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">df_co2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]]]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_co2</span><span class="p">[</span><span class="s2">&#34;time&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">df_co2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_co2</span><span class="p">[</span><span class="n">df_co2</span> <span class="o">==</span> <span class="o">-</span><span class="mf">99.99</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_co2</span> <span class="o">=</span> <span class="n">df_co2</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dataframe has </span><span class="si">{:d}</span><span class="s1"> data points of </span><span class="si">{:d}</span><span class="s1"> features&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df_co2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">df_co2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_co2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Output</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">Dataframe</span> <span class="n">has</span> <span class="mi">768</span> <span class="n">data</span> <span class="n">points</span> <span class="n">of</span> <span class="mi">4</span> <span class="n">features</span>
+</span></span><span class="line"><span class="cl">	<span class="n">year</span>	<span class="n">month</span>	<span class="n">co2</span>	<span class="n">time</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span>	<span class="mi">1958</span>	<span class="mi">3</span>	<span class="mf">315.71</span>	<span class="mf">0.208333</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>	<span class="mi">1958</span>	<span class="mi">4</span>	<span class="mf">317.45</span>	<span class="mf">0.291667</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span>	<span class="mi">1958</span>	<span class="mi">5</span>	<span class="mf">317.51</span>	<span class="mf">0.375000</span>
+</span></span><span class="line"><span class="cl"><span class="mi">6</span>	<span class="mi">1958</span>	<span class="mi">7</span>	<span class="mf">315.87</span>	<span class="mf">0.541667</span>
+</span></span><span class="line"><span class="cl"><span class="mi">7</span>	<span class="mi">1958</span>	<span class="mi">8</span>	<span class="mf">314.93</span>	<span class="mf">0.625000</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For further modeling, we will split the data into train and test dataset.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Take values for x and y</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">df_co2</span><span class="p">[</span><span class="s2">&#34;time&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">df_co2</span><span class="p">[</span><span class="s2">&#34;co2&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Split data</span>
+</span></span><span class="line"><span class="cl"><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.20</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define training and testing dataset:</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_co2_train</span> <span class="o">=</span> <span class="n">df_co2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_co2_test</span> <span class="o">=</span> <span class="n">df_co2</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">):</span><span class="nb">len</span><span class="p">(</span><span class="n">df_co2</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">df_co2_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">df_co2_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plotting The Keeling Curve</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year(ti)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CO2 ppm&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CO2 Concentration by Year&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./images/CO2-curve.png&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="./images/CO2-curve.jpg" alt="CO2 Concentration by Year"></p>
+<div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+<h2 id="3-building-model-a-idsection3a">3. Building Model <a id="section3"></a></h2>
+<p>We will use information regarded to C02 concentration which can be model as:</p>
+<p>$$ C_ i = F(t_ i) + P_ i + R_ i $$</p>
+<ul>
+<li>$F(t_ i)$ : Trendy pattern</li>
+<li>$P_ i$ : Seasonal pattern</li>
+<li>$R_ i$ : Residual</li>
+</ul>
+<p>Later during evaluation we will see if this decomposition is meaningful. The main idea is to transform the data into stationarity</p>
+<h3 id="trendy-pattern">Trendy pattern:</h3>
+<p>For this part, we need to go throught some models like linear regression, polynomical grade 2 or 3 and try to verify which one can fit better.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Comparing Linear, Quadratic and Cubic Model Fit</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;Original Data Train&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y_test</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;lightblue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;Original Data Test&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_train</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;Linear Fit on Data Train&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_train_pol2</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;Quadratic Fit on Data Train&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_train_pol3</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;Cubic Fit on Data Train&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_test</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_test</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;Linear Fit on Data Test&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_test_pol2</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;Quadratic Fit on Data Test&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_test_pol3</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;Cubic Fit on Data Test&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Error Model:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=========================&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;R2 score: &#34;</span><span class="p">,</span><span class="n">R_1</span><span class="p">,</span> <span class="n">R_2</span><span class="p">,</span> <span class="n">R_3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;RMSE:&#34;</span><span class="p">,</span><span class="n">rmse_1</span><span class="p">,</span> <span class="n">rmse_2</span><span class="p">,</span> <span class="n">rmse_3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;MAPE: &#34;</span><span class="p">,</span> <span class="n">mape_1</span><span class="p">,</span> <span class="n">mape_2</span><span class="p">,</span> <span class="n">mape_3</span><span class="p">,</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CO2 ppm&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Keeling Curve - CO2 Concentration&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./images/Trendy-curve.jpg&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="./images/Trendy-curve.jpg" alt="Trendy Curve"></p>
+<h3 id="seasonal-pattern">Seasonal Pattern:</h3>
+<p>For model seasonal pattern, we can use the residuals of quadratic model because this model has a good RSME besides the other models. With this residual, we need to find the pattern which can be modeled.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">df_co2_train</span><span class="p">[</span><span class="s2">&#34;R_quadratic&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residual&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Quadratic Residual&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./images/Seasonal-curve.jpg&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="./images/Seasonal-curve.jpg" alt="Seasonal Curve"></p>
+<p>As we can see, this kind of residual has the seasonal form. We will use the mean of months and interpolate as a periodic function which will be replicate:</p>
+<p><img src="./images/Sinosoidal.jpg" alt="Sinosoidal"></p>
+<p>Now we have the trendy and seasonal patterns, it is time to joint them and complete the model:</p>
+<ul>
+<li>Trendy Pattern: $ F(t) = 0.012107 * t^2 + 0.799038 * t + 314.132792 $</li>
+<li>Seasonal Pattern: $ P(t) = Sinosoidal(interpolate -by- month) $</li>
+</ul>
+<p>So $ C_i = F(t)+P(t) $</p>
+<p><img src="./images/Final-model.jpg" alt="Final-model"></p>
+<div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+<h2 id="4-evaluation-a-idsection4a">4. Evaluation <a id="section4"></a></h2>
+<p>For this part, we can use the following metrics to evaluate over the test dataset:</p>
+<ul>
+<li>
+<p>Evaluate RMSE:</p>
+<ul>
+<li>Root Mean Square Error: $ \sqrt{ \sum\limits_{i=0}^{n} \frac{(y - y_{pred})^2}{n}} $</li>
+</ul>
+</li>
+<li>
+<p>Information Criteria AIC, BIC:</p>
+<ul>
+<li>AIC (Akaike Information Criteria): $ -2 * \text{log-likelihood} + 2k $</li>
+<li>BIC (Bayesian Information Criteria): $ -2 * \text{log-likelihood} + k \log(n) $</li>
+</ul>
+</li>
+<li>
+<p>Meaningfull evaluation</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Plotting The Keeling Curve</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;Original Data&#34;</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#plt.plot(x_train[:,0], y_pred_train_pol2, linewidth = 3, color = &#39;orange&#39;, label =&#34;Quadratic Fit on Data Train&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#plt.plot(x_test[:,0], y_pred_test_pol2, linewidth = 3, color = &#39;red&#39;, label =&#34;Quadratic Fit on Data Test&#34;)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_test</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Ci_train</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;F(t) + P(t) on Data Train&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">Ci_test</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&#34;F(t) + P(t) on Data Test&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year(ti)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CO2 ppm&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Keeling Curve - CO2 Concentration&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;images/FinalCi.png&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="./images/FinalCi.png" alt="Final-ci"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Error Models Comparinson:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=========================&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;RMSE - Linear Model: &#34;</span><span class="p">,</span><span class="n">rmse_1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;RMSE - Quadratic Model: &#34;</span><span class="p">,</span> <span class="n">rmse_2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;RMSE - Sinoidal Model: &#34;</span><span class="p">,</span> <span class="n">rmse_sin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;RMSE - Linear+Quadratic Model: &#34;</span><span class="p">,</span> <span class="n">rmse_ci</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Error</span> <span class="n">Models</span> <span class="n">Comparinson</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="o">=========================</span>
+</span></span><span class="line"><span class="cl"><span class="n">RMSE</span> <span class="o">-</span> <span class="n">Linear</span> <span class="n">Model</span><span class="p">:</span>  <span class="mf">12.205045063273001</span>
+</span></span><span class="line"><span class="cl"><span class="n">RMSE</span> <span class="o">-</span> <span class="n">Quadratic</span> <span class="n">Model</span><span class="p">:</span>  <span class="mf">2.8185169840722186</span>
+</span></span><span class="line"><span class="cl"><span class="n">RMSE</span> <span class="o">-</span> <span class="n">Sinoidal</span> <span class="n">Model</span><span class="p">:</span>  <span class="mf">403.2159909879654</span>
+</span></span><span class="line"><span class="cl"><span class="n">RMSE</span> <span class="o">-</span> <span class="n">Linear</span><span class="o">+</span><span class="n">Quadratic</span> <span class="n">Model</span><span class="p">:</span>  <span class="mf">1.6761379284135005</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">AIC</span> <span class="k">with</span> <span class="n">linear</span> <span class="n">method</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">1918.707028906646</span>
+</span></span><span class="line"><span class="cl"><span class="n">BIC</span> <span class="k">with</span> <span class="n">linear</span> <span class="n">method</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">1921.7439815090595</span>
+</span></span><span class="line"><span class="cl"><span class="o">--------------------</span>
+</span></span><span class="line"><span class="cl"><span class="n">AIC</span> <span class="k">with</span> <span class="n">nonlinear</span> <span class="n">method</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">767.0099028009191</span>
+</span></span><span class="line"><span class="cl"><span class="n">BIC</span> <span class="k">with</span> <span class="n">nonlinear</span> <span class="n">method</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">773.0838080057464</span>
+</span></span><span class="line"><span class="cl"><span class="o">--------------------</span>
+</span></span><span class="line"><span class="cl"><span class="n">AIC</span> <span class="k">with</span> <span class="n">sinusoidal</span> <span class="n">method</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">42096479.288302734</span>
+</span></span><span class="line"><span class="cl"><span class="n">BIC</span> <span class="k">with</span> <span class="n">sinusoidal</span> <span class="n">method</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">42096494.47306575</span>
+</span></span><span class="line"><span class="cl"><span class="o">--------------------</span>
+</span></span><span class="line"><span class="cl"><span class="n">AIC</span> <span class="k">with</span> <span class="n">Nonlinear</span><span class="o">+</span><span class="n">Sinoidal</span> <span class="n">method</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">755.0368639627404</span>
+</span></span><span class="line"><span class="cl"><span class="n">BIC</span> <span class="k">with</span> <span class="n">Nonlinear</span><span class="o">+</span><span class="n">Sinoidal</span> <span class="n">method</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">776.2955321796359</span>
+</span></span><span class="line"><span class="cl"><span class="o">--------------------</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Ratio</span> <span class="n">Ft</span><span class="o">/</span><span class="n">Pi</span> <span class="p">:</span> <span class="mf">11.676531</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Ratio</span> <span class="n">Pi</span><span class="o">/</span><span class="n">Ri</span> <span class="p">:</span> <span class="mf">1.702243</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+<h2 id="5-conclusions-and-lesson-learned-a-idsection5a">5. Conclusions and Lesson learned <a id="section5"></a></h2>
+<ul>
+<li>The ratio between the range of values of $F(t)$ is 11 times that of $P(t)$ which means trendy model is a good estimation. On the other hand, seasonal model can be seen as a refinement of the model and does not affect the linear trend.</li>
+<li>The range of values of the residual is comparable, roughly 1.7 times the range of the residuals.</li>
+<li>AIC, BIC information for final model can be seen as a good approximation for eal CO2 concentrarion.</li>
+<li>RMSE of final model also has reach a bettet performance than quadratic and linear model.</li>
+</ul>
+<div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+
+
+
+    </main>
+  </div>
+  <footer>
+    <div class="footer-wrapper">
+      
+      <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="external">Hugo</a> | ©Jhon Vargas </p> 
+      
+    </div>
+  </footer>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Raleway:400,400i,600" rel="stylesheet">
+  
+  <script type="text/javascript">
+    document.querySelector('.mobile-header').addEventListener('click', function () {
+      var om = document.querySelector(".overlay-menu");
+      if (document.querySelector('.hamburger').classList.contains("cross")) {
+        document.querySelector('.hamburger').classList.remove("cross");
+        om.style.display = "none";
+        om.style.width = "0%";
+        om.style.height = "0%";
+      }
+      else {
+        document.querySelector('.hamburger').classList.add("cross");
+        om.style.width = "100%";
+        om.style.height = "100vh";
+        om.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

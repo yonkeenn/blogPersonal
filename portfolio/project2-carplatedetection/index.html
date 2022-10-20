@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <title>Car Plate Automatic Detection | Jhon Vargas</title>
+  <link rel='canonical' href='https://yonkeenn.com/portfolio/project2-carplatedetection/' />
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <meta name='description' content='Compare ML models for car plate detection' />
+  <meta name='theme-color' content='#FD3519' />
+  
+    <link rel="shortcut icon" href="./images/logo1.png" type="image/x-icon" />
+    <link rel="icon" href="./images/logo1.png" type="image/x-icon" />
+  
+
+  <meta name="generator" content="Hugo 0.104.3" />
+
+  
+
+
+
+
+
+<link rel="stylesheet" href="https://yonkeenn.com/sass/style.min.6f0c246ba7367b5fa58cd59d72831c7785f669a912b310aa700fef49da0ff076.css" integrity="sha256-bwwka6c2e1&#43;ljNWdcoMcd4X2aakSsxCqcA/vSdoP8HY=" media="screen">
+<link rel="stylesheet" href="https://yonkeenn.com/syntax.min.css" integrity="" media="screen">
+
+  <meta property="og:title" content="Car Plate Automatic Detection" />
+<meta property="og:description" content="Compare ML models for car plate detection" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yonkeenn.com/portfolio/project2-carplatedetection/" /><meta property="article:section" content="portfolio" />
+<meta property="article:published_time" content="2022-09-07T21:58:19-05:00" />
+<meta property="article:modified_time" content="2022-09-07T21:58:19-05:00" />
+
+
+  <meta itemprop="name" content="Car Plate Automatic Detection">
+<meta itemprop="description" content="Compare ML models for car plate detection"><meta itemprop="datePublished" content="2022-09-07T21:58:19-05:00" />
+<meta itemprop="dateModified" content="2022-09-07T21:58:19-05:00" />
+<meta itemprop="wordCount" content="2144">
+<meta itemprop="keywords" content="" />
+  
+</head>
+<body>
+
+  <header style="background-image:linear-gradient(
+      95deg, #D05400, #112F41
+    ),url(&#39;https://yonkeenn.com/images/default-sidebar.jpg&#39;)">
+  <div class="intro">
+    <div class="logo-container">
+      <a href="/">
+        <img src='https://yonkeenn.com/images/jhon-vargas.jpeg' alt="Profile Churn Prediction using Suvirval Analysis" class="rounded-logo">
+      </a>
+    </div>
+    <h2>Hi, I'm Jhon 😄</h2>
+    <h3>Data Scientist | Technical Lead</h3>
+    <div class="menu">
+      
+
+        <p>
+            <a href="/about/">
+                About
+            </a>
+        </p>
+
+        <p>
+            <a href="/portfolio/">
+                Portfolio
+            </a>
+        </p>
+
+        <p>
+            <a href="/post/">
+                Post
+            </a>
+        </p>
+
+      
+        
+        <p>
+            <a href="mailto:jhon.vargasr@gmail.com" target="_blank" rel="external">
+                
+            </a>
+        </p>
+      
+    </div>
+  </div>
+
+  <div class="socials">
+      
+  
+    <a href="https://github.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M102.679 0H12.32C5.52 0 0 5.519 0 12.321v90.358C0 109.48 5.519 115 12.321 115h90.358c6.802 0 12.321-5.519 12.321-12.321V12.32C115 5.52 109.481 0 102.679 0zM71.182 98.494c-2.156.385-2.952-.95-2.952-2.053 0-1.386.051-8.471.051-14.195 0-4.005-1.335-6.546-2.9-7.881C74.878 73.313 84.89 72.003 84.89 55.6c0-4.671-1.669-7.007-4.39-10.01.436-1.105 1.9-5.648-.436-11.552-3.568-1.104-11.731 4.595-11.731 4.595-3.389-.95-7.06-1.438-10.679-1.438-3.62 0-7.29.488-10.679 1.438 0 0-8.163-5.699-11.73-4.595-2.337 5.878-.899 10.422-.437 11.551-2.72 3.004-4.004 5.34-4.004 10.011 0 16.326 9.574 17.712 19.072 18.765-1.232 1.104-2.336 3.003-2.72 5.724-2.44 1.104-8.677 3.004-12.4-3.568-2.335-4.056-6.545-4.39-6.545-4.39-4.159-.05-.282 2.619-.282 2.619 2.772 1.283 4.723 6.212 4.723 6.212 2.49 7.624 14.4 5.057 14.4 5.057 0 3.568.052 9.37.052 10.422 0 1.104-.77 2.438-2.952 2.053C27.21 92.821 15.35 76.701 15.35 57.86c0-23.564 18.02-41.456 41.585-41.456s42.663 17.892 42.663 41.456c.026 18.842-11.474 34.988-28.416 40.635zM46 82.81c-.488.103-.95-.102-1.001-.436-.051-.385.282-.719.77-.822.488-.05.95.154 1.001.488.077.334-.257.668-.77.77zm-2.439-.23c0 .333-.385.615-.898.615-.565.052-.95-.23-.95-.616 0-.333.385-.616.899-.616.487-.051.95.231.95.616zm-3.516-.283c-.103.334-.616.488-1.053.334-.488-.103-.821-.488-.719-.822.103-.334.617-.488 1.053-.385.513.154.847.54.719.873zm-3.158-1.386c-.23.282-.718.23-1.104-.154-.385-.334-.487-.822-.23-1.053.23-.282.718-.23 1.103.154.334.334.462.847.231 1.053zm-2.336-2.336c-.23.154-.667 0-.95-.385-.282-.385-.282-.822 0-1.001.283-.231.72-.052.95.333.283.385.283.847 0 1.053zm-1.668-2.49c-.231.23-.616.103-.899-.154-.282-.334-.333-.719-.102-.899.23-.23.616-.102.898.154.282.334.334.72.103.899zm-1.72-1.9c-.103.231-.436.283-.719.103-.334-.154-.488-.436-.385-.667.103-.154.385-.231.719-.103.334.18.488.462.385.667z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.instagram.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.526 28.111c-16.254 0-29.364 13.11-29.364 29.363 0 16.254 13.11 29.364 29.364 29.364 16.253 0 29.363-13.11 29.363-29.364 0-16.253-13.11-29.363-29.363-29.363zm0 48.453c-10.504 0-19.09-8.56-19.09-19.09 0-10.528 8.56-19.09 19.09-19.09 10.528 0 19.09 8.562 19.09 19.09 0 10.53-8.587 19.09-19.09 19.09zM94.939 26.91a6.833 6.833 0 0 1-6.849 6.849 6.833 6.833 0 0 1-6.849-6.849 6.85 6.85 0 0 1 13.698 0zm19.448 6.951c-.435-9.174-2.53-17.301-9.251-23.997C98.44 3.17 90.313 1.074 81.139.614c-9.456-.537-37.797-.537-47.252 0-9.15.434-17.276 2.53-23.997 9.225S1.099 24.66.639 33.836c-.537 9.455-.537 37.796 0 47.252.434 9.174 2.53 17.3 9.251 23.996 6.721 6.696 14.822 8.792 23.997 9.252 9.455.536 37.796.536 47.252 0 9.174-.435 17.301-2.53 23.997-9.252 6.695-6.695 8.79-14.822 9.25-23.996.537-9.456.537-37.771 0-47.227zM102.17 91.233c-1.993 5.01-5.852 8.868-10.887 10.887-7.538 2.99-25.427 2.3-33.758 2.3-8.332 0-26.246.664-33.76-2.3-5.008-1.993-8.867-5.852-10.886-10.887-2.99-7.539-2.3-25.427-2.3-33.759 0-8.33-.664-26.245 2.3-33.758 1.993-5.01 5.852-8.868 10.887-10.887 7.539-2.99 25.427-2.3 33.759-2.3 8.33 0 26.245-.665 33.758 2.3 5.01 1.993 8.868 5.852 10.887 10.887 2.99 7.538 2.3 25.427 2.3 33.758 0 8.332.69 26.246-2.3 33.76z" />
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.linkedin.com/in/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M106.786 0H8.189C3.67 0 0 3.722 0 8.291v98.418C0 111.278 3.67 115 8.189 115h98.597c4.518 0 8.214-3.722 8.214-8.291V8.29C115 3.722 111.304 0 106.786 0zm-72.03 98.571H17.713V43.69h17.07V98.57h-.025zm-8.522-62.377c-5.467 0-9.882-4.44-9.882-9.883 0-5.442 4.415-9.882 9.882-9.882 5.442 0 9.883 4.44 9.883 9.882a9.87 9.87 0 0 1-9.883 9.883zm72.414 62.377H81.604V71.875c0-6.366-.129-14.555-8.856-14.555-8.882 0-10.242 6.931-10.242 14.093V98.57H45.46V43.69h16.352v7.495h.23c2.285-4.312 7.855-8.856 16.147-8.856 17.25 0 20.458 11.372 20.458 26.158V98.57z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  </div>
+</header>
+
+<div class="mobile-header">
+  <p> Jhon Vargas </p>
+  <div class="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
+
+<div class="overlay-menu">
+  <header>
+    <div class="intro">
+      <div class="logo-container">
+        <a href="/">
+          <img src='https://yonkeenn.com/images/jhon-vargas.jpeg' alt="Profile Churn Prediction using Suvirval Analysis" class="rounded-logo">
+        </a>
+      </div>
+      <h2>Hi, I'm Jhon 😄</h2>
+      <h3>Data Scientist | Technical Lead</h3>
+      <div class="menu">
+        
+
+        <p>
+            <a href="/about/">
+                About
+            </a>
+        </p>
+
+        <p>
+            <a href="/portfolio/">
+                Portfolio
+            </a>
+        </p>
+
+        <p>
+            <a href="/post/">
+                Post
+            </a>
+        </p>
+
+        
+          
+          <p>
+              <a href="mailto:jhon.vargasr@gmail.com" target="_blank" rel="external">
+                  
+              </a>
+          </p>
+        
+      </div>
+    </div>
+
+    <div class="socials">
+        
+  
+    <a href="https://github.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M102.679 0H12.32C5.52 0 0 5.519 0 12.321v90.358C0 109.48 5.519 115 12.321 115h90.358c6.802 0 12.321-5.519 12.321-12.321V12.32C115 5.52 109.481 0 102.679 0zM71.182 98.494c-2.156.385-2.952-.95-2.952-2.053 0-1.386.051-8.471.051-14.195 0-4.005-1.335-6.546-2.9-7.881C74.878 73.313 84.89 72.003 84.89 55.6c0-4.671-1.669-7.007-4.39-10.01.436-1.105 1.9-5.648-.436-11.552-3.568-1.104-11.731 4.595-11.731 4.595-3.389-.95-7.06-1.438-10.679-1.438-3.62 0-7.29.488-10.679 1.438 0 0-8.163-5.699-11.73-4.595-2.337 5.878-.899 10.422-.437 11.551-2.72 3.004-4.004 5.34-4.004 10.011 0 16.326 9.574 17.712 19.072 18.765-1.232 1.104-2.336 3.003-2.72 5.724-2.44 1.104-8.677 3.004-12.4-3.568-2.335-4.056-6.545-4.39-6.545-4.39-4.159-.05-.282 2.619-.282 2.619 2.772 1.283 4.723 6.212 4.723 6.212 2.49 7.624 14.4 5.057 14.4 5.057 0 3.568.052 9.37.052 10.422 0 1.104-.77 2.438-2.952 2.053C27.21 92.821 15.35 76.701 15.35 57.86c0-23.564 18.02-41.456 41.585-41.456s42.663 17.892 42.663 41.456c.026 18.842-11.474 34.988-28.416 40.635zM46 82.81c-.488.103-.95-.102-1.001-.436-.051-.385.282-.719.77-.822.488-.05.95.154 1.001.488.077.334-.257.668-.77.77zm-2.439-.23c0 .333-.385.615-.898.615-.565.052-.95-.23-.95-.616 0-.333.385-.616.899-.616.487-.051.95.231.95.616zm-3.516-.283c-.103.334-.616.488-1.053.334-.488-.103-.821-.488-.719-.822.103-.334.617-.488 1.053-.385.513.154.847.54.719.873zm-3.158-1.386c-.23.282-.718.23-1.104-.154-.385-.334-.487-.822-.23-1.053.23-.282.718-.23 1.103.154.334.334.462.847.231 1.053zm-2.336-2.336c-.23.154-.667 0-.95-.385-.282-.385-.282-.822 0-1.001.283-.231.72-.052.95.333.283.385.283.847 0 1.053zm-1.668-2.49c-.231.23-.616.103-.899-.154-.282-.334-.333-.719-.102-.899.23-.23.616-.102.898.154.282.334.334.72.103.899zm-1.72-1.9c-.103.231-.436.283-.719.103-.334-.154-.488-.436-.385-.667.103-.154.385-.231.719-.103.334.18.488.462.385.667z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.instagram.com/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M57.526 28.111c-16.254 0-29.364 13.11-29.364 29.363 0 16.254 13.11 29.364 29.364 29.364 16.253 0 29.363-13.11 29.363-29.364 0-16.253-13.11-29.363-29.363-29.363zm0 48.453c-10.504 0-19.09-8.56-19.09-19.09 0-10.528 8.56-19.09 19.09-19.09 10.528 0 19.09 8.562 19.09 19.09 0 10.53-8.587 19.09-19.09 19.09zM94.939 26.91a6.833 6.833 0 0 1-6.849 6.849 6.833 6.833 0 0 1-6.849-6.849 6.85 6.85 0 0 1 13.698 0zm19.448 6.951c-.435-9.174-2.53-17.301-9.251-23.997C98.44 3.17 90.313 1.074 81.139.614c-9.456-.537-37.797-.537-47.252 0-9.15.434-17.276 2.53-23.997 9.225S1.099 24.66.639 33.836c-.537 9.455-.537 37.796 0 47.252.434 9.174 2.53 17.3 9.251 23.996 6.721 6.696 14.822 8.792 23.997 9.252 9.455.536 37.796.536 47.252 0 9.174-.435 17.301-2.53 23.997-9.252 6.695-6.695 8.79-14.822 9.25-23.996.537-9.456.537-37.771 0-47.227zM102.17 91.233c-1.993 5.01-5.852 8.868-10.887 10.887-7.538 2.99-25.427 2.3-33.758 2.3-8.332 0-26.246.664-33.76-2.3-5.008-1.993-8.867-5.852-10.886-10.887-2.99-7.539-2.3-25.427-2.3-33.759 0-8.33-.664-26.245 2.3-33.758 1.993-5.01 5.852-8.868 10.887-10.887 7.539-2.99 25.427-2.3 33.759-2.3 8.33 0 26.245-.665 33.758 2.3 5.01 1.993 8.868 5.852 10.887 10.887 2.99 7.538 2.3 25.427 2.3 33.758 0 8.332.69 26.246-2.3 33.76z" />
+  
+  </svg>
+</div>
+</a>
+  
+
+  
+    <a href="https://www.linkedin.com/in/yonkeenn" class="social-link" target="_blank" rel="noopener" ><div class="icon">
+  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M106.786 0H8.189C3.67 0 0 3.722 0 8.291v98.418C0 111.278 3.67 115 8.189 115h98.597c4.518 0 8.214-3.722 8.214-8.291V8.29C115 3.722 111.304 0 106.786 0zm-72.03 98.571H17.713V43.69h17.07V98.57h-.025zm-8.522-62.377c-5.467 0-9.882-4.44-9.882-9.883 0-5.442 4.415-9.882 9.882-9.882 5.442 0 9.883 4.44 9.883 9.882a9.87 9.87 0 0 1-9.883 9.883zm72.414 62.377H81.604V71.875c0-6.366-.129-14.555-8.856-14.555-8.882 0-10.242 6.931-10.242 14.093V98.57H45.46V43.69h16.352v7.495h.23c2.285-4.312 7.855-8.856 16.147-8.856 17.25 0 20.458 11.372 20.458 26.158V98.57z"/>
+  
+  </svg>
+</div>
+</a>
+  
+
+    </div>
+  </header>
+</div>
+
+  <div class="content-wrapper">
+    
+      <div class="breadcrumb">
+  
+
+
+
+
+
+<span >
+  <a href="https://yonkeenn.com/">HOME</a>
+   / 
+</span>
+
+
+<span >
+  <a href="https://yonkeenn.com/portfolio/">PORTFOLIO</a>
+   / 
+</span>
+
+
+<span  class="active">
+  <a href="https://yonkeenn.com/portfolio/project2-carplatedetection/">Car Plate Automatic Detection</a>
+  
+</span>
+
+</div>
+
+    
+    <main id="content" class="portfolio">
+
+<h1>Car Plate Automatic Detection</h1>
+<div class="tags">
+  
+  <div class="designs portfolio-tags">
+    <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M111.833 31.901l-10.355 10.355a2.698 2.698 0 0 1-3.819 0L72.727 17.324a2.698 2.698 0 0 1 0-3.819L83.082 3.15c4.2-4.2 11.028-4.2 15.251 0l13.5 13.5c4.223 4.2 4.223 11.029 0 15.251zm-48.001-9.5L4.846 81.384.085 108.676c-.652 3.684 2.56 6.873 6.244 6.244l27.291-4.784 58.985-58.985a2.698 2.698 0 0 0 0-3.818L67.673 22.4c-1.079-1.056-2.786-1.056-3.841 0zM27.87 76.33a3.132 3.132 0 0 1 0-4.448l34.591-34.59a3.132 3.132 0 0 1 4.448 0 3.132 3.132 0 0 1 0 4.447L32.317 76.33a3.132 3.132 0 0 1-4.447 0zm-8.109 18.89h10.782v8.154l-14.488 2.538-6.986-6.985 2.539-14.488h8.153V95.22z"/>
+  
+  </svg>
+</div>
+
+    
+      <span>
+          <a href="https://yonkeenn.com/designs/computer-vision/">Computer Vision</a>
+        
+      </span>
+    
+  </div>
+
+
+
+  <div class="techs portfolio-tags">
+    <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M112.125 86.25H103.5V34.5c0-6.325-5.175-11.5-11.5-11.5H23c-6.325 0-11.5 5.175-11.5 11.5v51.75H2.875A2.883 2.883 0 0 0 0 89.125v8.625C0 107.237 7.763 115 17.25 115h80.5c9.487 0 17.25-7.763 17.25-17.25v-8.625a2.883 2.883 0 0 0-2.875-2.875zm-92-51.75c0-1.558 1.317-2.875 2.875-2.875h69c1.558 0 2.875 1.317 2.875 2.875v51.75h-74.75V34.5zm86.25 63.25c0 4.756-3.869 8.625-8.625 8.625h-80.5c-4.756 0-8.625-3.869-8.625-8.625v-2.875H41.13c1.001 1.687 2.764 2.875 4.87 2.875h23c2.106 0 3.867-1.188 4.87-2.875h32.505v2.875zM49.892 70.015l2.032-2.032a2.875 2.875 0 0 0 0-4.066L45.506 57.5l6.416-6.418a2.875 2.875 0 0 0 0-4.067l-2.032-2.032a2.875 2.875 0 0 0-4.066 0L35.34 55.466a2.875 2.875 0 0 0 0 4.066l10.483 10.483a2.877 2.877 0 0 0 4.068 0zm13.185-2.03l2.033 2.032a2.875 2.875 0 0 0 4.066 0L79.66 59.534a2.875 2.875 0 0 0 0-4.066L69.176 44.985a2.875 2.875 0 0 0-4.066 0l-2.032 2.032a2.875 2.875 0 0 0 0 4.066l6.416 6.417-6.416 6.418a2.875 2.875 0 0 0 0 4.067z" />
+  
+  </svg>
+</div>
+
+    <span>
+      
+          <a href="https://yonkeenn.com/techs/pandas/">Pandas</a>
+        
+      <span>- </span>
+          <a href="https://yonkeenn.com/techs/numpy/">Numpy</a>
+        
+      <span>- </span>
+          <a href="https://yonkeenn.com/techs/sklearn/">Sklearn</a>
+        
+      <span>- </span>
+          <a href="https://yonkeenn.com/techs/opencv/">OpenCV</a>
+        
+      
+    </span>
+  </div>
+
+
+
+
+<div class="portfolio-tags">
+  <div class="icon">
+  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  
+  <path d="M77.577 51.23a1.807 1.807 0 0 0-2.2.342l-27.562 27.79a1.807 1.807 0 0 1-2.2.342l-14.008-9.702a1.807 1.807 0 0 0-2.2.342l-1.952 1.968c-.287.22-.456.568-.455.936.001.37.172.716.46.934L45.637 86.77a1.807 1.807 0 0 0 2.2-.342l31.709-31.97c.287-.22.456-.567.455-.936a1.175 1.175 0 0 0-.46-.933l-1.963-1.36z"/><path d="M97.304 20H80.512c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.347.023-.685.04-1.026H34.579c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.22.019-.434.025-.652a9.788 9.788 0 0 0-5.697 4.471 9.683 9.683 0 0 0-2.65 4.764L1.158 92.871c-.965 4.689 2.6 8.503 7.948 8.503h6.334v2.673c-.077 5.41 4.263 9.861 9.705 9.953h72.16c5.438-.095 9.774-4.546 9.694-9.953V29.953c.08-5.407-4.256-9.858-9.695-9.953zM10.078 96.653c-2.378 0-3.964-1.697-3.535-3.782L16.637 43.84h80.787L87.331 92.871a5.254 5.254 0 0 1-5.091 3.782H10.078zm91.535 7.394c.036 2.403-1.891 4.382-4.308 4.424h-72.16c-2.42-.04-4.352-2.018-4.32-4.424v-2.673h60.443c5.348 0 10.484-3.814 11.449-8.503l8.897-43.215v54.391z"/><path d="M34.814 33c1.243 0 2.251-1.057 2.251-2.36 0-1.305-1.008-2.362-2.25-2.362-2.04 0-4.313-3.194-4.313-7.778s2.272-7.778 4.312-7.778c1.227 0 2.536 1.163 3.386 3.084H43C41.716 11.19 38.578 8 34.814 8 29.871 8 26 13.49 26 20.5c0 7.009 3.871 12.5 8.814 12.5z"/>
+  
+  </svg>
+</div>
+
+  <span>2022</span>
+</div>
+</div>
+
+
+
+<style>
+r { color: Red }
+o { color: Orange }
+g { color: Green }
+b { color: blue}
+</style>
+<p><b> <strong>Brief</strong> </b> : The main idea of the project is to automate the car plate detection using LBP algorithm. For this, we create dataset from raw data using a set of Computer Vision techniques.</p>
+<h2 id="objective">Objective</h2>
+<p>Automate car plate detection using LBP algorithm and compare supervised machine model like Decision Tree, Support Vector Machine, Logistic Regression.</p>
+<h2 id="project-overview">Project Overview</h2>
+<ul>
+<li>Generating dataset from raw original images in gray scale in order to create two variables classes plate and background.</li>
+<li>Explore and Analyze the behaveior of data related to outliers, databalancing, variable selection.</li>
+<li>As result of exploration phase, pre-process the dataset for being accurate to train, test and prediction.</li>
+<li>Model and evaluate four models with GridSearchCV in order to find best parameters and compare metrics to get the better one.</li>
+<li>Save the model with pickle package in order to use later for prediction test.</li>
+<li><strong>Note:</strong> For more details <a href='https://github.com/yonkeenn/projectCarPlateDetection/' target="_blank" > HERE	</a></li>
+</ul>
+<hr>
+<h2 id="index-a-idindicea">Index <a id="indice"></a></h2>
+<ul>
+<li><a href="#section1">1. Dataset</a></li>
+<li><a href="#section2">2. Exploration and Analysis</a></li>
+<li><a href="#section3">3. Pre-Processing</a></li>
+<li><a href="#section4">4. Model and Evaluation</a></li>
+<li><a href="#section5">5. Prediction</a></li>
+<li><a href="#section6">6. Conclusions and Lessons learned</a></li>
+</ul>
+<hr>
+<h2 id="1-dataset-a-idsection1a">1. Dataset <a id="section1"></a></h2>
+<p>The main idea for generating dataset is to use the original images in gray scale for generating small images of bounding box size of car plate in order to create two variables: plate images and background images.</p>
+<h3 id="11-raw-data-pre-processing">1.1. Raw data pre-processing</h3>
+<p>For preprocessing, we need to convert one image into many small images which can cover car plate. Here some main steps:</p>
+<ul>
+<li>Create gray scale image if it is not already done.</li>
+<li>Apply gaussian filter for removing noise and smoothness the image.</li>
+<li>Apply solbel vertical filter for detecting vertical edges.</li>
+<li>Apply OTSU threshold for segmenting the image.</li>
+<li>Apply morphological closing operation to enhance car place image.</li>
+<li>Get contours of car plate in order to get mask which will be used as bounding box</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">img1</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../orig_0018.png&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">morph_n_thresholded_img_open</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">img1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">contour</span> <span class="o">=</span> <span class="n">extract_contours</span><span class="p">(</span><span class="n">morph_n_thresholded_img_open</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">img_contours</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">img1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># draw the contours on the empty image</span>
+</span></span><span class="line"><span class="cl"><span class="n">cv2</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">img_contours</span><span class="p">,</span> <span class="n">contour</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">25</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#save image</span>
+</span></span><span class="line"><span class="cl"><span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s1">&#39;contours.png&#39;</span><span class="p">,</span><span class="n">img_contours</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">plate_img</span><span class="p">,</span> <span class="n">plate_coordinates</span> <span class="o">=</span> <span class="n">find_plates</span><span class="p">(</span><span class="n">img1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img1</span><span class="p">[</span><span class="n">plate_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">7</span><span class="p">:</span><span class="n">plate_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">7</span><span class="o">+</span><span class="n">plate_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="n">plate_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">plate_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">plate_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&#34;gray&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src = "./images/carPlate.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;"/>
+<h3 id="12-dataset-creation">1.2. Dataset creation</h3>
+<p>For creation we need to pre-process each image in the raw dataset and get the car plate images and background images. At the end we will have two variable class for training model.</p>
+<ul>
+<li>Aplply pre-processing steps for each images and get bounding box of each car plate.</li>
+<li>Use bounding box limits for create dataset background images.</li>
+<li>Use bounding box limits for create dataset plate images.</li>
+<li>Use LBP Algoritm for create descriptor for each class and save it in a file for later usage.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">img_LBP</span> <span class="o">=</span> <span class="n">algLBPnxn</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_LBP</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&#34;gray&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src = "./images/carPlateLBP.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">plate_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">ent_arr_p</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">ent_arr_p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+</span></span><span class="line"><span class="cl"><span class="n">fondo_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">ent_arr_f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ent_arr_f</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+</span></span><span class="line"><span class="cl"><span class="n">dataset_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">plate_arr</span><span class="p">,</span> <span class="n">fondo_arr</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">randomize</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset_arr</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">randomize</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dataset_arr</span> <span class="o">=</span> <span class="n">dataset_arr</span><span class="p">[</span><span class="n">randomize</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">col</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;Bit&#34;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;class&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataset_arr</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Bit0</span>	<span class="n">Bit1</span>	<span class="n">Bit2</span>	<span class="n">Bit3</span>	<span class="n">Bit4</span>	<span class="n">Bit5</span>	<span class="n">Bit6</span>	<span class="n">Bit7</span>	<span class="n">Bit8</span>	<span class="n">Bit9</span>	<span class="o">...</span>	<span class="n">Bit247</span>	<span class="n">Bit248</span>	<span class="n">Bit249</span>	<span class="n">Bit250</span>	<span class="n">Bit251</span>	<span class="n">Bit252</span>	<span class="n">Bit253</span>	<span class="n">Bit254</span>	<span class="n">Bit255</span>	<span class="k">class</span>
+</span></span><span class="line"><span class="cl"><span class="err">0	376.0	12.0	8.0	12.0	15.0	3.0	16.0	63.0	79.0	21.0	...	106.0	59.0	23.0	5.0	20.0	21.0	19.0	24.0	204.0	0.0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1</span>	<span class="mf">362.0</span>	<span class="mf">7.0</span>	<span class="mf">11.0</span>	<span class="mf">6.0</span>	<span class="mf">11.0</span>	<span class="mf">5.0</span>	<span class="mf">13.0</span>	<span class="mf">33.0</span>	<span class="mf">91.0</span>	<span class="mf">12.0</span>	<span class="o">...</span>	<span class="mf">123.0</span>	<span class="mf">85.0</span>	<span class="mf">19.0</span>	<span class="mf">2.0</span>	<span class="mf">25.0</span>	<span class="mf">33.0</span>	<span class="mf">25.0</span>	<span class="mf">34.0</span>	<span class="mf">494.0</span>	<span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span>	<span class="mf">328.0</span>	<span class="mf">5.0</span>	<span class="mf">10.0</span>	<span class="mf">7.0</span>	<span class="mf">5.0</span>	<span class="mf">0.0</span>	<span class="mf">14.0</span>	<span class="mf">29.0</span>	<span class="mf">61.0</span>	<span class="mf">9.0</span>	<span class="o">...</span>	<span class="mf">99.0</span>	<span class="mf">143.0</span>	<span class="mf">19.0</span>	<span class="mf">1.0</span>	<span class="mf">19.0</span>	<span class="mf">21.0</span>	<span class="mf">12.0</span>	<span class="mf">21.0</span>	<span class="mf">289.0</span>	<span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>	<span class="mf">401.0</span>	<span class="mf">10.0</span>	<span class="mf">5.0</span>	<span class="mf">9.0</span>	<span class="mf">18.0</span>	<span class="mf">4.0</span>	<span class="mf">16.0</span>	<span class="mf">32.0</span>	<span class="mf">62.0</span>	<span class="mf">21.0</span>	<span class="o">...</span>	<span class="mf">121.0</span>	<span class="mf">57.0</span>	<span class="mf">36.0</span>	<span class="mf">7.0</span>	<span class="mf">50.0</span>	<span class="mf">35.0</span>	<span class="mf">23.0</span>	<span class="mf">50.0</span>	<span class="mf">370.0</span>	<span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span>	<span class="mf">382.0</span>	<span class="mf">3.0</span>	<span class="mf">7.0</span>	<span class="mf">9.0</span>	<span class="mf">8.0</span>	<span class="mf">3.0</span>	<span class="mf">13.0</span>	<span class="mf">97.0</span>	<span class="mf">155.0</span>	<span class="mf">13.0</span>	<span class="o">...</span>	<span class="mf">131.0</span>	<span class="mf">95.0</span>	<span class="mf">20.0</span>	<span class="mf">4.0</span>	<span class="mf">16.0</span>	<span class="mf">14.0</span>	<span class="mf">12.0</span>	<span class="mf">9.0</span>	<span class="mf">249.0</span>	<span class="mf">0.0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+<h2 id="2-exploration-and-analysis-a-idsection2a">2. Exploration and Analysis <a id="section2"></a></h2>
+<p>For exploration, we will focus on check how is the behaveior of data related to the following topics:</p>
+<ol>
+<li>Checking Nulls</li>
+<li>Data Information revision to check if there is outliers, checking skewness.</li>
+<li>Target value revision</li>
+<li>Checking correlation</li>
+<li>Checking data distribution</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Checking correlation. I splitted dataset because there are lots of variables, which each of dataset including class column.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">split1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">22</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">split2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">65</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">split1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">split2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><br>
+<img src = "./images/cmsplit1.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Data Information revision to check if there is outliers, checking skewness.</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">df1</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sym</span><span class="o">=</span><span class="s2">&#34;k.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><br>
+<img src = "./images/outliers.png" style="height: 100%; width:100%; display: block; margin-left: auto; margin-right: auto;" /></p>
+<div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+<p><a id="section3"></a></p>
+<h2 id="3-pre-processing">3. Pre-Processing</h2>
+<p>As found in exploration phase, we will pre-process the dataset for being accurate to train, test and prediction. So we will focus in the following topics:</p>
+<ol>
+<li>Removing outliers</li>
+<li>Scaling and mormalized</li>
+<li>Feature selection</li>
+<li>Balancing data</li>
+<li>Splitting data for training and testing</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 1. Removing outliers</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># detecting Outlier</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Inter Quartile Range is the distance between the 3rd Quartile and the first Qartile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">df_new</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">detect_outlier</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">remove_outlier</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;Bit0&#39;</span><span class="p">,)</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">Outlier</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;Bit1&#39;</span><span class="p">,)</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">Outlier</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;Bit2&#39;</span><span class="p">,)</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">Outlier</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;Bit3&#39;</span><span class="p">,)</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">Outlier</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;Bit4&#39;</span><span class="p">,)</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">Outlier</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src = "./images/outliersRemoved.png" style="height: 100%; width:100%;" />
+<p>For variable selection, we chosed a linear regression model to find the best coeficient(&gt;75):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># The importance variable selection will be done by usign coeficient:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">feature_importance_lr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">log_rg</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">ravel</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl"><span class="n">feature_importance_lr</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;feature&#39;</span><span class="p">,</span> <span class="s1">&#39;coef&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">feature_importance_lr</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&#34;coef&#34;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">feature_importance_lr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">feature_importance_lr</span><span class="p">[</span><span class="s2">&#34;coef&#34;</span><span class="p">]</span> <span class="o">&gt;</span><span class="mf">0.75</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">feature</span>     <span class="n">coef</span>
+</span></span><span class="line"><span class="cl"><span class="mi">244</span>   <span class="p">(</span><span class="n">Bit244</span><span class="p">,)</span>   <span class="mf">1.200516</span>
+</span></span><span class="line"><span class="cl"><span class="mi">35</span>    <span class="p">(</span><span class="n">Bit35</span><span class="p">,)</span>    <span class="mf">1.178940</span>
+</span></span><span class="line"><span class="cl"><span class="mi">8</span>     <span class="p">(</span><span class="n">Bit8</span><span class="p">,)</span>     <span class="mf">1.090945</span>
+</span></span><span class="line"><span class="cl"><span class="mi">255</span>   <span class="p">(</span><span class="n">Bit255</span><span class="p">,)</span>   <span class="mf">1.039968</span>
+</span></span><span class="line"><span class="cl"><span class="mi">47</span>    <span class="p">(</span><span class="n">Bit47</span><span class="p">,)</span>    <span class="mf">0.774656</span>
+</span></span><span class="line"><span class="cl"><span class="mi">157</span>   <span class="p">(</span><span class="n">Bit157</span><span class="p">,)</span>   <span class="mf">0.755275</span>
+</span></span><span class="line"><span class="cl"><span class="mi">230</span>   <span class="p">(</span><span class="n">Bit230</span><span class="p">,)</span>   <span class="mf">0.754994</span>
+</span></span><span class="line"><span class="cl"><span class="mi">100</span>   <span class="n">NaN</span>         <span class="n">NaN</span>
+</span></span><span class="line"><span class="cl"><span class="mi">129</span>   <span class="n">NaN</span>         <span class="n">NaN</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span>     <span class="n">NaN</span>         <span class="n">NaN</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>During EDA, we found that variable class is imbalanced which can cause some bias and it could make the model overfit.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 4. Balancing dataset:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Ratio for imbalanced class:</span>
+</span></span><span class="line"><span class="cl"><span class="n">smote_model</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">sampling_strategy</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">k_neighbors</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">smote_model</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_imb</span><span class="p">,</span> <span class="n">y_imb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">X_imb</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_imb</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">Counter</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Ratio for balanced class:</span>
+</span></span><span class="line"><span class="cl"><span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">class_ratio</span> <span class="o">=</span> <span class="n">counter</span><span class="p">[</span><span class="mf">0.0</span><span class="p">]</span><span class="o">/</span><span class="n">counter</span><span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Class Ratio: &#34;</span><span class="p">,</span> <span class="n">class_ratio</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="mi">1937</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">1937</span><span class="p">,)</span> <span class="n">Counter</span><span class="p">({</span><span class="mf">0.0</span><span class="p">:</span> <span class="mi">1837</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">:</span> <span class="mi">1469</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="n">Class</span> <span class="n">Ratio</span><span class="p">:</span>  <span class="mf">1.250510551395507</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># After Balancing:</span>
+</span></span><span class="line"><span class="cl"><span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">class_ratio</span> <span class="o">=</span> <span class="n">counter</span><span class="p">[</span><span class="mf">0.0</span><span class="p">]</span><span class="o">/</span><span class="n">counter</span><span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Class Ratio: &#34;</span><span class="p">,</span> <span class="n">class_ratio</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="n">Class</span> <span class="n">Ratio</span><span class="p">:</span>  <span class="mf">1.250510551395507</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src = "./images/classBalancing.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 5. Splitting data for training and testing:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Imbalanced data:</span>
+</span></span><span class="line"><span class="cl"><span class="n">Xm_train</span><span class="p">,</span> <span class="n">Xm_test</span><span class="p">,</span> <span class="n">ym_train</span><span class="p">,</span> <span class="n">ym_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_imb</span><span class="p">,</span> <span class="n">y_imb</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Balanced data:</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;:::::ImBalanced Data:::::&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Train shape: &#34;</span><span class="p">,</span> <span class="n">Xm_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">ym_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Testimg shape: &#34;</span><span class="p">,</span> <span class="n">Xm_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">ym_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;:::::Balanced Data:::::&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Train shape: &#34;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Testimg shape: &#34;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="p">:::::</span><span class="n">ImBalanced</span> <span class="n">Data</span><span class="p">:::::</span>
+</span></span><span class="line"><span class="cl"><span class="n">Train</span> <span class="n">shape</span><span class="p">:</span>  <span class="p">(</span><span class="mi">1549</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">1549</span><span class="p">,)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Testimg</span> <span class="n">shape</span><span class="p">:</span>  <span class="p">(</span><span class="mi">388</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">388</span><span class="p">,)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">:::::</span><span class="n">Balanced</span> <span class="n">Data</span><span class="p">:::::</span>
+</span></span><span class="line"><span class="cl"><span class="n">Train</span> <span class="n">shape</span><span class="p">:</span>  <span class="p">(</span><span class="mi">2644</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">2644</span><span class="p">,)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Testimg</span> <span class="n">shape</span><span class="p">:</span>  <span class="p">(</span><span class="mi">662</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">662</span><span class="p">,)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+<p><a id="section4"></a></p>
+<h2 id="4-model-and-evaluation">4. Model and Evaluation</h2>
+<p>We use 4 models in order to compare metrics and evaluate which one is better than other. Also we use GridSearchCV package in order to find the best parameters.</p>
+<h3 id="supervised-models">Supervised models</h3>
+<ol>
+<li>Decision Tree - with Imbalanced/Balanced data in order to check behavior.</li>
+<li>Logistic Regresion</li>
+<li>Support Vector Machine</li>
+<li>K-Nearest Neighbors</li>
+</ol>
+<h3 id="evaluation-metrics">Evaluation metrics</h3>
+<ol>
+<li>Confusion matrix</li>
+<li>ROC, AUC</li>
+<li>Precision</li>
+<li>Recall</li>
+<li>F1-score</li>
+<li>MSE, RMSE</li>
+</ol>
+<h3 id="41-decision-tree---with-imbalanced">4.1. Decision Tree - with Imbalanced</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)],</span> 
+</span></span><span class="line"><span class="cl">              <span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)],</span> 
+</span></span><span class="line"><span class="cl">              <span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]}</span>
+</span></span><span class="line"><span class="cl"><span class="n">dt_grid_imb</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">),</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">return_train_score</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">evaluationMetricsGCV</span><span class="p">(</span><span class="n">Xm_test</span><span class="p">,</span> <span class="n">ym_test</span><span class="p">,</span> <span class="n">dt_grid_imb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Accuracy</span> <span class="n">score</span> <span class="mf">0.972</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Precision</span> <span class="n">score</span> <span class="mf">0.824</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Recall</span> <span class="n">score</span> <span class="mf">0.636</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">F1</span> <span class="n">score</span> <span class="mf">0.718</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="mf">0.0</span>       <span class="mf">0.98</span>      <span class="mf">0.99</span>      <span class="mf">0.99</span>       <span class="mi">366</span>
+</span></span><span class="line"><span class="cl">         <span class="mf">1.0</span>       <span class="mf">0.82</span>      <span class="mf">0.64</span>      <span class="mf">0.72</span>        <span class="mi">22</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">accuracy</span>                           <span class="mf">0.97</span>       <span class="mi">388</span>
+</span></span><span class="line"><span class="cl">   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.90</span>      <span class="mf">0.81</span>      <span class="mf">0.85</span>       <span class="mi">388</span>
+</span></span><span class="line"><span class="cl"><span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.97</span>      <span class="mf">0.97</span>      <span class="mf">0.97</span>       <span class="mi">388</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Best</span> <span class="n">Score</span><span class="p">:</span> <span class="mf">97.93</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Best</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">AUC</span> <span class="p">(</span><span class="n">Area</span> <span class="n">under</span> <span class="n">the</span> <span class="n">ROC</span> <span class="n">Curve</span><span class="p">)</span> <span class="p">:</span> <span class="mf">0.814</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">GridSearchCV</span> <span class="n">MSE</span> <span class="p">:</span> <span class="mf">0.028</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">GridSearchCV</span> <span class="n">RMSE</span> <span class="p">:</span> <span class="mf">0.168</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src = "./images/aucDTImb.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" />
+<h3 id="42-decision-tree---with-balanced">4.2. Decision Tree - with Balanced</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)],</span> 
+</span></span><span class="line"><span class="cl">              <span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)],</span> 
+</span></span><span class="line"><span class="cl">              <span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]}</span>
+</span></span><span class="line"><span class="cl"><span class="n">dt_grid_bal</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">),</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">return_train_score</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dt_grid_bal</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">evaluationMetricsGCV</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">dt_grid_bal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Accuracy</span> <span class="n">score</span> <span class="mf">0.980</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Precision</span> <span class="n">score</span> <span class="mf">0.964</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Recall</span> <span class="n">score</span> <span class="mf">0.989</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">F1</span> <span class="n">score</span> <span class="mf">0.977</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="mf">0.0</span>       <span class="mf">0.99</span>      <span class="mf">0.97</span>      <span class="mf">0.98</span>       <span class="mi">388</span>
+</span></span><span class="line"><span class="cl">         <span class="mf">1.0</span>       <span class="mf">0.96</span>      <span class="mf">0.99</span>      <span class="mf">0.98</span>       <span class="mi">274</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">accuracy</span>                           <span class="mf">0.98</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl">   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.98</span>      <span class="mf">0.98</span>      <span class="mf">0.98</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl"><span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.98</span>      <span class="mf">0.98</span>      <span class="mf">0.98</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Best</span> <span class="n">Score</span><span class="p">:</span> <span class="mf">98.26</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Best</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">AUC</span> <span class="p">(</span><span class="n">Area</span> <span class="n">under</span> <span class="n">the</span> <span class="n">ROC</span> <span class="n">Curve</span><span class="p">)</span> <span class="p">:</span> <span class="mf">0.982</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">GridSearchCV</span> <span class="n">MSE</span> <span class="p">:</span> <span class="mf">0.020</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">GridSearchCV</span> <span class="n">RMSE</span> <span class="p">:</span> <span class="mf">0.140</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src = "./images/aucDTBal.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" />
+<p>As we can see, the model with balanced data have better results than imbalanced data. So for now to the end we will use balanced data.</p>
+<h3 id="43-logistic-regresion">4.3. Logistic Regresion</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span><span class="s1">&#39;elasticnet&#39;</span><span class="p">]}</span>
+</span></span><span class="line"><span class="cl"><span class="n">lr_grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;lbfgs&#39;</span><span class="p">),</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">lr_grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">evaluationMetricsGCV</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">lr_grid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Accuracy</span> <span class="n">score</span> <span class="mf">0.831</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Precision</span> <span class="n">score</span> <span class="mf">0.798</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Recall</span> <span class="n">score</span> <span class="mf">0.792</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">F1</span> <span class="n">score</span> <span class="mf">0.795</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="mf">0.0</span>       <span class="mf">0.85</span>      <span class="mf">0.86</span>      <span class="mf">0.86</span>       <span class="mi">388</span>
+</span></span><span class="line"><span class="cl">         <span class="mf">1.0</span>       <span class="mf">0.80</span>      <span class="mf">0.79</span>      <span class="mf">0.79</span>       <span class="mi">274</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">accuracy</span>                           <span class="mf">0.83</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl">   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.83</span>      <span class="mf">0.83</span>      <span class="mf">0.83</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl"><span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.83</span>      <span class="mf">0.83</span>      <span class="mf">0.83</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Best</span> <span class="n">Score</span><span class="p">:</span> <span class="mf">82.71</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Best</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;penalty&#39;</span><span class="p">:</span> <span class="s1">&#39;l2&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">AUC</span> <span class="p">(</span><span class="n">Area</span> <span class="n">under</span> <span class="n">the</span> <span class="n">ROC</span> <span class="n">Curve</span><span class="p">)</span> <span class="p">:</span> <span class="mf">0.825</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">GridSearchCV</span> <span class="n">MSE</span> <span class="p">:</span> <span class="mf">0.169</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">GridSearchCV</span> <span class="n">RMSE</span> <span class="p">:</span> <span class="mf">0.411</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src = "./images/aucLogReg.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" />
+<h3 id="44-support-vector-machine">4.4. Support Vector Machine</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">             <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">SVC_grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">SVC_grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">evaluationMetricsGCV</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">SVC_grid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Accuracy</span> <span class="n">score</span> <span class="mf">0.903</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Precision</span> <span class="n">score</span> <span class="mf">0.880</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Recall</span> <span class="n">score</span> <span class="mf">0.887</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">F1</span> <span class="n">score</span> <span class="mf">0.884</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="mf">0.0</span>       <span class="mf">0.92</span>      <span class="mf">0.91</span>      <span class="mf">0.92</span>       <span class="mi">388</span>
+</span></span><span class="line"><span class="cl">         <span class="mf">1.0</span>       <span class="mf">0.88</span>      <span class="mf">0.89</span>      <span class="mf">0.88</span>       <span class="mi">274</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">accuracy</span>                           <span class="mf">0.90</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl">   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.90</span>      <span class="mf">0.90</span>      <span class="mf">0.90</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl"><span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.90</span>      <span class="mf">0.90</span>      <span class="mf">0.90</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Best</span> <span class="n">Score</span><span class="p">:</span> <span class="mf">88.09</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">Best</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="mf">0.31000000000000005</span><span class="p">,</span> <span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="s1">&#39;rbf&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">AUC</span> <span class="p">(</span><span class="n">Area</span> <span class="n">under</span> <span class="n">the</span> <span class="n">ROC</span> <span class="n">Curve</span><span class="p">)</span> <span class="p">:</span> <span class="mf">0.901</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">GridSearchCV</span> <span class="n">MSE</span> <span class="p">:</span> <span class="mf">0.097</span>
+</span></span><span class="line"><span class="cl"><span class="o">+++++</span> <span class="n">GridSearchCV</span> <span class="n">RMSE</span> <span class="p">:</span> <span class="mf">0.311</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src = "./images/aucSVC.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" />
+<h3 id="45-k-nearest-neighbors">4.5. K-Nearest Neighbors</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">op_knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span>  <span class="o">=</span> <span class="mi">31</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">op_knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_pred</span> <span class="o">=</span> <span class="n">op_knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">print_accuracy</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> <span class="s1">&#39;KNN accuracy:&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="n">KNN</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">89.88</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="mf">0.0</span>       <span class="mf">0.99</span>      <span class="mf">0.83</span>      <span class="mf">0.91</span>       <span class="mi">388</span>
+</span></span><span class="line"><span class="cl">         <span class="mf">1.0</span>       <span class="mf">0.81</span>      <span class="mf">0.99</span>      <span class="mf">0.89</span>       <span class="mi">274</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">accuracy</span>                           <span class="mf">0.90</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl">   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.90</span>      <span class="mf">0.91</span>      <span class="mf">0.90</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl"><span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.92</span>      <span class="mf">0.90</span>      <span class="mf">0.90</span>       <span class="mi">662</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Auc Score: </span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="n">Auc</span> <span class="n">Score</span><span class="p">:</span> <span class="mf">0.9125874783655656</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><img src = "./images/aucKNN.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" />
+<div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+<h2 id="5-prediction-a-idsection5a">5. Prediction <a id="section5"></a></h2>
+<p>We saved the model wil pickle option in order to use later in prediction test. For prediction we use the serialized model and new images for testing.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Load the model:</span>
+</span></span><span class="line"><span class="cl"><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;modelLBPDT.pickle&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">modelLBPDT_Loaded</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># Use the loaded model to make predictions:</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">=</span> <span class="n">modelLBPDT_Loaded</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_pred</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">imagesBB</span><span class="p">,</span> <span class="n">results</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output:</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0006_129_226.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0004_172_226.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0002_172_226.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0002_129_0.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0005_129_113.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0002_86_0.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0004_129_0.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0009_43_113.png&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0005_172_226.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0004_43_226.png&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0009_172_0.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0009_43_226.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0005_86_113.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0009_86_226.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0006_0_0.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0002_0_0.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0009_172_226.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0009_0_113.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0009_86_0.png&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0002_43_113.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0001_43_113.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0002_172_113.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0009_86_113.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="s1">&#39;./Prediction/ImagesBB/orig_0005_129_0.png&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+<h2 id="6-conclusions-and-lessons-learned-a-idsection6a">6. Conclusions and Lessons learned <a id="section6"></a></h2>
+<ul>
+<li>During dataset creation, we faced many issues related to bounding box which cannot fit well the car plate area. We had to experiment different values for with, height like media, max, increment in some values.</li>
+<li>For exploration of many variables, we split into 2 small set which analyzed and get some insights.</li>
+<li>During evaluation, we found that Decision Tree model has better performance than others, but there are some models we did not test like ensambles, CNN.</li>
+<li>During project, we&rsquo;ve realize that LBP descriptors can help to reduce computation resources because dispate of work with NxMxZ arrays, with descripts we work with NxM.</li>
+</ul>
+<div style="text-align: right">
+  <a href="#indice">⬆</a>
+</div>
+<hr>
+
+
+
+    </main>
+  </div>
+  <footer>
+    <div class="footer-wrapper">
+      
+      <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="external">Hugo</a> | ©Jhon Vargas </p> 
+      
+    </div>
+  </footer>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Raleway:400,400i,600" rel="stylesheet">
+  
+  <script type="text/javascript">
+    document.querySelector('.mobile-header').addEventListener('click', function () {
+      var om = document.querySelector(".overlay-menu");
+      if (document.querySelector('.hamburger').classList.contains("cross")) {
+        document.querySelector('.hamburger').classList.remove("cross");
+        om.style.display = "none";
+        om.style.width = "0%";
+        om.style.height = "0%";
+      }
+      else {
+        document.querySelector('.hamburger').classList.add("cross");
+        om.style.width = "100%";
+        om.style.height = "100vh";
+        om.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Techs on Jhon Vargas</title>
+    <link>https://yonkeenn.com/techs/</link>
+    <description>Recent content in Techs on Jhon Vargas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©Jhon Vargas</copyright>
+    <lastBuildDate>Thu, 20 Oct 2022 16:35:05 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/techs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Numpy</title>
+      <link>https://yonkeenn.com/techs/numpy/</link>
+      <pubDate>Thu, 20 Oct 2022 16:35:05 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/numpy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pandas</title>
+      <link>https://yonkeenn.com/techs/pandas/</link>
+      <pubDate>Thu, 20 Oct 2022 16:35:05 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/pandas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Seaborn</title>
+      <link>https://yonkeenn.com/techs/seaborn/</link>
+      <pubDate>Thu, 20 Oct 2022 16:35:05 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/seaborn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sklearn</title>
+      <link>https://yonkeenn.com/techs/sklearn/</link>
+      <pubDate>Thu, 20 Oct 2022 16:35:05 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/sklearn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenCV</title>
+      <link>https://yonkeenn.com/techs/opencv/</link>
+      <pubDate>Wed, 07 Sep 2022 21:58:19 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/opencv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://yonkeenn.com/techs/python/</link>
+      <pubDate>Mon, 15 Aug 2022 00:46:23 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TimeSeries</title>
+      <link>https://yonkeenn.com/techs/timeseries/</link>
+      <pubDate>Mon, 15 Aug 2022 00:46:23 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/timeseries/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

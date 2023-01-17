@@ -20,21 +20,21 @@
 
 
 
-<link rel="stylesheet" href="https://yonkeenn.com/sass/style.min.faf24c661d220f5dd9f0f4ed0596c84b91b2035a6959f9d65d4bbf4624a5e357.css" integrity="sha256-&#43;vJMZh0iD13Z8PTtBZbIS5GyA1ppWfnWXUu/RiSl41c=" media="screen">
+<link rel="stylesheet" href="https://yonkeenn.com/sass/style.min.377978273bdc704005bbeb7927794716924ee1c96190be062582baa27b7c105d.css" integrity="sha256-N3l4JzvccEAFu&#43;t5J3lHFpJO4clhkL4GJYK6ont8EF0=" media="screen">
 <link rel="stylesheet" href="https://yonkeenn.com/syntax.min.css" integrity="" media="screen">
 
   <meta property="og:title" content="Git Learning" />
-<meta property="og:description" content="For create a local git repository:" />
+<meta property="og:description" content="How to use git? This is a baseline tutorial for using git and github. We run from 0 to create branches, make pull request and solve merge issues." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yonkeenn.com/post/git-learning/" />
 <meta property="article:published_time" content="2022-08-16T23:29:15-05:00" />
 <meta property="article:modified_time" content="2022-08-16T23:29:15-05:00" />
 
   <meta itemprop="name" content="Git Learning">
-<meta itemprop="description" content="For create a local git repository:">
+<meta itemprop="description" content="How to use git? This is a baseline tutorial for using git and github. We run from 0 to create branches, make pull request and solve merge issues.">
 <meta itemprop="datePublished" content="2022-08-16T23:29:15-05:00" />
 <meta itemprop="dateModified" content="2022-08-16T23:29:15-05:00" />
-<meta itemprop="wordCount" content="724">
+<meta itemprop="wordCount" content="1744">
 
 
 
@@ -50,7 +50,7 @@
 <body>
   <div class="topmenu">
   <div>
-    <a href="/" style="font-size: 2em; text-align: left">YonKeenn &lt;/> </a>
+    <a href="/" style="font-size: 1.5em; text-align: left">YonKeenn &lt;/> </a>
   </div>
   
 
@@ -58,13 +58,13 @@
 
 <span>
 
-<a href="/about/" style = "margin-left:20px; font-size: 1.5em" > About </a>
+<a href="/about/" style = "margin-left:20px; font-size: 1.5em; text-align: right" > About </a>
 
-<a href="/portfolio/" style = "margin-left:20px; font-size: 1.5em" > Portfolio </a>
+<a href="/portfolio/" style = "margin-left:20px; font-size: 1.5em; text-align: right" > Portfolio </a>
 
-<a href="/research/" style = "margin-left:20px; font-size: 1.5em" > Research </a>
+<a href="/research/" style = "margin-left:20px; font-size: 1.5em; text-align: right" > Research </a>
 
-<a href="/post/" style = "margin-left:20px; font-size: 1.5em" > Post </a>
+<a href="/post/" style = "margin-left:20px; font-size: 1.5em; text-align: right" > Post </a>
 
 </span>
 
@@ -102,13 +102,13 @@
 
 <span>
 
-<a href="/about/" style = "margin-left:20px; font-size: 1.5em" > About </a>
+<a href="/about/" style = "margin-left:20px; font-size: 1.5em; text-align: right" > About </a>
 
-<a href="/portfolio/" style = "margin-left:20px; font-size: 1.5em" > Portfolio </a>
+<a href="/portfolio/" style = "margin-left:20px; font-size: 1.5em; text-align: right" > Portfolio </a>
 
-<a href="/research/" style = "margin-left:20px; font-size: 1.5em" > Research </a>
+<a href="/research/" style = "margin-left:20px; font-size: 1.5em; text-align: right" > Research </a>
 
-<a href="/post/" style = "margin-left:20px; font-size: 1.5em" > Post </a>
+<a href="/post/" style = "margin-left:20px; font-size: 1.5em; text-align: right" > Post </a>
 
 </span>
 
@@ -207,7 +207,7 @@
   </svg>
 </div>
 
-  <span>4 minutes</span>
+  <span>9 minutes</span>
 </div>
 
 <div class="published-date">
@@ -233,15 +233,179 @@
   </svg>
 </div>
 
-  <span>724 Words </span>
+  <span>1744 Words </span>
 </div>
 
 
-<p>For create a local git repository:</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">init</span>
-<span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
-<span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&#34;new hugo personal blog&#34;</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">M</span> <span class="n">main</span>
+<p>How to use git? This is a baseline tutorial for using git and github. We run from 0 to create branches, make pull request and solve merge issues.</p>
+<p>source:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=3fUbBnN_H2c">https://www.youtube.com/watch?v=3fUbBnN_H2c</a></li>
+<li></li>
+</ul>
+<h1 id="basics">Basics</h1>
+<h2 id="how-git-works">How git works:</h2>
+<p>Working directory:</p>
+<p>You create CSS, JS, HTML files for a web server.
+with $git add$ we pass those files into <strong>staging area</strong>
+with $git commit$ we save those files into your local machine as a <strong>commit history</strong>. It is a save point.</p>
+<p>To save your files we save into github, bitbucket, AWS codecommit, Gitlab we use $git push$.</p>
+<p><img src = "./images/gitlearning1.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>If someone want to contribute or get those files, we use $git pull$.</p>
+<p><img src = "./images/gitlearning2.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>Git version:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">Personal_Blog</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">git</span> <span class="n">version</span> <span class="mf">2.30.2</span>
+</code></pre></div><p>Git help:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">Personal_Blog</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="o">--</span><span class="n">help</span>
+<span class="nl">usage</span><span class="p">:</span> <span class="n">git</span> <span class="p">[</span><span class="o">--</span><span class="n">version</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">help</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">C</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;=&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">--</span><span class="n">exec</span><span class="o">-</span><span class="n">path</span><span class="p">[</span><span class="o">=&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="p">]]</span> <span class="p">[</span><span class="o">--</span><span class="n">html</span><span class="o">-</span><span class="n">path</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">man</span><span class="o">-</span><span class="n">path</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">info</span><span class="o">-</span><span class="n">path</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="o">|</span> <span class="o">--</span><span class="n">paginate</span> <span class="o">|</span> <span class="o">-</span><span class="n">P</span> <span class="o">|</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">pager</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">replace</span><span class="o">-</span><span class="n">objects</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">bare</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">--</span><span class="n">git</span><span class="o">-</span><span class="n">dir</span><span class="o">=&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">work</span><span class="o">-</span><span class="n">tree</span><span class="o">=&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="k">namespace</span><span class="o">=&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="p">]</span>
+           <span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span><span class="p">]</span>
+
+<span class="n">These</span> <span class="n">are</span> <span class="n">common</span> <span class="n">Git</span> <span class="n">commands</span> <span class="n">used</span> <span class="n">in</span> <span class="n">various</span> <span class="nl">situations</span><span class="p">:</span>
+
+<span class="n">start</span> <span class="n">a</span> <span class="n">working</span> <span class="n">area</span> <span class="p">(</span><span class="n">see</span> <span class="nl">also</span><span class="p">:</span> <span class="n">git</span> <span class="n">help</span> <span class="n">tutorial</span><span class="p">)</span>
+   <span class="n">clone</span>             <span class="n">Clone</span> <span class="n">a</span> <span class="n">repository</span> <span class="n">into</span> <span class="n">a</span> <span class="k">new</span> <span class="n">directory</span>
+   <span class="n">init</span>              <span class="n">Create</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">Git</span> <span class="n">repository</span> <span class="n">or</span> <span class="n">reinitialize</span> <span class="n">an</span> <span class="n">existing</span> <span class="n">one</span>
+</code></pre></div><p>Git configuration: As a first point, we need to configure git with our credentials.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">Personal_Blog</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s">&#34;yonkeenn&#34;</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">Personal_Blog</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="s">&#34;jhon.vargasr@gmail.com&#34;</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">Personal_Blog</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">color</span><span class="p">.</span><span class="n">ui</span> <span class="k">auto</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">Personal_Blog</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">config</span> <span class="o">-</span><span class="n">l</span>
+<span class="n">user</span><span class="p">.</span><span class="n">email</span><span class="o">=</span><span class="n">jhon</span><span class="p">.</span><span class="n">vargasr</span><span class="err">@</span><span class="n">gmail</span><span class="p">.</span><span class="n">com</span>
+<span class="n">user</span><span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="n">yonkeenn</span>
+<span class="n">color</span><span class="p">.</span><span class="n">ui</span><span class="o">=</span><span class="k">auto</span>
+</code></pre></div><p>Git repository: Repositories in git contain a collection of files of varios different versions of a project.</p>
+<p>To initialize a git repository(project):</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">init</span>
+<span class="nl">hint</span><span class="p">:</span> <span class="n">Using</span> <span class="err">&#39;</span><span class="n">master</span><span class="err">&#39;</span> <span class="n">as</span> <span class="n">the</span> <span class="n">name</span> <span class="k">for</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">branch</span><span class="p">.</span> <span class="n">This</span> <span class="k">default</span> <span class="n">branch</span> <span class="n">name</span>
+<span class="nl">hint</span><span class="p">:</span> <span class="n">is</span> <span class="n">subject</span> <span class="n">to</span> <span class="n">change</span><span class="p">.</span> <span class="n">To</span> <span class="n">configure</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">branch</span> <span class="n">name</span> <span class="n">to</span> <span class="n">use</span> <span class="n">in</span> <span class="n">all</span>
+<span class="nl">hint</span><span class="p">:</span> <span class="n">of</span> <span class="n">your</span> <span class="k">new</span> <span class="n">repositories</span><span class="p">,</span> <span class="n">which</span> <span class="n">will</span> <span class="n">suppress</span> <span class="k">this</span> <span class="n">warning</span><span class="p">,</span> <span class="nl">call</span><span class="p">:</span>
+<span class="nl">hint</span><span class="p">:</span> 
+<span class="nl">hint</span><span class="p">:</span>   <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">init</span><span class="p">.</span><span class="n">defaultBranch</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="nl">hint</span><span class="p">:</span> 
+<span class="nl">hint</span><span class="p">:</span> <span class="n">Names</span> <span class="n">commonly</span> <span class="n">chosen</span> <span class="n">instead</span> <span class="n">of</span> <span class="err">&#39;</span><span class="n">master</span><span class="err">&#39;</span> <span class="n">are</span> <span class="err">&#39;</span><span class="n">main</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">trunk</span><span class="err">&#39;</span> <span class="n">and</span>
+<span class="nl">hint</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">development</span><span class="err">&#39;</span><span class="p">.</span> <span class="n">The</span> <span class="n">just</span><span class="o">-</span><span class="n">created</span> <span class="n">branch</span> <span class="n">can</span> <span class="n">be</span> <span class="n">renamed</span> <span class="n">via</span> <span class="k">this</span> <span class="nl">command</span><span class="p">:</span>
+<span class="nl">hint</span><span class="p">:</span> 
+<span class="nl">hint</span><span class="p">:</span>   <span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">m</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="n">Initialized</span> <span class="n">empty</span> <span class="n">Git</span> <span class="n">repository</span> <span class="n">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">yon</span><span class="o">/</span><span class="n">Downloads</span><span class="o">/</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="o">/</span><span class="p">.</span><span class="n">git</span><span class="o">/</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> 
+</code></pre></div><p>To remove the git repository:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">@yonkeenn:-&gt;<span class="o">[</span>learning-git<span class="o">](</span>master<span class="o">)</span>$ 
+@yonkeenn:-&gt;<span class="o">[</span>learning-git<span class="o">](</span>master<span class="o">)</span>$ ls -la
+total <span class="m">12</span>
+drwxr-xr-x <span class="m">3</span> yon yon <span class="m">4096</span> Jan  <span class="m">5</span> 00:45 .
+drwxr-xr-x <span class="m">4</span> yon yon <span class="m">4096</span> Jan  <span class="m">4</span> 17:09 ..
+drwxr-xr-x <span class="m">7</span> yon yon <span class="m">4096</span> Jan  <span class="m">5</span> 00:48 .git
+@yonkeenn:-&gt;<span class="o">[</span>learning-git<span class="o">](</span>master<span class="o">)</span>$ rm -rf .git/
+@yonkeenn:-&gt;<span class="o">[</span>learning-git<span class="o">]</span>$ ls -la
+total <span class="m">8</span>
+drwxr-xr-x <span class="m">2</span> yon yon <span class="m">4096</span> Jan  <span class="m">5</span> 00:52 .
+drwxr-xr-x <span class="m">4</span> yon yon <span class="m">4096</span> Jan  <span class="m">4</span> 17:09 ..
+@yonkeenn:-&gt;<span class="o">[</span>learning-git<span class="o">]</span>$ 
+</code></pre></div><p>To verify the status of files:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">status</span>
+<span class="n">On</span> <span class="n">branch</span> <span class="n">master</span>
+
+<span class="n">No</span> <span class="n">commits</span> <span class="n">yet</span>
+
+<span class="n">nothing</span> <span class="n">to</span> <span class="n">commit</span> <span class="p">(</span><span class="n">create</span><span class="o">/</span><span class="n">copy</span> <span class="n">files</span> <span class="n">and</span> <span class="n">use</span> <span class="s">&#34;git add&#34;</span> <span class="n">to</span> <span class="n">track</span><span class="p">)</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">touch</span> <span class="n">test</span><span class="p">.</span><span class="n">js</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">touch</span> <span class="n">index</span><span class="p">.</span><span class="n">html</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">status</span>
+<span class="n">On</span> <span class="n">branch</span> <span class="n">master</span>
+
+<span class="n">No</span> <span class="n">commits</span> <span class="n">yet</span>
+
+<span class="n">Untracked</span> <span class="nl">files</span><span class="p">:</span>
+  <span class="p">(</span><span class="n">use</span> <span class="s">&#34;git add &lt;file&gt;...&#34;</span> <span class="n">to</span> <span class="n">include</span> <span class="n">in</span> <span class="n">what</span> <span class="n">will</span> <span class="n">be</span> <span class="n">committed</span><span class="p">)</span>
+        <span class="n">index</span><span class="p">.</span><span class="n">html</span>
+        <span class="n">test</span><span class="p">.</span><span class="n">js</span>
+
+<span class="n">nothing</span> <span class="n">added</span> <span class="n">to</span> <span class="n">commit</span> <span class="n">but</span> <span class="n">untracked</span> <span class="n">files</span> <span class="n">present</span> <span class="p">(</span><span class="n">use</span> <span class="s">&#34;git add&#34;</span> <span class="n">to</span> <span class="n">track</span><span class="p">)</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> 
+</code></pre></div><p>Add files to staging area:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">add</span> <span class="n">index</span><span class="p">.</span><span class="n">html</span> 
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">status</span>
+<span class="n">On</span> <span class="n">branch</span> <span class="n">master</span>
+
+<span class="n">No</span> <span class="n">commits</span> <span class="n">yet</span>
+
+<span class="n">Changes</span> <span class="n">to</span> <span class="n">be</span> <span class="nl">committed</span><span class="p">:</span>
+  <span class="p">(</span><span class="n">use</span> <span class="s">&#34;git rm --cached &lt;file&gt;...&#34;</span> <span class="n">to</span> <span class="n">unstage</span><span class="p">)</span>
+        <span class="k">new</span> <span class="nl">file</span><span class="p">:</span>   <span class="n">index</span><span class="p">.</span><span class="n">html</span>
+
+<span class="n">Untracked</span> <span class="nl">files</span><span class="p">:</span>
+  <span class="p">(</span><span class="n">use</span> <span class="s">&#34;git add &lt;file&gt;...&#34;</span> <span class="n">to</span> <span class="n">include</span> <span class="n">in</span> <span class="n">what</span> <span class="n">will</span> <span class="n">be</span> <span class="n">committed</span><span class="p">)</span>
+        <span class="n">test</span><span class="p">.</span><span class="n">js</span>
+
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">add</span> <span class="p">.</span> <span class="c1">// To add all files to staging area
+</span><span class="c1"></span><span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">ls</span>
+<span class="n">total</span> <span class="mi">0</span>
+<span class="mi">0</span> <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">yon</span> <span class="n">yon</span> <span class="mi">0</span> <span class="n">Jan</span>  <span class="mi">5</span> <span class="mo">00</span><span class="o">:</span><span class="mi">55</span> <span class="n">index</span><span class="p">.</span><span class="n">html</span>
+<span class="mi">0</span> <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">yon</span> <span class="n">yon</span> <span class="mi">0</span> <span class="n">Jan</span>  <span class="mi">5</span> <span class="mi">11</span><span class="o">:</span><span class="mi">44</span> <span class="n">main</span><span class="p">.</span><span class="n">css</span>
+<span class="mi">0</span> <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">yon</span> <span class="n">yon</span> <span class="mi">0</span> <span class="n">Jan</span>  <span class="mi">5</span> <span class="mo">00</span><span class="o">:</span><span class="mi">55</span> <span class="n">test</span><span class="p">.</span><span class="n">js</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">status</span>
+<span class="n">On</span> <span class="n">branch</span> <span class="n">master</span>
+
+<span class="n">No</span> <span class="n">commits</span> <span class="n">yet</span>
+
+<span class="n">Changes</span> <span class="n">to</span> <span class="n">be</span> <span class="nl">committed</span><span class="p">:</span>
+  <span class="p">(</span><span class="n">use</span> <span class="s">&#34;git rm --cached &lt;file&gt;...&#34;</span> <span class="n">to</span> <span class="n">unstage</span><span class="p">)</span>
+        <span class="k">new</span> <span class="nl">file</span><span class="p">:</span>   <span class="n">index</span><span class="p">.</span><span class="n">html</span>
+        <span class="k">new</span> <span class="nl">file</span><span class="p">:</span>   <span class="n">main</span><span class="p">.</span><span class="n">css</span>
+        <span class="k">new</span> <span class="nl">file</span><span class="p">:</span>   <span class="n">test</span><span class="p">.</span><span class="n">js</span>
+
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> 
+</code></pre></div><p>Remove files from the staging area:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">rm</span> <span class="o">--</span><span class="n">cached</span> <span class="n">index</span><span class="p">.</span><span class="n">html</span> 
+<span class="n">rm</span> <span class="err">&#39;</span><span class="n">index</span><span class="p">.</span><span class="n">html</span><span class="err">&#39;</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">status</span>
+<span class="n">On</span> <span class="n">branch</span> <span class="n">master</span>
+
+<span class="n">No</span> <span class="n">commits</span> <span class="n">yet</span>
+
+<span class="n">Untracked</span> <span class="nl">files</span><span class="p">:</span>
+  <span class="p">(</span><span class="n">use</span> <span class="s">&#34;git add &lt;file&gt;...&#34;</span> <span class="n">to</span> <span class="n">include</span> <span class="n">in</span> <span class="n">what</span> <span class="n">will</span> <span class="n">be</span> <span class="n">committed</span><span class="p">)</span>
+        <span class="n">index</span><span class="p">.</span><span class="n">html</span>
+        <span class="n">test</span><span class="p">.</span><span class="n">js</span>
+
+<span class="n">nothing</span> <span class="n">added</span> <span class="n">to</span> <span class="n">commit</span> <span class="n">but</span> <span class="n">untracked</span> <span class="n">files</span> <span class="n">present</span> <span class="p">(</span><span class="n">use</span> <span class="s">&#34;git add&#34;</span> <span class="n">to</span> <span class="n">track</span><span class="p">)</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="o">--</span><span class="n">cached</span>  <span class="p">.</span> <span class="c1">// In a recursive way
+</span></code></pre></div><p>Now all files are in staging area. Then we have to save files in the commit history:</p>
+<p><img src = "./images/gitlearning3.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" /></p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">status</span>
+<span class="n">On</span> <span class="n">branch</span> <span class="n">master</span>
+
+<span class="n">No</span> <span class="n">commits</span> <span class="n">yet</span>
+
+<span class="n">Changes</span> <span class="n">to</span> <span class="n">be</span> <span class="nl">committed</span><span class="p">:</span>
+  <span class="p">(</span><span class="n">use</span> <span class="s">&#34;git rm --cached &lt;file&gt;...&#34;</span> <span class="n">to</span> <span class="n">unstage</span><span class="p">)</span>
+        <span class="k">new</span> <span class="nl">file</span><span class="p">:</span>   <span class="n">index</span><span class="p">.</span><span class="n">html</span>
+        <span class="k">new</span> <span class="nl">file</span><span class="p">:</span>   <span class="n">main</span><span class="p">.</span><span class="n">css</span>
+        <span class="k">new</span> <span class="nl">file</span><span class="p">:</span>   <span class="n">test</span><span class="p">.</span><span class="n">js</span>
+
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&#34;starting a project&#34;</span>
+<span class="p">[</span><span class="n">master</span> <span class="p">(</span><span class="n">root</span><span class="o">-</span><span class="n">commit</span><span class="p">)</span> <span class="mi">68</span><span class="n">a7671</span><span class="p">]</span> <span class="n">starting</span> <span class="n">a</span> <span class="n">project</span>
+ <span class="mi">3</span> <span class="n">files</span> <span class="n">changed</span><span class="p">,</span> <span class="mi">0</span> <span class="n">insertions</span><span class="p">(</span><span class="o">+</span><span class="p">),</span> <span class="mi">0</span> <span class="n">deletions</span><span class="p">(</span><span class="o">-</span><span class="p">)</span>
+ <span class="n">create</span> <span class="n">mode</span> <span class="mi">100644</span> <span class="n">index</span><span class="p">.</span><span class="n">html</span>
+ <span class="n">create</span> <span class="n">mode</span> <span class="mi">100644</span> <span class="n">main</span><span class="p">.</span><span class="n">css</span>
+ <span class="n">create</span> <span class="n">mode</span> <span class="mi">100644</span> <span class="n">test</span><span class="p">.</span><span class="n">js</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span> <span class="n">git</span> <span class="n">status</span>
+<span class="n">On</span> <span class="n">branch</span> <span class="n">master</span>
+<span class="n">nothing</span> <span class="n">to</span> <span class="n">commit</span><span class="p">,</span> <span class="n">working</span> <span class="n">tree</span> <span class="n">clean</span>
+<span class="err">@</span><span class="nl">yonkeenn</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">learning</span><span class="o">-</span><span class="n">git</span><span class="p">](</span><span class="n">master</span><span class="p">)</span><span class="err">$</span>
+</code></pre></div><p>Afte execute &ldquo;git commit -m&rdquo;, there is nothing to commit now.</p>
+<p>git commit -m &quot;&quot;
+git log
+git show hash-commit
+git diff
+git commit &ndash;amend -m &quot;&quot;</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">M</span> <span class="n">main</span>
 <span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">remot</span> <span class="n">add</span> <span class="n">origin</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/yonkeenn/personalPortafolio.git
 </span><span class="c1"></span><span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">main</span>
 <span class="n">Enumerating</span> <span class="nl">objects</span><span class="p">:</span> <span class="mi">54</span><span class="p">,</span> <span class="n">done</span><span class="p">.</span>
@@ -254,8 +418,48 @@
 </span><span class="c1"></span> <span class="o">*</span> <span class="p">[</span><span class="k">new</span> <span class="n">branch</span><span class="p">]</span>      <span class="n">main</span> <span class="o">-&gt;</span> <span class="n">main</span>
 <span class="n">Branch</span> <span class="err">&#39;</span><span class="n">main</span><span class="err">&#39;</span> <span class="n">set</span> <span class="n">up</span> <span class="n">to</span> <span class="n">track</span> <span class="n">remote</span> <span class="n">branch</span> <span class="err">&#39;</span><span class="n">main</span><span class="err">&#39;</span> <span class="n">from</span> <span class="err">&#39;</span><span class="n">origin</span><span class="err">&#39;</span><span class="p">.</span>
 <span class="n">jhon</span><span class="err">@</span><span class="nl">yonyon</span><span class="p">:</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">personalPortafolio</span><span class="p">]</span><span class="err">$</span> 
-</code></pre></div><h1 id="branches">Branches</h1>
-<p>For create branch</p>
+</code></pre></div><h2 id="github">Github</h2>
+<p>Github is a place where we store our project.</p>
+<p><img src = "./images/gitlearning4.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>With &ldquo;git push&rdquo; we takes a copy from your local machine files and store them in remote server like Github.</p>
+<p>Github is a platform for hosting and collaborating on git repositories. People can contribute to any repo or repository.</p>
+<p>Create a repository on Github:</p>
+<h2 id="remote-repository">Remote repository</h2>
+<p>For push our files to remote repository, we need to:
+Add remote repo
+Configure the main branch
+Configure public key. The public key can be in ssh or http.</p>
+<p>The first time:</p>
+<p>git push -u origin main</p>
+<p>The next time:</p>
+<p>git push
+git push origin</p>
+<p>To pull out files from remote repository to out local machine we use:</p>
+<p>Create new file on github
+Commit this change on github
+git log to see if these new file is on local machine, it does not.
+git pull to bring the latest changes from remote repo.</p>
+<h2 id="branches">Branches</h2>
+<p>At the begging we create the master or main branch as the default one:</p>
+<p><img src = "./images/gitlearning5.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" /></p>
+<p><img src = "./images/gitlearning6.png" style="height: 70%; width:70%; display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>git branch //for knowing the branch where you are
+git branch -r //to know the list of remote branches
+git branch -r //to know all branches</p>
+<p>To create a new branch:</p>
+<p>git branch name-branch
+git branch feature-a</p>
+<p>To switch new branch:
+git checkout &lt;existing_branch&gt;
+git checkout feature-a</p>
+<p>To switch previous branch
+git checkout -</p>
+<p>To push files to remote repository:
+git push -set&ndash;upstream &lt;remote_branch&gt; &lt;local_branch&gt;
+git push -u &lt;remote_branch&gt; &lt;local_branch&gt;
+git push -u origin feature-a</p>
+<p>For deleting a branch:
+git branch -d <branch></p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// To switch a branch
 </span><span class="c1"></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="n">existing_branch</span><span class="o">&gt;</span>
 
@@ -294,7 +498,15 @@
 </span><span class="c1">// -p parametrer means prine
 </span><span class="c1"></span><span class="n">git</span> <span class="n">fetch</span> <span class="o">-</span><span class="n">p</span>
 
-</code></pre></div><h1 id="revert-commit">Revert commit</h1>
+</code></pre></div><h2 id="merge-and-pull-request">Merge and Pull Request</h2>
+<p>Localate on main branch:</p>
+<p>git merge feature-a // To merge feature-a information into main branch</p>
+<p>git pull <remote> <branch>
+@yonkeenn:-&gt;<a href="main">sqlChallenge</a>$ git pull origin main</p>
+<h1 id="advanced">Advanced:</h1>
+<p>source: <a href="https://nvie.com/posts/a-successful-git-branching-model/">https://nvie.com/posts/a-successful-git-branching-model/</a></p>
+<h2 id="dealing-with-conflicts">Dealing with conflicts</h2>
+<h2 id="revert-commit">Revert commit</h2>
 <p>source: <a href="https://stackoverflow.com/questions/22682870/how-can-i-undo-pushed-commits-using-git">https://stackoverflow.com/questions/22682870/how-can-i-undo-pushed-commits-using-git</a></p>
 <p>Current commit is C:</p>
 <p>A &mdash;&gt; B &mdash;&gt; C &mdash;&gt; -B</p>
@@ -333,7 +545,7 @@ git revert C</p>
 </span><span class="c1"></span><span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="n">oneline</span>
 
 
-</code></pre></div><h1 id="set-the-upstream-branch">Set the upstream branch</h1>
+</code></pre></div><h2 id="set-the-upstream-branch">Set the upstream branch</h2>
 <p>the “Upstream Branch” is the remote branch in git. So we can track and know if this remote branch is sync or not, it means if there is some commits ahead or not in the remote repository. Upstream branches are closely associated with remote branches.</p>
 <p>Upstream branches define the branch tracked on the remote repository by your local remote branch (also called the remote tracking branch)</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// -u option is for upstream branch
@@ -370,10 +582,8 @@ git revert C</p>
 
 
 </code></pre></div><p>pstream branches so useful because You get references to your remote repositories and you essentially know if you are ahead of them or not.</p>
-<h1 id="git-fetch">Git fetch</h1>
+<h2 id="git-fetch">Git fetch</h2>
 <p>git fetch is used in conjunction with git remote , git branch , git checkout , and git reset to update a local repository to the state of a remote. git fetch has similar behavior to git pull, however, git fetch can be considered a safer, nondestructive version.</p>
-<h1 id="pull-request">Pull Request</h1>
-<p>source: <a href="https://nvie.com/posts/a-successful-git-branching-model/">https://nvie.com/posts/a-successful-git-branching-model/</a></p>
     </main>
   </div>
   <footer>

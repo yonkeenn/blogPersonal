@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©Jhon Vargas</copyright>
-    <lastBuildDate>Fri, 21 Oct 2022 21:56:21 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Jan 2023 12:05:44 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API as SQL container Template</title>
+      <link>https://yonkeenn.com/portfolio/project4-sqlchallenge/</link>
+      <pubDate>Mon, 16 Jan 2023 12:05:44 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/portfolio/project4-sqlchallenge/</guid>
+      <description>&lt;style&gt;
+r { color: Red }
+o { color: Orange }
+g { color: Green }
+b { color: blue}
+&lt;/style&gt;
+&lt;p&gt;&lt;b&gt; &lt;strong&gt;Brief&lt;/strong&gt; &lt;/b&gt; : The aim of the project is to create a container template where we can test SQL statements using MySQL server and publish in Tableau. With this we want to share a project which can be customized by others. Main point is to create API which any one can request.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Classification of pneumonia images using CCN</title>
       <link>https://yonkeenn.com/research/research-6/</link>
@@ -164,7 +179,7 @@ b { color: blue}
       <pubDate>Tue, 16 Aug 2022 23:29:15 -0500</pubDate>
       
       <guid>https://yonkeenn.com/post/git-learning/</guid>
-      <description>&lt;p&gt;For create a local git repository:&lt;/p&gt;</description>
+      <description>&lt;p&gt;How to use git? This is a baseline tutorial for using git and github. We run from 0 to create branches, make pull request and solve merge issues.&lt;/p&gt;</description>
     </item>
     
     <item>

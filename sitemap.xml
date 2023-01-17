@@ -3,14 +3,77 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://yonkeenn.com/research/research-6/</loc>
-    <lastmod>2022-10-21T21:56:21-05:00</lastmod>
+    <loc>https://yonkeenn.com/techs/api/</loc>
+    <lastmod>2023-01-16T12:05:44-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yonkeenn.com/portfolio/project4-sqlchallenge/</loc>
+    <lastmod>2023-01-16T12:05:44-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yonkeenn.com/designs/</loc>
+    <lastmod>2023-01-16T12:05:44-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://yonkeenn.com/</loc>
+    <lastmod>2023-01-16T12:05:44-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yonkeenn.com/techs/http-protocol/</loc>
+    <lastmod>2023-01-16T12:05:44-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yonkeenn.com/techs/javascript/</loc>
+    <lastmod>2023-01-16T12:05:44-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yonkeenn.com/portfolio/</loc>
+    <lastmod>2023-01-16T12:05:44-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yonkeenn.com/designs/real-time-databases/</loc>
+    <lastmod>2023-01-16T12:05:44-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yonkeenn.com/techs/sql/</loc>
+    <lastmod>2023-01-16T12:05:44-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yonkeenn.com/techs/</loc>
+    <lastmod>2023-01-16T12:05:44-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yonkeenn.com/research/research-6/</loc>
     <lastmod>2022-10-21T21:56:21-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -66,13 +129,6 @@
   </url>
   
   <url>
-    <loc>https://yonkeenn.com/designs/</loc>
-    <lastmod>2022-10-20T16:35:05-05:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://yonkeenn.com/techs/numpy/</loc>
     <lastmod>2022-10-20T16:35:05-05:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -81,13 +137,6 @@
   
   <url>
     <loc>https://yonkeenn.com/techs/pandas/</loc>
-    <lastmod>2022-10-20T16:35:05-05:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://yonkeenn.com/portfolio/</loc>
     <lastmod>2022-10-20T16:35:05-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -109,13 +158,6 @@
   
   <url>
     <loc>https://yonkeenn.com/designs/supervised-learning/</loc>
-    <lastmod>2022-10-20T16:35:05-05:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://yonkeenn.com/techs/</loc>
     <lastmod>2022-10-20T16:35:05-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

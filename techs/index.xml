@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©Jhon Vargas</copyright>
-    <lastBuildDate>Thu, 20 Oct 2022 16:35:05 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/techs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Jan 2023 12:05:44 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/techs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API</title>
+      <link>https://yonkeenn.com/techs/api/</link>
+      <pubDate>Mon, 16 Jan 2023 12:05:44 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTTP protocol</title>
+      <link>https://yonkeenn.com/techs/http-protocol/</link>
+      <pubDate>Mon, 16 Jan 2023 12:05:44 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/http-protocol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://yonkeenn.com/techs/javascript/</link>
+      <pubDate>Mon, 16 Jan 2023 12:05:44 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://yonkeenn.com/techs/sql/</link>
+      <pubDate>Mon, 16 Jan 2023 12:05:44 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/techs/sql/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Numpy</title>
       <link>https://yonkeenn.com/techs/numpy/</link>

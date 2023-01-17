@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©Jhon Vargas</copyright>
-    <lastBuildDate>Thu, 20 Oct 2022 16:35:05 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Jan 2023 12:05:44 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API as SQL container Template</title>
+      <link>https://yonkeenn.com/portfolio/project4-sqlchallenge/</link>
+      <pubDate>Mon, 16 Jan 2023 12:05:44 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/portfolio/project4-sqlchallenge/</guid>
+      <description>&lt;style&gt;
+r { color: Red }
+o { color: Orange }
+g { color: Green }
+b { color: blue}
+&lt;/style&gt;
+&lt;p&gt;&lt;b&gt; &lt;strong&gt;Brief&lt;/strong&gt; &lt;/b&gt; : The aim of the project is to create a container template where we can test SQL statements using MySQL server and publish in Tableau. With this we want to share a project which can be customized by others. Main point is to create API which any one can request.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Churn Prediction for Fintech Data</title>
       <link>https://yonkeenn.com/portfolio/project3-churnprediction/</link>

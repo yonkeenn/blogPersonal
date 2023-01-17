@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©Jhon Vargas</copyright>
-    <lastBuildDate>Thu, 20 Oct 2022 16:35:05 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/designs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Jan 2023 12:05:44 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/designs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Real time databases</title>
+      <link>https://yonkeenn.com/designs/real-time-databases/</link>
+      <pubDate>Mon, 16 Jan 2023 12:05:44 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/designs/real-time-databases/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Supervised Learning</title>
       <link>https://yonkeenn.com/designs/supervised-learning/</link>

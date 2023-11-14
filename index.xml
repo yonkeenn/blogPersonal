@@ -208,6 +208,15 @@ b { color: blue}
     
     <item>
       <title>Customizing your theme</title>
+      <link>https://yonkeenn.com/journal/customizing-your-theme/</link>
+      <pubDate>Sun, 14 Aug 2022 11:29:47 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/journal/customizing-your-theme/</guid>
+      <description>&lt;p&gt;After download a theme, you saw that this theme does not fit your necessities.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Customizing your theme</title>
       <link>https://yonkeenn.com/post/customizing-your-theme/</link>
       <pubDate>Sun, 14 Aug 2022 11:29:47 -0500</pubDate>
       
@@ -231,6 +240,15 @@ b { color: blue}
       
       <guid>https://yonkeenn.com/post/getting-started/</guid>
       <description>&lt;p&gt;Here are some details to help you getting started with this theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Archetypes management</title>
+      <link>https://yonkeenn.com/journal/archetypes/</link>
+      <pubDate>Thu, 02 May 2019 19:25:30 +0200</pubDate>
+      
+      <guid>https://yonkeenn.com/journal/archetypes/</guid>
+      <description>&lt;p&gt;The archetypes are defined in the &lt;code&gt;archetypes&lt;/code&gt; folder, for both post and portfolio.&lt;/p&gt;</description>
     </item>
     
     <item>

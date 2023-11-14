@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JOURNAL on YonKeenn &lt;/&gt; </title>
+    <link>https://yonkeenn.com/journal/</link>
+    <description>Recent content in JOURNAL on YonKeenn &lt;/&gt; </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©Jhon Vargas</copyright>
+    <lastBuildDate>Sun, 14 Aug 2022 11:29:47 -0500</lastBuildDate><atom:link href="https://yonkeenn.com/journal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Customizing your theme</title>
+      <link>https://yonkeenn.com/journal/customizing-your-theme/</link>
+      <pubDate>Sun, 14 Aug 2022 11:29:47 -0500</pubDate>
+      
+      <guid>https://yonkeenn.com/journal/customizing-your-theme/</guid>
+      <description>&lt;p&gt;After download a theme, you saw that this theme does not fit your necessities.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Archetypes management</title>
+      <link>https://yonkeenn.com/journal/archetypes/</link>
+      <pubDate>Thu, 02 May 2019 19:25:30 +0200</pubDate>
+      
+      <guid>https://yonkeenn.com/journal/archetypes/</guid>
+      <description>&lt;p&gt;The archetypes are defined in the &lt;code&gt;archetypes&lt;/code&gt; folder, for both post and portfolio.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
